@@ -79,7 +79,7 @@
   <section id="about" class="section fade-in">
     <h2>About Me</h2>
     <div class="content-box">
-      <p>I am a fourth-year undergraduate Aerospace Engineering student driven by the convergence of Space Systems Engineering. My academic focus centers on the design of unconventional aircraft configurations, such as Blended Wing Bodies (BWB), and the complex integration of engineering systems within spacecraft .</p>
+      <p>I am a fourth-year undergraduate Aerospace Engineering student driven by the convergence of Space Systems Engineering. My academic focus centers on the design of unconventional aircraft configurations, such as Blended Wing Bodies (BWB), and the complex integration of engineering systems within spacecraft.</p>
       <br>
       <p>Born with an international perspective and trilingual in English, Spanish, and French, I am uniquely positioned to bridge technical and cultural divides in the global aerospace sector. My aspiration is to stand at the forefront of the European space race, leading the development of next-generation spacecraft and defining the future of space exploration.</p>
     </div>
@@ -114,13 +114,14 @@
         <div class="content"><h3>Sep 2023</h3><p>Joined the Service Desk as a Technician.</p></div>
       </div>
 
-            <div class="timeline-item left clickable-timeline" 
+      <div class="timeline-item left clickable-timeline" 
            data-title="Promoted to Lead Service Desk Technician" 
            data-desc="<p>Concurrently, I advanced to a leadership role at the ITS Service Desk, overseeing technical support operations. In this position, I manage a team of technicians, implement workflow optimizations, help resolve complex and advanced technical issues, and provide mentorship to new technicians, which strengthens my problem-solving, organizational, and leadership skills.</p>"
            data-img="assets/its.jpg"
            data-skills="">
         <div class="content"><h3>May 2025</h3><p>Promoted to Service Desk Lead.</p></div>
       </div>
+
       <div class="timeline-item right clickable-timeline" 
            data-title="Joined Design-Build-Fly (DBF) Team at UCSD" 
            data-desc="<p>I became a member of UCSD's DBF competition team, where I contributed to aerodynamics and structural design efforts. I performed aircraft performance analysis, developed structural components, conducted CAD modeling and simulations, and participated in experimental testing, fostering collaboration, technical depth, and applied engineering experience.</p>"
@@ -148,7 +149,7 @@
            data-images="assets/dbf.jpg" 
            data-skills="XFLR5,OpenVSP,Stability Derivatives,Drag Polars,High-Lift Devices"
            data-pdf=""> 
-        <img src="assets/dbf.jpg" alt="DBF Team" loading="lazy" decoding="async">
+        <img src="assets/dbf.jpg" alt="DBF Team">
         <div class="project-summary"><h3>Design Build Fly</h3><p>Aerodynamics Team.</p><button class="expand-btn">Read More</button></div>
       </div>
 
@@ -158,7 +159,7 @@
            data-images="assets/its.jpg" 
            data-skills="Operations Management,Technical Leadership,Conflict Resolution,Workflow Optimization,IT Infrastructure"
            data-pdf="">
-        <img src="assets/its.jpg" alt="UCSD ITS" loading="lazy" decoding="async">
+        <img src="assets/its.jpg" alt="UCSD ITS">
         <div class="project-summary"><h3>UCSD ITS Lead</h3><p>Leading 60+ technicians.</p><button class="expand-btn">Read More</button></div>
       </div>
     </div>
@@ -197,7 +198,12 @@
            data-images="assets/bwb.jpg,assets/project1_2.jpg,assets/bwb2.jpg" 
            data-skills="OpenVSP,AVL,Vortex Lattice Method,Constraint Analysis,Drag Polars,Propulsion Integration"
            data-pdf="assets/bwb_report.pdf"> 
-        <img src="assets/bwb.jpg" alt="BWB" loading="lazy" decoding="async">
+        
+        <div class="image-container">
+            <img src="assets/bwb.jpg" alt="BWB Static" class="static-img">
+            <img src="assets/bwb_jetzero_spin.gif" alt="BWB Spin" class="hover-gif">
+        </div>
+
         <div class="project-summary"><h3>Concept Blended Wing Body</h3><p>Ultra-Efficient Luxury Airliner.</p><button class="expand-btn">View Project</button></div>
       </div>
 
@@ -212,28 +218,15 @@ EA = sum(Es .* As);
 Yc = sum(Lo * rhos .* As .* Yo) / EA; 
 Zc = sum(Lo * As .* rhos .* Zo) / EA; 
 
-% 2.2 Modulus-Weighted Stiffnesses
-EIyy = sum(Es .* (Iyys + As .* ((Zo - Zc).^2)));
-EIzz = sum(Es .* (Izzs + As .* ((Yo - Yc).^2)));
-EIyz = sum(Es .* Iyzs); 
-
 % 4.2 Axial Stress Distribution (Sxx)
-% Formula: Sxx = E * [ P/EA - (Mz*Iyy - My*Iyz)/(Iyy*Izz - Iyz^2)*y ... ]
 Sxx1 = Es(1) * (Vx/EA + ((My * abs(Zo(1)-Zc)) / EIyy) + (Mz * abs(Yc-Yo(1))) / EIzz);
 Sxx2 = Es(2) * (Vx/EA - ((My * abs(Zo(2)-Zc)) / EIyy) + (Mz * abs(Yc-Yo(2))) / EIzz);
 
 % 6.2 Shear Flow Analysis (q)
-% Jump Matrix Construction
 F1 = [EA1y / Izz; EA2y / Izz; EA3y / Izz; EA4y / Izz; -Zc];
-F2 = [EA1z / Iyy; EA2z / Iyy; EA3z / Iyy; EA4z / Iyy; Yc - Co/4];
-F3 = [0; 0; 0; 0; 1];
 jump = [F1 F2 F3];
 forces = [Vy; Vz; Mx];
-
-% Solve for Shear Flows
 q_shear = q_matrix \ (jump * forces);
-
-% Margin of Safety
 MS_sk12 = (Tau_allow_sk12 / Tau_12) - 1;"
            data-description="
            <h3>Technical Report: Structural Analysis & Design Optimization</h3>
@@ -264,11 +257,11 @@ MS_sk12 = (Tau_allow_sk12 / Tau_12) - 1;"
            data-images="assets/wing_spar.jpg" 
            data-skills="MATLAB,Thin-Walled Beam Theory,Shear Flow Analysis,Structural Sizing,Von Mises Stress" 
            data-pdf="assets/Wing_Analysis_Zaltzman_Gregorio.pdf">
-        <img src="assets/wing_spar.jpg" alt="MATLAB" loading="lazy" decoding="async">
+        <img src="assets/wing_spar.jpg" alt="MATLAB">
         <div class="project-summary"><h3>Wing Spar Analysis</h3><p>MATLAB Structural Tool.</p><button class="expand-btn">View Project</button></div>
       </div>
 
-<div class="project-card bottom-row" 
+      <div class="project-card bottom-row" 
            id="card-cfd"
            data-title="Airfoil CFD Analysis" 
            data-description="
@@ -286,15 +279,11 @@ MS_sk12 = (Tau_allow_sk12 / Tau_12) - 1;"
              <ul>
                <li><strong>Flow Physics:</strong> Identified a near-linear lift trend at low angles of attack (consistent with thin airfoil theory) and detected qualitative flow separation behavior at higher angles using velocity fields.</li>
                <li><strong>Validation:</strong> Compared lift and drag trends against XFOIL to assess order-of-magnitude agreement, focusing on trend validation rather than strict numerical matching.</li>
-               <li><strong>Sensitivity:</strong> Evaluated result sensitivity to mesh density and domain setup to reinforce the importance of CFD boundary conditions.</li>
-             </ul>
-
-             <h3>Key Takeaways</h3>
-             <p>Developed intuition for airfoil aerodynamic behavior and gained practical experience interpreting CFD results critically rather than treating them as ground truth.</p>" 
+             </ul>" 
            data-images="assets/project2.jpg" 
-           data-skills="SolidWorks Flow Simulation,CFD Fundamentals,Airfoil Aerodynamics,Mesh Sensitivity,Flow Visualization,Validation"
+           data-skills="CFD Fundamentals,Airfoil Aerodynamics,Mesh Sensitivity,Flow Visualization,Validation"
            data-pdf="">
-        <img src="assets/project2.jpg" alt="CFD" loading="lazy" decoding="async">
+        <img src="assets/project2.jpg" alt="CFD">
         <div class="project-summary"><h3>Airfoil CFD Analysis</h3><p>Flow Simulation Study.</p><button class="expand-btn">View Project</button></div>
       </div>
 
@@ -331,21 +320,22 @@ MS_sk12 = (Tau_allow_sk12 / Tau_12) - 1;"
            data-images="assets/lab_work.gif" 
            data-skills="MATLAB,Arduino,Data Acquisition,Signal Processing"
            data-pdf="assets/lab_report_1.pdf,assets/lab_report_2.pdf">
-        <img src="assets/lab_work.gif" alt="Lab Work Animation" loading="lazy" decoding="async">
+
+        <img src="assets/lab_work.gif" alt="Lab Work Animation">
         <div class="project-summary"><h3>Experimental Laboratory Work</h3><p>Acoustics & Thermodynamics.</p><button class="expand-btn">View Project</button></div>
       </div>
 
       <div class="project-card bottom-row" 
            id="card-engine"
            data-title="4-Piston Engine CAD" 
-           data-description="<h3>Project Abstract</h3><p>Designed a fully functional assembly of a 4-stroke internal combustion engine to demonstrate proficiency in complex mechanical design.</p><h3>Technical Methodology</h3><ul><li><strong>Part Modeling:</strong> Modeled complex components including the engine block and crankshaft using SolidWorks features (lofts, sweeps).</li><li><strong>Kinematics:</strong> Applied advanced mechanical mates to simulate timing and piston motion.</li></ul>" 
+           data-description="<h3>Project Abstract</h3><p>Designed a fully functional assembly of a 4-stroke internal combustion engine to demonstrate proficiency in complex mechanical design and assembly constraints.</p><h3>Technical Methodology</h3><ul><li><strong>Part Modeling:</strong> Modeled complex components including the engine block, crankshaft, camshaft, connecting rods, and pistons using SolidWorks features (lofts, sweeps, extrudes).</li><li><strong>Assembly Mates:</strong> Applied advanced mechanical mates (cam, gear, and limit mates) to accurately simulate the timing and motion of the piston cycle.</li><li><strong>Interference Detection:</strong> Conducted clearance checks to ensure no collisions occurred during the full rotation cycle.</li><li><strong>Kinematics:</strong> Created a motion study to visualize the firing order and valve timing synchronization.</li></ul><h3>Results</h3><p>Produced a high-fidelity assembly with zero interference and a fully rendered motion animation demonstrating correct kinematic function.</p>" 
            data-images="assets/4pistonengine.jpg" 
-           data-skills="SolidWorks,Mechanical Design,Assembly Mates,Rendering"
+           data-skills="SolidWorks,Mechanical Design,Assembly Mates,Kinematics,Interference Detection,GD&T Concepts,Rendering"
            data-pdf=""
            data-model="assets/piston_engine.glb"
-           data-video="assets/piston_engine.mp4">
-        <img src="assets/4pistonengine.jpg" alt="Engine" loading="lazy" decoding="async">
-        <div class="project-summary"><h3>4-Piston Engine CAD</h3><p>Mechanical Design.</p><button class="expand-btn">View 3D Model</button></div>
+           data-video="assets/Final assembly pistong engine.mp4">
+        <img src="assets/4pistonengine.jpg" alt="Engine">
+        <div class="project-summary"><h3>4-Piston Engine CAD</h3><p>Mechanical Design.</p><button class="expand-btn">View Model & Simulation</button></div>
       </div>
 
     </div>
@@ -406,6 +396,8 @@ MS_sk12 = (Tau_allow_sk12 / Tau_12) - 1;"
       </div>
 
       <div id="modal-video-container"></div>
+
+      <div id="modal-images"></div>
     </div>
   </div>
 
