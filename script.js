@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 500);
   }
 
-  // Force reveal immediately
   revealSite();
   setTimeout(revealSite, 100);
 
@@ -156,17 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (modelLink && modelLink.trim() !== "") {
           modal3dContainer.style.display = 'block';
-          const hotspotsHTML = title.includes("Engine") ? `
-            <button class="hotspot" slot="hotspot-1" data-position="0.1 0.1 0" data-normal="0 1 0"><div class="hotspot-annotation">Cylinder Bore: 86mm</div></button>
-            <button class="hotspot" slot="hotspot-2" data-position="-0.1 0.05 0.1" data-normal="1 0 0"><div class="hotspot-annotation">Forged Steel Crank</div></button>` : '';
-
           modal3dContainer.innerHTML = `
             <div id="loader-3d" class="loading-overlay">
                 <div class="model-loader"></div>
                 <div class="loading-text">INITIALIZING CAD MODULE...</div>
             </div>
             <model-viewer src="${modelLink}" alt="3D Model of ${title}" auto-rotate camera-controls shadow-intensity="0" render-scale="0.8" loading="lazy" camera-orbit="45deg 55deg 2.5m" field-of-view="30deg" style="width: 100%; height: 400px; background-color: ${isBlueprint ? '#f0f0f0' : 'rgba(0, 0, 0, 0.2)'}; border-radius: 8px;">
-              ${hotspotsHTML}
             </model-viewer>`;
           
           const viewer = modal3dContainer.querySelector('model-viewer');
@@ -348,7 +342,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let darts = []; 
   let explosions = [];
   let lastDartTime = Date.now(); 
-  const DART_INTERVAL = 120000; 
+  
+  // --- UPDATED: Exactly once per minute ---
+  const DART_INTERVAL = 60000; 
+  
   const config = { starCount: 150, nebulaCount: 2, galaxyCount: 2, asteroidCount: 5, cometCount: 4, connectionDistance: 110, maxConnections: 2 };
   
   let mouse = { x: null, y: null };
@@ -359,6 +356,32 @@ document.addEventListener('DOMContentLoaded', () => {
       canvas.width = width; canvas.height = height; 
       ctx.scale(1, 1); config.connectionDistance = (width + height) / 25; 
       initSpace(); 
+  }
+
+  // --- MATH HELPER: Predictive Intercept ---
+  // Calculates the time 't' when the satellite (speed 'v') intercepts a target (at 'target' moving with 'tvx, tvy')
+  function solveIntercept(startPos, target, speed) {
+      const tx = target.x - startPos.x;
+      const ty = target.y - startPos.y;
+      const tvx = target.vx;
+      const tvy = target.vy;
+
+      // Quadratic equation: (vx^2 + vy^2 - s^2)t^2 + 2(x*vx + y*vy)t + (x^2 + y^2) = 0
+      const a = tvx*tvx + tvy*tvy - speed*speed;
+      const b = 2 * (tx*tvx + ty*tvy);
+      const c = tx*tx + ty*ty;
+
+      // Solve for t
+      const delta = b*b - 4*a*c;
+      if (delta < 0) return null; // No intercept possible
+
+      const t1 = (-b + Math.sqrt(delta)) / (2*a);
+      const t2 = (-b - Math.sqrt(delta)) / (2*a);
+
+      if (t1 > 0 && t2 > 0) return Math.min(t1, t2);
+      if (t1 > 0) return t1;
+      if (t2 > 0) return t2;
+      return null;
   }
 
   class Star {
@@ -481,44 +504,125 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // --- UPDATED DART SATELLITE: Predictive Logic ---
   class DartSatellite {
       constructor(targetAsteroid) {
           const edge = Math.floor(Math.random() * 4);
-          if (edge === 0) { this.x = Math.random() * width; this.y = -50; } else if (edge === 1) { this.x = width + 50; this.y = Math.random() * height; } else if (edge === 2) { this.x = Math.random() * width; this.y = height + 50; } else { this.x = -50; this.y = Math.random() * height; }
+          // Spawn slightly off-screen
+          if (edge === 0) { this.x = Math.random() * width; this.y = -50; } 
+          else if (edge === 1) { this.x = width + 50; this.y = Math.random() * height; } 
+          else if (edge === 2) { this.x = Math.random() * width; this.y = height + 50; } 
+          else { this.x = -50; this.y = Math.random() * height; }
+
           this.target = targetAsteroid; 
-          this.speed = 9; 
-          this.dead = false; this.angle = 0;
-          let dx = this.target.x - this.x; 
-          let dy = this.target.y - this.y; 
-          this.angle = Math.atan2(dy, dx); 
+          this.speed = 12; // Fast speed to ensure intercept is possible
+          this.dead = false; 
+          
+          // Calculate Predictive Intercept
+          const timeToImpact = solveIntercept({x:this.x, y:this.y}, this.target, this.speed);
+          
+          if (timeToImpact) {
+              // Calculate where the asteroid WILL be at time 't'
+              const futureX = this.target.x + this.target.vx * timeToImpact;
+              const futureY = this.target.y + this.target.vy * timeToImpact;
+              
+              const dx = futureX - this.x;
+              const dy = futureY - this.y;
+              this.angle = Math.atan2(dy, dx);
+          } else {
+              // Fallback: Just aim at current position if math fails (rare)
+              const dx = this.target.x - this.x;
+              const dy = this.target.y - this.y;
+              this.angle = Math.atan2(dy, dx);
+          }
+
           this.vx = Math.cos(this.angle) * this.speed;
           this.vy = Math.sin(this.angle) * this.speed;
       }
       update() {
           this.x += this.vx; 
           this.y += this.vy;
-          if(this.target.x > 0 && this.target.x < width && this.target.y > 0 && this.target.y < height) {
-             let dx = this.target.x - this.x; 
-             let dy = this.target.y - this.y; 
-             let dist = Math.sqrt(dx*dx + dy*dy); 
-             if (dist < (this.target.radius + 15)) { 
-                 this.dead = true; 
-                 this.target.reset(); 
-                 explosions.push(new Explosion(this.x, this.y, '#ef4444')); 
-                 if (!isBlueprint) drawHUD(this.x, this.y, "DART IMPACT", "TARGET NEUTRALIZED"); 
-             }
+          
+          // Check collision
+          if (!this.dead && this.target) {
+              let dx = this.target.x - this.x; 
+              let dy = this.target.y - this.y; 
+              let dist = Math.sqrt(dx*dx + dy*dy); 
+              
+              // Collision threshold
+              if (dist < (this.target.radius + 15)) { 
+                  this.dead = true; 
+                  this.target.reset(); // Destroy asteroid
+                  
+                  // Fire-y explosion
+                  explosions.push(new Explosion(this.x, this.y, true)); 
+                  
+                  if (!isBlueprint) drawHUD(this.x, this.y, "DART IMPACT", "TARGET NEUTRALIZED"); 
+              }
           }
+          
+          // Clean up if it flies off screen (missed or asteroid wrapped around)
           if(this.x < -100 || this.x > width+100 || this.y < -100 || this.y > height+100) {
               this.dead = true;
           }
       }
-      draw() { ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle + Math.PI/2); ctx.fillStyle = isBlueprint ? '#000' : '#fff'; ctx.fillRect(-3, -10, 6, 20); ctx.fillStyle = isBlueprint ? '#000' : '#38bdf8'; ctx.fillRect(-15, -5, 10, 15); ctx.fillRect(5, -5, 10, 15); ctx.restore(); }
+      draw() { 
+          ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle + Math.PI/2); 
+          // Draw Satellite Body
+          ctx.fillStyle = isBlueprint ? '#000' : '#fff'; ctx.fillRect(-3, -10, 6, 20); 
+          // Solar Panels
+          ctx.fillStyle = isBlueprint ? '#000' : '#38bdf8'; ctx.fillRect(-15, -5, 10, 15); ctx.fillRect(5, -5, 10, 15); 
+          // Engine Flame
+          if(!isBlueprint) {
+              ctx.beginPath(); ctx.moveTo(-2, 10); ctx.lineTo(2, 10); ctx.lineTo(0, 25 + Math.random()*10); 
+              ctx.fillStyle = '#f59e0b'; ctx.fill();
+          }
+          ctx.restore(); 
+      }
   }
 
+  // --- UPDATED EXPLOSION: Fire-y Particles ---
   class Explosion {
-      constructor(x, y, color) { this.x = x; this.y = y; this.particles = []; this.life = 50; this.color = color || '#fbbf24'; for(let i=0; i<15; i++) { this.particles.push({ vx: (Math.random()-0.5)*10, vy: (Math.random()-0.5)*10, life: Math.random()*1, size: Math.random()*3+1 }); } }
+      constructor(x, y, isFire) { 
+          this.x = x; 
+          this.y = y; 
+          this.particles = []; 
+          this.life = 60; 
+          this.isFire = isFire || false;
+
+          const particleCount = isFire ? 40 : 15;
+          const colors = isFire ? ['#ef4444', '#f97316', '#eab308', '#ffffff'] : ['#fbbf24', '#cbd5e1'];
+
+          for(let i=0; i<particleCount; i++) { 
+              this.particles.push({ 
+                  vx: (Math.random()-0.5) * (isFire ? 12 : 10), 
+                  vy: (Math.random()-0.5) * (isFire ? 12 : 10), 
+                  life: Math.random()*1, 
+                  size: Math.random() * (isFire ? 5 : 3) + 1,
+                  color: colors[Math.floor(Math.random() * colors.length)]
+              }); 
+          } 
+      }
       update() { this.life--; }
-      draw() { ctx.save(); ctx.translate(this.x, this.y); this.particles.forEach(p => { p.life *= 0.9; ctx.fillStyle = isBlueprint ? `rgba(0,0,0,${p.life})` : this.color; ctx.globalAlpha = p.life; ctx.beginPath(); ctx.arc(p.vx * (50-this.life), p.vy * (50-this.life), p.size, 0, Math.PI*2); ctx.fill(); }); ctx.restore(); ctx.globalAlpha = 1.0; }
+      draw() { 
+          ctx.save(); ctx.translate(this.x, this.y); 
+          this.particles.forEach(p => { 
+              p.life *= 0.92; // Fade out
+              ctx.fillStyle = isBlueprint ? `rgba(0,0,0,${p.life})` : p.color; 
+              ctx.globalAlpha = p.life; 
+              
+              if(!isBlueprint && this.isFire) {
+                  ctx.shadowBlur = 10;
+                  ctx.shadowColor = '#f59e0b'; // Glow effect
+              }
+
+              ctx.beginPath(); 
+              ctx.arc(p.vx * (60-this.life) * 0.5, p.vy * (60-this.life) * 0.5, p.size, 0, Math.PI*2); 
+              ctx.fill(); 
+              ctx.shadowBlur = 0;
+          }); 
+          ctx.restore(); ctx.globalAlpha = 1.0; 
+      }
   }
 
   class Nebula {
@@ -699,7 +803,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   // Collision!
                   let midX = (a1.x + a2.x)/2;
                   let midY = (a1.y + a2.y)/2;
-                  explosions.push(new Explosion(midX, midY, a1.color)); // Boom
+                  explosions.push(new Explosion(midX, midY, false)); // Standard Boom
                   a1.reset();
                   a2.reset();
               }
@@ -716,7 +820,7 @@ document.addEventListener('DOMContentLoaded', () => {
               if (dist < (c.radius + a.radius)) {
                   let midX = (c.x + a.x)/2;
                   let midY = (c.y + a.y)/2;
-                  explosions.push(new Explosion(midX, midY, c.coreColor));
+                  explosions.push(new Explosion(midX, midY, false));
                   c.reset();
                   a.reset();
               }
@@ -733,7 +837,7 @@ document.addEventListener('DOMContentLoaded', () => {
               if (dist < (c1.radius + c2.radius)) {
                   let midX = (c1.x + c2.x)/2;
                   let midY = (c1.y + c2.y)/2;
-                  explosions.push(new Explosion(midX, midY, '#fff'));
+                  explosions.push(new Explosion(midX, midY, false));
                   c1.reset();
                   c2.reset();
               }
@@ -768,10 +872,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // DART Logic (Targeting Large Asteroids)
     if (Date.now() - lastDartTime > DART_INTERVAL) {
-        // FILTER: Only target asteroids with radius > 13 (Large)
-        const largeAsteroids = asteroids.filter(ast => ast.radius > 13);
+        // FILTER: Only target asteroids with radius > 10
+        const largeAsteroids = asteroids.filter(ast => ast.radius > 10);
         
         if (largeAsteroids.length > 0) {
+            // Pick random target
             let target = largeAsteroids[Math.floor(Math.random() * largeAsteroids.length)];
             darts.push(new DartSatellite(target));
             lastDartTime = Date.now();
