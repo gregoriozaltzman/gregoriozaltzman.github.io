@@ -31,10 +31,16 @@ body { font-family: var(--font-body); background-color: var(--bg); color: var(--
 
 /* Typography */
 h1, h2, h3, .logo { font-family: var(--font-header); letter-spacing: -0.04em; }
-h1 { font-size: clamp(3rem, 5.5vw, 6rem); font-weight: 500; line-height: 1.05; margin-bottom: 1rem; color: var(--light);}
-.subtitle { color: var(--muted); font-weight: 400; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; }
+
+/* COMPACT H1 to prevent layout pushing */
+h1 { font-size: clamp(2.5rem, 4.5vw, 4.5rem); font-weight: 500; line-height: 1.05; margin-bottom: 0.5rem; color: var(--light);}
+
+.subtitle { color: var(--muted); font-weight: 400; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.5rem; }
 p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
 .micro-label { font-family: 'Courier Prime', monospace; font-size: 0.75rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 1.5rem; display: block; }
+
+/* Pre-reserve space so the typing effect doesn't push down the buttons */
+.hero-text { margin-bottom: 1rem; min-height: 90px; } 
 
 /* Terminal Cursor */
 .terminal-cursor { display: inline-block; width: 8px; font-weight: bold; color: var(--light); animation: blink 1s step-end infinite; margin-left: 4px; }
@@ -72,26 +78,32 @@ p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
 .app-layout { position: relative; z-index: 10; display: flex; width: 100%; min-height: 100vh; }
 
 /* =========================================
-   4. STICKY SOLID BLACK SIDEBAR
+   4. STICKY SOLID BLACK SIDEBAR (COMPACTED)
    ========================================= */
 .sidebar {
   width: 35%; height: 100vh; position: sticky; top: 0;
-  padding: 4rem 3rem; display: flex; flex-direction: column; gap: 2rem;
-  justify-content: flex-start; z-index: 20;
+  padding: 2.5rem 2.5rem; display: flex; flex-direction: column; gap: 1.5rem;
+  justify-content: space-between; z-index: 20;
   background: #030303; 
   border-right: 1px solid var(--border-color);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.sidebar::-webkit-scrollbar { display: none; }
 .content-stream { width: 65%; padding: 0; }
-.logo-text { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; color: var(--light); display: inline-block; margin-bottom: 2rem;}
+.logo-text { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; color: var(--light); display: inline-block; margin-bottom: 1rem;}
 
-.sidebar-actions { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;}
+.hero-content { margin-top: 1rem; }
+
+.sidebar-actions { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem; flex-shrink: 0;}
 .audio-btn { background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid var(--border-color);}
 .audio-btn:hover { background: rgba(255,255,255,0.1); color: var(--light);}
 
-.nav-menu { list-style: none; margin-bottom: 1rem; width: 100%; }
-.nav-menu li { margin-bottom: 0.5rem; }
+.nav-menu { list-style: none; margin-bottom: 0.5rem; width: 100%; }
+.nav-menu li { margin-bottom: 0.2rem; }
 .nav-menu a {
-  position: relative; display: flex; align-items: center; padding: 0.8rem 1rem; border-radius: 8px;
+  position: relative; display: flex; align-items: center; padding: 0.6rem 1rem; border-radius: 8px;
   text-decoration: none; font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: rgba(255,255,255,0.4);
   text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease;
 }
@@ -101,7 +113,7 @@ p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
 
 @media(max-width: 1000px) {
   .app-layout { flex-direction: column; }
-  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border-color); padding: 3rem 2rem; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border-color); padding: 2rem; overflow-y: visible;}
   .content-stream { width: 100%; }
   .nav-menu { display: none; } 
   .sidebar-actions { flex-direction: row; }
@@ -116,7 +128,7 @@ p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
 @media(max-width: 1000px) { .section { padding: 4rem 2rem; } .section h2 { font-size: 2.5rem; } }
 
 .chamfer-btn {
-  display: inline-block; padding: 1rem 2.5rem; background: var(--light); color: var(--bg);
+  display: inline-block; padding: 0.8rem 2rem; background: var(--light); color: var(--bg);
   font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;
   letter-spacing: 1px; text-decoration: none; transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.4s ease;
   border: none; cursor: pointer; clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px); text-align: center;

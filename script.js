@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // High pitch, extremely short decay (mechanical switch)
   function playClick() {
       if (!audioEnabled || !audioCtx) return;
       const osc = audioCtx.createOscillator();
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
       osc.stop(audioCtx.currentTime + 0.05);
   }
 
-  // Deep bass drop (system toggle)
   function playThud() {
       if (!audioEnabled || !audioCtx) return;
       const osc = audioCtx.createOscillator();
@@ -59,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
       osc.stop(audioCtx.currentTime + 0.15);
   }
 
-  // Attach audio to UI elements
   document.querySelectorAll('a, button, .project-card, .timeline-card').forEach(el => {
       el.addEventListener('mousedown', (e) => {
           if(el.id !== 'mode-toggle' && el.id !== 'audio-toggle') {
@@ -76,6 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const rawText = "B.S. Aerospace Engineering at UC San Diego (Class of 2026).^Focus: aircraft conceptual design, aerodynamics, structural sizing, and simulation-driven engineering.";
   
   window.addEventListener('load', () => {
+    
+    // FIX: Init canvas precisely when page loads to prevent black screen on GitHub Pages
+    resizeCanvas();
+    initSpace();
+    
     loadingScreen.style.opacity = '0';
     setTimeout(() => {
       loadingScreen.classList.add('hidden');
@@ -166,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  /* =========================================
+/* =========================================
      6) SIDEBAR ACTIVE STATE (Scroll Spy)
   ========================================= */
   const navLinks = Array.from(document.querySelectorAll('#sidebar-nav a'));
@@ -176,17 +178,22 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(a => a.classList.toggle('active', a.dataset.section === id));
   }
 
+  // FIXED: Using a narrow center-screen "tripwire" instead of intersection ratios
   const navObserver = new IntersectionObserver((entries) => {
-    const visible = entries
-      .filter(e => e.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-    if (visible.length) setActiveNav(visible[0].target.dataset.nav);
-  }, { threshold: [0.2, 0.5], rootMargin: "-20% 0px -50% 0px" });
+    entries.forEach(entry => {
+      // As soon as a section crosses the tripwire, it becomes active
+      if (entry.isIntersecting) {
+        setActiveNav(entry.target.dataset.nav);
+      }
+    });
+  }, { 
+    // This creates an invisible trigger band spanning from 30% to 50% down the screen
+    rootMargin: "-30% 0px -50% 0px", 
+    threshold: 0 
+  });
 
   sections.forEach(s => navObserver.observe(s));
-  setActiveNav('skills');
-
+  setActiveNav('skills'); // Initialize first item
   /* =========================================
      7) MODAL LOGIC + PDF REPORTS
   ========================================= */
@@ -211,7 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.className = "btn chamfer-btn";
       btn.textContent = links.length > 1 ? `View Full Report ${index + 1}` : `View Full Report`;
       
-      // Attach sound to new dynamic buttons
       btn.addEventListener('mousedown', playClick);
       
       modalActions.appendChild(btn);
@@ -347,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* =========================================
-     10) THE FULL SPACE ENGINE (TRUE GAS CLOUDS)
+     10) THE FULL SPACE ENGINE
   ========================================= */
   const canvas = document.getElementById('space-canvas');
   const ctx = canvas.getContext('2d');
@@ -370,6 +376,12 @@ document.addEventListener('DOMContentLoaded', () => {
       connectionDistance: 110, 
       maxConnections: 2 
   };
+  
+  let mouse = { x: null, y: null };
+  window.addEventListener('mousemove', (e) => { 
+      mouse.x = e.clientX; 
+      mouse.y = e.clientY; 
+  });
   
   function resizeCanvas() { 
       width = window.innerWidth; 
@@ -510,7 +522,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // TRUE GAS CLOUD NEBULA
   class Nebula {
     constructor() {
       let centerX = Math.random() * width; 
@@ -609,7 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
       update() {
           let dx = this.target.x - this.x; let dy = this.target.y - this.y; let dist = Math.sqrt(dx*dx + dy*dy);
           this.angle = Math.atan2(dy, dx); this.x += Math.cos(this.angle) * this.speed; this.y += Math.sin(this.angle) * this.speed;
-          if (dist < 30) { this.dead = true; this.target.reset(); explosions.push(new Explosion(this.x, this.y, '#ef4444')); drawHUD(this.x, this.y, "DART IMPACT", "TARGET NEUTRALIZED"); }
+          if (dist < 30) { this.dead = true; this.target.reset(); explosions.push(new Explosion(this.x, this.y, '#ef4444')); }
       }
       draw() {
           ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle + Math.PI/2);
@@ -631,15 +642,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   }
 
-  function drawHUD(x, y, t1, t2) {
-      ctx.save(); ctx.translate(x + 20, y - 20);
-      ctx.fillStyle = 'rgba(5, 5, 10, 0.8)'; ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(120, 0); ctx.lineTo(120, 35); ctx.lineTo(10, 35); ctx.lineTo(0, 25); ctx.closePath(); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = '#3b82f6'; ctx.font = '10px "Courier New", monospace'; ctx.fillText(t1, 10, 15);
-      ctx.fillStyle = '#cbd5e1'; ctx.fillText(t2, 10, 28);
-      ctx.beginPath(); ctx.moveTo(-5, 5); ctx.lineTo(0, 0); ctx.stroke(); ctx.restore();
-  }
-
   function checkCollisions() {
       for(let i=0; i<asteroids.length; i++) {
           for(let j=i+1; j<asteroids.length; j++) {
@@ -648,16 +650,6 @@ document.addEventListener('DOMContentLoaded', () => {
               if (dist < (a1.radius + a2.radius)) {
                   let midX = (a1.x + a2.x)/2; let midY = (a1.y + a2.y)/2;
                   explosions.push(new Explosion(midX, midY, a1.color)); a1.reset(); a2.reset();
-              }
-          }
-      }
-      for(let i=0; i<comets.length; i++) {
-          for(let j=0; j<asteroids.length; j++) {
-              let c = comets[i]; let a = asteroids[j];
-              let dx = c.x - a.x; let dy = c.y - a.y; let dist = Math.sqrt(dx*dx + dy*dy);
-              if (dist < (c.radius + a.radius)) {
-                  let midX = (c.x + a.x)/2; let midY = (c.y + a.y)/2;
-                  explosions.push(new Explosion(midX, midY, c.coreColor)); c.reset(); a.reset();
               }
           }
       }
@@ -691,10 +683,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     stars.forEach(star => {
         star.update();
-        if (star.isSupernova && mouse.x !== null && mouse.y !== null) {
-            let dx = mouse.x - star.x; let dy = mouse.y - star.y;
-            if (Math.sqrt(dx*dx + dy*dy) < 30) drawHUD(star.x, star.y, "EVENT: SUPERNOVA", "STATUS: CRITICAL");
-        }
     });
     connectStars(); 
     stars.forEach(star => star.draw());
@@ -702,11 +690,6 @@ document.addEventListener('DOMContentLoaded', () => {
     asteroids.forEach(ast => { ast.update(); ast.draw(); });
     comets.forEach(c => { c.update(); c.draw(); });
     satellite.update(); satellite.draw();
-    
-    if (mouse.x !== null && mouse.y !== null) {
-        let dx = mouse.x - satellite.x; let dy = mouse.y - satellite.y;
-        if (Math.sqrt(dx*dx + dy*dy) < 40) drawHUD(satellite.x, satellite.y, `UNIT: ${satellite.name}`, `VEL: ${satellite.velocity}`);
-    }
 
     if (Date.now() - lastDartTime > DART_INTERVAL && asteroids.length > 0) {
         let target = asteroids[Math.floor(Math.random() * asteroids.length)];
@@ -721,7 +704,17 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animate);
   }
 
-  window.addEventListener('resize', () => { resizeCanvas(); initSpace(); });
+  /* --- FIXED: DEBOUNCED RESIZE TO PREVENT BLACK SCREEN --- */
+  let resizeTimer;
+  window.addEventListener('resize', () => { 
+      resizeCanvas(); 
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+          initSpace(); 
+      }, 250);
+  });
+  
+  // Ensure background builds immediately on page load
   resizeCanvas(); 
   
   function initSpace() {
@@ -734,6 +727,7 @@ document.addEventListener('DOMContentLoaded', () => {
     satellite = new Satellite(); 
   }
   
+  // Initial draw so the canvas isn't empty while the loading screen fades
   initSpace(); 
   animate();
 });

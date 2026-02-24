@@ -1,4 +1,3 @@
-<!-- index.html (ONLY text edits; structure/JS/CSS references unchanged) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -255,20 +254,6 @@
                 <li><strong>Wingtip folding concept:</strong> explored as a practical mechanism to reconcile cruise efficiency with airport gate constraints.</li>
               </ul>
 
-              <h3>What This Project Demonstrates</h3>
-              <ul>
-                <li><strong>Systems thinking:</strong> connecting aero, structures, packaging, and operations into one coherent concept.</li>
-                <li><strong>Trade study discipline:</strong> iterating configuration variables with clear cause-and-effect on performance and stability.</li>
-                <li><strong>Toolchain fluency:</strong> OpenVSP + AVL + analytical sizing methods used in a repeatable workflow.</li>
-              </ul>
-
-              <h3>Next Steps</h3>
-              <ul>
-                <li>Refine aero with improved low-fidelity calibration (sweep/area distribution, control sizing, trim across CG range).</li>
-                <li>Strengthen structural concept (center-body load paths, wingbox architecture, engine mount load introduction).</li>
-                <li>Package systems at a higher fidelity (landing gear integration, volume allocations, and maintainability logic).</li>
-              </ul>
-
               <h3>Technical Specifications</h3>
               <table class='spec-table'>
                 <tr><td>Passenger Capacity</td><td>250 PAX</td></tr>
@@ -318,20 +303,6 @@
               <ul>
                 <li><strong>Material trade:</strong> Carbon/Epoxy concept achieved substantial mass savings relative to the aluminum baseline while meeting strength requirements under the analyzed cases.</li>
                 <li><strong>Load-path insight:</strong> documented how geometry and material stiffness shift where the structure “wants” to carry load.</li>
-              </ul>
-
-              <h3>What This Project Demonstrates</h3>
-              <ul>
-                <li>Ability to build a repeatable sizing tool, not just a one-off calculation.</li>
-                <li>Comfort moving between theory (shear flow / thin-walled) and implementation (MATLAB).</li>
-                <li>Engineering judgment: interpreting results and identifying what to validate next.</li>
-              </ul>
-
-              <h3>Next Steps</h3>
-              <ul>
-                <li>Extend to multi-cell wingboxes and include torsion-bending coupling.</li>
-                <li>Add deflection constraints (stiffness-driven sizing) and buckling checks.</li>
-                <li>Validate assumptions with higher-fidelity FEA for critical sections.</li>
               </ul>"
             data-images="assets/wing_spar.jpg"
             data-skills="MATLAB,Thin-Walled Beam Theory,Shear Flow,Structural Sizing"
@@ -373,13 +344,6 @@
                 <li><strong>Linear region:</strong> observed near-linear lift trends at low α consistent with attached flow behavior.</li>
                 <li><strong>Nonlinear behavior:</strong> identified deviation from linearity as separation effects increased.</li>
                 <li><strong>Tool literacy:</strong> learned what the solver is good at (trends) and where extra care is required (absolute drag values and near-stall prediction).</li>
-              </ul>
-
-              <h3>Next Steps</h3>
-              <ul>
-                <li>Add a clear mesh/refinement study and document convergence behavior.</li>
-                <li>Compare multiple turbulence/near-wall settings where applicable.</li>
-                <li>Build a repeatable workflow for future airfoil screening and validation.</li>
               </ul>"
             data-images="assets/project2.jpg"
             data-skills="SolidWorks Flow Simulation,CFD Fundamentals,RANS Solver"
@@ -413,19 +377,6 @@
               <ul>
                 <li><strong>Goal:</strong> measure and interpret time-domain signals under noise and reflections.</li>
                 <li><strong>Approach:</strong> signal interpretation techniques (filtering/averaging where appropriate) and structured comparison of trials.</li>
-              </ul>
-
-              <h3>What This Project Demonstrates</h3>
-              <ul>
-                <li>Comfort working with real sensors and “messy” data, not just ideal equations.</li>
-                <li>Ability to automate collection/processing and present results clearly.</li>
-                <li>Engineering discipline: repeatability, documentation, and consistent workflows.</li>
-              </ul>
-
-              <h3>Next Steps</h3>
-              <ul>
-                <li>Add explicit uncertainty and error propagation summaries to each lab write-up.</li>
-                <li>Standardize plotting/report templates for faster, cleaner publication-ready results.</li>
               </ul>"
             data-images="assets/lab_work.gif"
             data-skills="MATLAB,Arduino,DAQ,Signal Processing"
@@ -460,12 +411,6 @@
                 <li>Ability to manage complex assemblies without mate conflicts.</li>
                 <li>Understanding of kinematic relationships (rotating-to-reciprocating motion, timing logic).</li>
                 <li>Clear documentation and presentation of a mechanical system.</li>
-              </ul>
-
-              <h3>Next Steps</h3>
-              <ul>
-                <li>Add simplified drawings and tolerancing callouts for key interfaces.</li>
-                <li>Create an exploded view + BOM and a short manufacturing/assembly note set.</li>
               </ul>"
             data-images="assets/4pistonengine.jpg"
             data-skills="SolidWorks,Mechanical Design,Assemblies,Kinematics"
@@ -506,7 +451,7 @@
             <h2>Contact</h2>
         </div>
 
-        <div class="form-container glass-panel chamfer-box dynamic-glow" style="padding: 3rem;">
+        <div class="form-container glass-panel chamfer-box dynamic-glow">
           <form id="contact-form" action="https://formspree.io/f/mdaejvek" method="POST" class="contact-form">
             <div class="form-group">
               <input type="text" name="name" placeholder="Name" class="chamfer-input" required>
@@ -532,7 +477,9 @@
       </footer>
 
     </main>
-  </div> <div id="project-modal" class="modal" aria-hidden="true">
+  </div> 
+
+  <div id="project-modal" class="modal" aria-hidden="true">
     <div class="modal-close-wrapper">
       <button class="close-modal" type="button" aria-label="Close modal">&times;</button>
     </div>
