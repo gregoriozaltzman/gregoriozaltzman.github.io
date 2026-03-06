@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ========================================= */
   const loadingScreen = document.getElementById('loading-screen');
   const typeTextElement = document.getElementById('typewriter-text');
-  const rawText = "B.S. Aerospace Engineering at UC San Diego (Class of 2026).^Focus: aircraft conceptual design, aerodynamics, structural sizing, and simulation-driven engineering.";
+  const rawText = "B.S. Aerospace Engineering at UC San Diego (Class of 2026).";
   
   window.addEventListener('load', () => {
     
