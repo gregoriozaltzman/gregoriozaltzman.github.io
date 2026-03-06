@@ -74,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   window.addEventListener('load', () => {
     
-    // FIX: Init canvas precisely when page loads to prevent black screen on GitHub Pages
     resizeCanvas();
     initSpace();
     
@@ -178,24 +177,22 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(a => a.classList.toggle('active', a.dataset.section === id));
   }
 
-  // FIXED: Using a narrow center-screen "tripwire" instead of intersection ratios
   const navObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      // As soon as a section crosses the tripwire, it becomes active
       if (entry.isIntersecting) {
         setActiveNav(entry.target.dataset.nav);
       }
     });
   }, { 
-    // This creates an invisible trigger band spanning from 30% to 50% down the screen
     rootMargin: "-30% 0px -50% 0px", 
     threshold: 0 
   });
 
   sections.forEach(s => navObserver.observe(s));
-  setActiveNav('skills'); // Initialize first item
+  setActiveNav('skills'); 
+
   /* =========================================
-     7) MODAL LOGIC + PDF REPORTS
+     7) MODAL LOGIC + PDF REPORTS + CODE TYPING
   ========================================= */
   const modal = document.getElementById('project-modal');
   const modalTitle = document.getElementById('modal-title');
@@ -204,6 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalMediaContainer = document.getElementById('modal-media-container');
   const modalActions = document.getElementById('modal-actions');
   const closeModalBtn = document.querySelector('.close-modal');
+
+  let codeTypewriterReq;
 
   function makePdfButtons(pdfLinkRaw) {
     modalActions.innerHTML = '';
@@ -224,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function openModal(title, desc, imgString, skillsString, pdfLink, modelLink, videoLink) {
+  function openModal(title, desc, imgString, skillsString, pdfLink, modelLink, videoLink, codeText) {
     document.body.style.overflow = 'hidden';
     modal.setAttribute("aria-hidden", "false");
 
@@ -263,13 +262,45 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     } else if (imgString && imgString.trim() !== "") {
       const images = imgString.split(',').map(s => s.trim()).filter(Boolean);
-      modalMediaContainer.innerHTML = `<img src="${images[0]}" alt="${title}">`;
+      modalMediaContainer.innerHTML = images.map(img => `<img src="${img}" alt="${title}" style="margin-bottom: 2rem; border-radius: 8px;">`).join('');
+    }
+
+    // IF WE HAVE A MATLAB SCRIPT ATTATCHED, RENDER THE TERMINAL BOX UNDER IMAGES
+    if (codeText && codeText.trim() !== "") {
+      const codeWrapper = document.createElement('div');
+      codeWrapper.className = 'modal-code-wrapper chamfer-box dynamic-glow';
+      codeWrapper.innerHTML = `
+        <div class="code-header">
+            <span class="code-title">Wing_Analysis_Function.m</span>
+            <span class="status-indicator blinking"></span>
+        </div>
+      `;
+      const codeEl = document.createElement('pre');
+      codeEl.className = 'modal-code';
+      codeWrapper.appendChild(codeEl);
+      modalMediaContainer.appendChild(codeWrapper);
+
+      let i = 0;
+      const charsPerFrame = 65; // Adjust this number to make it type faster or slower
+
+      function typeCode() {
+        if (i < codeText.length) {
+          codeEl.textContent += codeText.substring(i, i + charsPerFrame);
+          i += charsPerFrame;
+          codeEl.scrollTop = codeEl.scrollHeight; // Auto-scroll to bottom of code element
+          codeTypewriterReq = requestAnimationFrame(typeCode);
+        }
+      }
+      codeTypewriterReq = requestAnimationFrame(typeCode);
     }
 
     modal.classList.add('open');
   }
 
   function closeModalFunc() {
+    if (typeof codeTypewriterReq !== 'undefined') {
+        cancelAnimationFrame(codeTypewriterReq);
+    }
     modal.classList.remove('open');
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = ''; 
@@ -281,14 +312,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.project-click-target').forEach(item => {
     item.addEventListener('click', () => {
+      const descDiv = item.querySelector('.project-html-desc');
+      const descHTML = descDiv ? descDiv.innerHTML : '';
+      
+      const codeNode = item.querySelector('.project-code');
+      const codeText = codeNode ? codeNode.value : '';
+
       openModal(
         item.dataset.title,
-        item.dataset.description,
+        descHTML,
         item.dataset.images,
         item.dataset.skills,
         item.dataset.pdf,
         item.dataset.model,
-        item.dataset.video
+        item.dataset.video,
+        codeText
       );
     });
   });
@@ -704,7 +742,6 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animate);
   }
 
-  /* --- FIXED: DEBOUNCED RESIZE TO PREVENT BLACK SCREEN --- */
   let resizeTimer;
   window.addEventListener('resize', () => { 
       resizeCanvas(); 
@@ -714,7 +751,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 250);
   });
   
-  // Ensure background builds immediately on page load
   resizeCanvas(); 
   
   function initSpace() {
@@ -727,7 +763,6 @@ document.addEventListener('DOMContentLoaded', () => {
     satellite = new Satellite(); 
   }
   
-  // Initial draw so the canvas isn't empty while the loading screen fades
   initSpace(); 
   animate();
 });

@@ -205,20 +205,18 @@ p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
 .aspirations-content { padding: 4rem; line-height: 1.8; font-size: 1.1rem;}
 
 /* =========================================
-   11. PROJECTS (DOSSIER)
+   11. PROJECTS (DOSSIER) 2-COLUMN GRID
    ========================================= */
-.dossier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6rem 3rem; }
+.dossier-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6rem 3rem; }
 
-.bento-large { grid-column: span 3; }
-.bento-medium { grid-column: span 2; }
-.bento-small { grid-column: span 1; }
+.bento-large { grid-column: span 2; }
+.bento-half { grid-column: span 1; }
 
 .dossier-card { position: relative; width: 100%; cursor: pointer; }
 .dossier-image { position: relative; width: 100%; overflow: hidden; border-radius: 12px; }
 
 .bento-large .dossier-image { height: 600px; }
-.bento-medium .dossier-image { height: 450px; }
-.bento-small .dossier-image { height: 450px; }
+.bento-half .dossier-image { height: 450px; }
 
 .parallax-img { width: 100%; height: 130%; object-fit: cover; position: absolute; top: -15%; left: 0; will-change: transform; transition: transform 0.1s linear; filter: saturate(1.05) contrast(1.03); }
 
@@ -228,17 +226,16 @@ p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
 .dossier-info.offset-left { left: 2rem; right: auto; }
 .dossier-card:hover .dossier-info { transform: translateY(-10px); }
 
-/* Widths */
+/* Widths & Offsets for the new grid */
 .bento-large .dossier-info { width: 50%; right: 2rem; }
-.bento-medium .dossier-info { width: 75%; right: 2rem; }
-.bento-small .dossier-info { width: 85%; left: 7.5%; right: auto; padding: 1.5rem; bottom: -2rem; }
-.bento-small .dossier-info h3 { font-size: 1.2rem; margin-bottom: 0.2rem; }
-.bento-small .dossier-info p { font-size: 0.85rem; margin-bottom: 0; }
-.bento-small .dossier-link { margin-top: 0.8rem; }
+.bento-half .dossier-info { width: 85%; left: 7.5%; right: auto; padding: 1.5rem; bottom: -2rem; }
+.bento-half .dossier-info h3 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+.bento-half .dossier-info p { font-size: 0.85rem; margin-bottom: 0; }
+.bento-half .dossier-link { margin-top: 0.8rem; }
 
 @media(max-width: 1200px) { 
     .dossier-grid { grid-template-columns: 1fr; gap: 6rem; }
-    .bento-large, .bento-medium, .bento-small { grid-column: span 1; }
+    .bento-large, .bento-half { grid-column: span 1; }
     .dossier-image { height: 400px !important; }
     .dossier-info { position: relative; bottom: 0; right: 0; width: 100% !important; left: 0 !important; margin-top: -2rem; padding: 2rem;} 
 }
@@ -250,8 +247,9 @@ p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
 .modal.open { display: block !important; opacity: 1; }
 .modal-split { display: flex; width: 100vw; height: 100vh; }
 .modal-left { width: 50vw; height: 100vh; position: relative; background: #000; display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--border-color); }
-#modal-media-container { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; }
-#modal-media-container img, #modal-media-container video { width: 100%; height: 100%; object-fit: cover; }
+#modal-media-container { width: 100%; height: 100%; display: flex; align-items: center; justify-content: flex-start; flex-direction: column; overflow-y: auto; padding: 2rem; }
+#modal-media-container::-webkit-scrollbar { display: none; }
+#modal-media-container img, #modal-media-container video { width: 100%; height: auto; object-fit: contain; }
 model-viewer { width: 100%; height: 100%; background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1), rgba(0,0,0,1)); }
 .modal-right { width: 50vw; height: 100vh; overflow-y: auto; padding: 6rem 4rem; background: var(--bg); }
 .modal-main-title { font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.1; color: var(--light); }
@@ -295,3 +293,48 @@ input:focus, textarea:focus { border-color: rgba(255,255,255,0.7); outline: none
 #loading-screen.hidden { pointer-events: none; }
 .loader-square { width: 40px; height: 40px; border: 1px solid var(--light); animation: loadSpin 2s infinite ease-in-out; margin-bottom: 2rem; }
 @keyframes loadSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(180deg); } }
+
+/* =========================================
+   14. MODAL CODE TERMINAL
+   ========================================= */
+.modal-code-wrapper {
+    width: 100%;
+    height: 350px;
+    background: #050505;
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.code-header {
+    background: rgba(255,255,255,0.05);
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+.code-title { color: var(--light); }
+.modal-code {
+    padding: 1.5rem;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.75rem;
+    color: #38bdf8; 
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+.modal-code::-webkit-scrollbar { width: 6px; }
+.modal-code::-webkit-scrollbar-track { background: transparent; }
+.modal-code::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+.modal-code::after {
+    content: '█';
+    animation: blink 1s step-end infinite;
+}
