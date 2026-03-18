@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ========================================= */
   const loadingScreen = document.getElementById('loading-screen');
   const typeTextElement = document.getElementById('typewriter-text');
-  const rawText = "B.S. Aerospace Engineering at UC San Diego (Class of 2026).";
+  const rawText = "B.S. Aerospace Engineering at UC San Diego (Class of 2026).^Focus: aircraft conceptual design, aerodynamics, structural sizing, and simulation-driven engineering.";
   
   window.addEventListener('load', () => {
     
@@ -242,6 +242,8 @@ document.addEventListener('DOMContentLoaded', () => {
     makePdfButtons(pdfLink);
 
     modalMediaContainer.innerHTML = '';
+    
+    // Check if there is a 3D model first
     if (modelLink && modelLink.trim() !== "") {
       modalMediaContainer.innerHTML = `
         <model-viewer
@@ -254,15 +256,20 @@ document.addEventListener('DOMContentLoaded', () => {
           environment-image="neutral">
         </model-viewer>
       `;
-    } else if (videoLink && videoLink.trim() !== "") {
-      modalMediaContainer.innerHTML = `
-        <video controls autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;">
-          <source src="${videoLink.trim()}" type="video/mp4">
-        </video>
-      `;
-    } else if (imgString && imgString.trim() !== "") {
-      const images = imgString.split(',').map(s => s.trim()).filter(Boolean);
-      modalMediaContainer.innerHTML = images.map(img => `<img src="${img}" alt="${title}" style="margin-bottom: 2rem; border-radius: 8px;">`).join('');
+    } else {
+      // Allow appending BOTH a video and images into the left-side container
+      if (videoLink && videoLink.trim() !== "") {
+        modalMediaContainer.innerHTML += `
+          <video controls autoplay loop muted playsinline style="width:100%; max-height:70vh; object-fit:contain; border-radius:8px; margin-bottom:2rem;">
+            <source src="${videoLink.trim()}" type="video/mp4">
+          </video>
+        `;
+      }
+      
+      if (imgString && imgString.trim() !== "") {
+        const images = imgString.split(',').map(s => s.trim()).filter(Boolean);
+        modalMediaContainer.innerHTML += images.map(img => `<img src="${img}" alt="${title}" style="max-width: 100%; height: auto; margin-bottom: 2rem; border-radius: 8px;">`).join('');
+      }
     }
 
     // IF WE HAVE A MATLAB SCRIPT ATTATCHED, RENDER THE TERMINAL BOX UNDER IMAGES
@@ -281,13 +288,13 @@ document.addEventListener('DOMContentLoaded', () => {
       modalMediaContainer.appendChild(codeWrapper);
 
       let i = 0;
-      const charsPerFrame = 65; // Adjust this number to make it type faster or slower
+      const charsPerFrame = 65; 
 
       function typeCode() {
         if (i < codeText.length) {
           codeEl.textContent += codeText.substring(i, i + charsPerFrame);
           i += charsPerFrame;
-          codeEl.scrollTop = codeEl.scrollHeight; // Auto-scroll to bottom of code element
+          codeEl.scrollTop = codeEl.scrollHeight; 
           codeTypewriterReq = requestAnimationFrame(typeCode);
         }
       }
@@ -567,10 +574,10 @@ document.addEventListener('DOMContentLoaded', () => {
       
       this.particles = []; 
       const colors = [
-          [56, 189, 248], // Sky Blue
-          [139, 92, 246], // Purple
-          [236, 72, 153], // Pink
-          [16, 185, 129]  // Emerald
+          [56, 189, 248], 
+          [139, 92, 246], 
+          [236, 72, 153], 
+          [16, 185, 129]  
       ];
       this.col = colors[Math.floor(Math.random() * colors.length)];
       
@@ -589,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.y = cy + (Math.random() - 0.5) * 500; 
         this.radius = Math.random() * 300 + 150; 
         this.r = r; this.g = g; this.b = b; 
-        this.a = Math.random() * 0.015 + 0.005; // Extremely soft opacity
+        this.a = Math.random() * 0.015 + 0.005;
         this.vx = (Math.random() - 0.5) * 0.05; 
         this.vy = (Math.random() - 0.5) * 0.05; 
     }
@@ -712,7 +719,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function animate() {
-    if (!isSpaceMode) { requestAnimationFrame(animate); return; } // Pause physics when hidden
+    if (!isSpaceMode) { requestAnimationFrame(animate); return; }
     ctx.clearRect(0, 0, width, height);
     ctx.globalAlpha = 1.0; 
 

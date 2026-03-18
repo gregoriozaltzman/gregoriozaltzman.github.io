@@ -224,6 +224,7 @@ p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
 .dossier-info h3 { font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--light); }
 .dossier-link { display: inline-block; margin-top: 1.5rem; font-family: 'Courier Prime', monospace; color: rgba(255,255,255,0.9); font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.8); padding-bottom: 2px; }
 .dossier-info.offset-left { left: 2rem; right: auto; }
+.dossier-info.offset-right { right: 2rem; left: auto; }
 .dossier-card:hover .dossier-info { transform: translateY(-10px); }
 
 /* Widths & Offsets for the new grid */

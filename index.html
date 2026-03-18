@@ -414,9 +414,9 @@ function [name, PID, dataOut1, dataOut2] = Wing_Analysis_Function(dataIn);
 % +     dataIn(57):     Twist Moment Distribution - 1st Order (lb-in/in)
 % +
 % +  Output Data
-% +   Name:             Name of author of this analysis function           
-% +   PID:              UCSD Student ID number of author
-% +   dataOut1:         Packed calculated output variable data
+% +   Name:              Name of author of this analysis function            
+% +   PID:               UCSD Student ID number of author
+% +   dataOut1:          Packed calculated output variable data
 % +     dataOut1(01):   Modulus Weighted Centroid y-direction (inch)
 % +     dataOut1(02):   Modulus Weighted Centroid z-direction (inch)
 % +     dataOut1(03):   Cross-Section Weight rho*A (lb/in)
@@ -973,57 +973,57 @@ Twist3 = (180/pi)*(Ss*q_matrix*F3*IntMx)./(2*A_full*G_sk*T_sk);
 % . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
    disp('     (9) Pack the Calculated Data into Array: dataOut1')
    dataOut1     = zeros(51);
-%     dataOut1(01) = Yc;               % Modulus Weighted Centroid y-direction (inch)
-%     dataOut1(02) = Zc;               % Modulus Weighted Centroid z-direction (inch)
-%     dataOut1(03) = rhoA;             % Cross-Section Weight (lb/inch)
-%     dataOut1(04) = EA;               % Axial   Stiffness (lb)
-%     dataOut1(05) = EIyy;             % Bending Stiffness (lb-in^2)   
-%     dataOut1(06) = EIzz;             % Bending Stiffness (lb-in^2)   
-%     dataOut1(07) = EIyz;             % Bending Stiffness (lb-in^2)   
-%     dataOut1(08) = GJ;               % Torsion Stiffness (lb-in^2)
-%     dataOut1(09) = Ysc_LE;           % Shear Center y-direction (inch)
-%     dataOut1(10) = Zsc_LE;           % Shear Center z-direction (inch)
-%     dataOut1(11) = W_wing;           % Total Half-Span Wing Weight (lb)
-%     dataOut1(12) = Vxo;              % Root Internal Force - X Direction (lb)
-%     dataOut1(13) = Vyo;              % Root Internal Force - Y Direction (lb)
-%     dataOut1(14) = Vzo;              % Root Internal Force - Z Direction (lb)
-%     dataOut1(15) = Mxo;              % Root Internal Moment - about X Direction (lb-in)
-%     dataOut1(16) = Myo;              % Root Internal Moment - about Y Direction (lb-in)
-%     dataOut1(17) = Mzo;              % Root Internal Moment - about Z Direction (lb-in)
-%     dataOut1(18) = Sxxo(1);          % Stringer (#1) Calculated Axial Stress (lb/in^2)
-%     dataOut1(19) = Sat(1);           % Stringer (#1) Allowable Stress - Tension (lb/in^2)
-%     dataOut1(20) = Sac(1);           % Stringer (#1) Allowable Stress - Compression (lb/in^2)
-%     dataOut1(21) = MSs(1);           % Stringer (#1) Margin of Safety
-%     dataOut1(22) = Sxxo(2);          % Stringer (#2) Calculated Axial Stress (lb/in^2)
-%     dataOut1(23) = Sat(2);           % Stringer (#2) Allowable Stress - Tension (lb/in^2)
-%     dataOut1(24) = Sac(2);           % Stringer (#2) Allowable Stress - Compression (lb/in^2)
-%     dataOut1(25) = MSs(2);           % Stringer (#2) Margin of Safety
-%     dataOut1(26) = Sxxo(3);          % Stringer (#3) Calculated Axial Stress (lb/in^2)
-%     dataOut1(27) = Sat(3);           % Stringer (#3) Allowable Stress - Tension (lb/in^2)
-%     dataOut1(28) = Sac(3);           % Stringer (#3) Allowable Stress - Compression (lb/in^2)
-%     dataOut1(29) = MSs(3);           % Stringer (#3) Margin of Safety
-%     dataOut1(30) = Sxxo(4);          % Stringer (#4) Calculated Axial Stress (lb/in^2)
-%     dataOut1(31) = Sat(4);           % Stringer (#4) Allowable Stress - Tension (lb/in^2)
-%     dataOut1(32) = Sac(4);           % Stringer (#4) Allowable Stress - Compression (lb/in^2)
-%     dataOut1(33) = MSs(4);           % Stringer (#4) Margin of Safety
-%     dataOut1(34) = Tau_12(1);        % Skin Panel (1.2) Calculated Shear Stress (lb/in^2)
-%     dataOut1(35) = Tau_allow_sk12;   % Skin Panel (1.2) Allowable Shear Stress  (lb/in^2)
-%     dataOut1(36) = MS_sk12;          % Skin Panel (1.2) Margin of Safety
-%     dataOut1(37) = Tau_23(1);        % Skin Panel (2.3) Calculated Shear Stress (lb/in^2)
-%     dataOut1(38) = Tau_allow_sk23;   % Skin Panel (2.3) Allowable Shear Stress  (lb/in^2)
-%     dataOut1(39) = MS_sk23;          % Skin Panel (2.3) Margin of Safety
-%     dataOut1(40) = Tau_34(1);        % Skin Panel (3.4) Calculated Shear Stress (lb/in^2)
-%     dataOut1(41) = Tau_allow_sk34;   % Skin Panel (3.4) Allowable Shear Stress  (lb/in^2)
-%     dataOut1(42) = MS_sk34;          % Skin Panel (3.4) Margin of Safety
-%     dataOut1(43) = Tau_41(1);        % Skin Panel (4.1) Calculated Shear Stress (lb/in^2)
-%     dataOut1(44) = Tau_allow_sk41;   % Skin Panel (4.1) Allowable Shear Stress  (lb/in^2)
-%     dataOut1(45) = MS_sk41;          % Skin Panel (4.1) Margin of Safety
-%     dataOut1(46) = Disp_X(nplot);    % Tip Diplacement - X Direction (inch)
-%     dataOut1(47) = Disp_Y(nplot);    % Tip Diplacement - Y Direction (inch)
-%     dataOut1(48) = Disp_Z(nplot);    % Tip Diplacement - Z Direction (inch)
-%     dataOut1(49) = Twist(nplot);     % Tip Twist (degree)
-%     dataOut1(50) = DvDx(nplot);      % Tip Bending Slope (dv/dx) (inch/inch)
-%     dataOut1(51) = DwDx(nplot);      % Tip Bending Slope (dw/dx) (inch/inch)
+%     dataOut1(01) = Yc;                % Modulus Weighted Centroid y-direction (inch)
+%     dataOut1(02) = Zc;                % Modulus Weighted Centroid z-direction (inch)
+%     dataOut1(03) = rhoA;              % Cross-Section Weight (lb/inch)
+%     dataOut1(04) = EA;                % Axial   Stiffness (lb)
+%     dataOut1(05) = EIyy;              % Bending Stiffness (lb-in^2)   
+%     dataOut1(06) = EIzz;              % Bending Stiffness (lb-in^2)   
+%     dataOut1(07) = EIyz;              % Bending Stiffness (lb-in^2)   
+%     dataOut1(08) = GJ;                % Torsion Stiffness (lb-in^2)
+%     dataOut1(09) = Ysc_LE;            % Shear Center y-direction (inch)
+%     dataOut1(10) = Zsc_LE;            % Shear Center z-direction (inch)
+%     dataOut1(11) = W_wing;            % Total Half-Span Wing Weight (lb)
+%     dataOut1(12) = Vxo;               % Root Internal Force - X Direction (lb)
+%     dataOut1(13) = Vyo;               % Root Internal Force - Y Direction (lb)
+%     dataOut1(14) = Vzo;               % Root Internal Force - Z Direction (lb)
+%     dataOut1(15) = Mxo;               % Root Internal Moment - about X Direction (lb-in)
+%     dataOut1(16) = Myo;               % Root Internal Moment - about Y Direction (lb-in)
+%     dataOut1(17) = Mzo;               % Root Internal Moment - about Z Direction (lb-in)
+%     dataOut1(18) = Sxxo(1);           % Stringer (#1) Calculated Axial Stress (lb/in^2)
+%     dataOut1(19) = Sat(1);            % Stringer (#1) Allowable Stress - Tension (lb/in^2)
+%     dataOut1(20) = Sac(1);            % Stringer (#1) Allowable Stress - Compression (lb/in^2)
+%     dataOut1(21) = MSs(1);            % Stringer (#1) Margin of Safety
+%     dataOut1(22) = Sxxo(2);           % Stringer (#2) Calculated Axial Stress (lb/in^2)
+%     dataOut1(23) = Sat(2);            % Stringer (#2) Allowable Stress - Tension (lb/in^2)
+%     dataOut1(24) = Sac(2);            % Stringer (#2) Allowable Stress - Compression (lb/in^2)
+%     dataOut1(25) = MSs(2);            % Stringer (#2) Margin of Safety
+%     dataOut1(26) = Sxxo(3);           % Stringer (#3) Calculated Axial Stress (lb/in^2)
+%     dataOut1(27) = Sat(3);            % Stringer (#3) Allowable Stress - Tension (lb/in^2)
+%     dataOut1(28) = Sac(3);            % Stringer (#3) Allowable Stress - Compression (lb/in^2)
+%     dataOut1(29) = MSs(3);            % Stringer (#3) Margin of Safety
+%     dataOut1(30) = Sxxo(4);           % Stringer (#4) Calculated Axial Stress (lb/in^2)
+%     dataOut1(31) = Sat(4);            % Stringer (#4) Allowable Stress - Tension (lb/in^2)
+%     dataOut1(32) = Sac(4);            % Stringer (#4) Allowable Stress - Compression (lb/in^2)
+%     dataOut1(33) = MSs(4);            % Stringer (#4) Margin of Safety
+%     dataOut1(34) = Tau_12(1);         % Skin Panel (1.2) Calculated Shear Stress (lb/in^2)
+%     dataOut1(35) = Tau_allow_sk12;    % Skin Panel (1.2) Allowable Shear Stress  (lb/in^2)
+%     dataOut1(36) = MS_sk12;           % Skin Panel (1.2) Margin of Safety
+%     dataOut1(37) = Tau_23(1);         % Skin Panel (2.3) Calculated Shear Stress (lb/in^2)
+%     dataOut1(38) = Tau_allow_sk23;    % Skin Panel (2.3) Allowable Shear Stress  (lb/in^2)
+%     dataOut1(39) = MS_sk23;           % Skin Panel (2.3) Margin of Safety
+%     dataOut1(40) = Tau_34(1);         % Skin Panel (3.4) Calculated Shear Stress (lb/in^2)
+%     dataOut1(41) = Tau_allow_sk34;    % Skin Panel (3.4) Allowable Shear Stress  (lb/in^2)
+%     dataOut1(42) = MS_sk34;           % Skin Panel (3.4) Margin of Safety
+%     dataOut1(43) = Tau_41(1);         % Skin Panel (4.1) Calculated Shear Stress (lb/in^2)
+%     dataOut1(44) = Tau_allow_sk41;    % Skin Panel (4.1) Allowable Shear Stress  (lb/in^2)
+%     dataOut1(45) = MS_sk41;           % Skin Panel (4.1) Margin of Safety
+%     dataOut1(46) = Disp_X(nplot);     % Tip Diplacement - X Direction (inch)
+%     dataOut1(47) = Disp_Y(nplot);     % Tip Diplacement - Y Direction (inch)
+%     dataOut1(48) = Disp_Z(nplot);     % Tip Diplacement - Z Direction (inch)
+%     dataOut1(49) = Twist(nplot);      % Tip Twist (degree)
+%     dataOut1(50) = DvDx(nplot);       % Tip Bending Slope (dv/dx) (inch/inch)
+%     dataOut1(51) = DwDx(nplot);       % Tip Bending Slope (dw/dx) (inch/inch)
 
 % . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 % .  SECTION (#10): Pack the plot data arrays into "dataOut2" 
@@ -1033,33 +1033,33 @@ Twist3 = (180/pi)*(Ss*q_matrix*F3*IntMx)./(2*A_full*G_sk*T_sk);
    dataOut2     = zeros(nplot,27);
 
    for i = 1:nplot;
-%     dataOut2(i, 1) = x(i);           % x-location (inch)
-%     dataOut2(i, 2) = py(i);          % drag force (lb/in)
-%     dataOut2(i, 3) = pz(i);          % lift force (lb/in)
-%     dataOut2(i, 4) = mx(i);          % distributed torque (lb-in/in)
-%     dataOut2(i, 5) = Vx(i);          % Internal shear force - Vx (lb)
-%     dataOut2(i, 6) = Vy(i);          % Internal shear force - Vy (lb)
-%     dataOut2(i, 7) = Vz(i);          % Internal shear force - Vz (lb)
-%     dataOut2(i, 8) = Mx(i);          % Internal axial force - Mx (lb-in)
-%     dataOut2(i, 9) = My(i);          % Internal shear force - My (lb-in)
-%     dataOut2(i,10) = Mz(i);          % Internal shear force - Mz (lb-in)
-%     dataOut2(i,11) = Sxx1(i);        % Stringer (#1) Axial Stress (lb/in^2) 
-%     dataOut2(i,12) = Sxx2(i);        % Stringer (#2) Axial Stress (lb/in^2) 
-%     dataOut2(i,13) = Sxx3(i);        % Stringer (#3) Axial Stress (lb/in^2) 
-%     dataOut2(i,14) = Sxx4(i);        % Stringer (#4) Axial Stress (lb/in^2) 
-%     dataOut2(i,15) = Tau_12(i);      % Skin Panel (1.2) Shear Stress (lb/in^2) 
-%     dataOut2(i,16) = Tau_23(i);      % Skin Panel (2.3) Shear Stress (lb/in^2) 
-%     dataOut2(i,17) = Tau_34(i);      % Skin Panel (3.4) Shear Stress (lb/in^2) 
-%     dataOut2(i,18) = Tau_41(i);      % Skin Panel (4.1) Shear Stress (lb/in^2)
-%     dataOut2(i,19) = Disp_X(i);      % Displacement - X Direction (inch)
-%     dataOut2(i,20) = Disp_Y(i);      % Displacement - Y Direction (inch)
-%     dataOut2(i,21) = Disp_Z(i);      % Displacement - z Direction (inch) 
-%     dataOut2(i,22) = Twist(i);       % Wing Twist (degree)
-%     dataOut2(i,23) = DvDx(i);        % Bending Slope (dv/dx) (inch/inch)
-%     dataOut2(i,24) = DwDx(i);        % Bending Slope (dw/dx) (inch/inch)
-%     dataOut2(i,25) = Twist1(i);      % Wing Twist from Vy (degree)
-%     dataOut2(i,26) = Twist2(i);      % Wing Twist from Vz (degree)
-%     dataOut2(i,27) = Twist3(i);      % Wing Twist from Mx (degree)
+%     dataOut2(i, 1) = x(i);            % x-location (inch)
+%     dataOut2(i, 2) = py(i);           % drag force (lb/in)
+%     dataOut2(i, 3) = pz(i);           % lift force (lb/in)
+%     dataOut2(i, 4) = mx(i);           % distributed torque (lb-in/in)
+%     dataOut2(i, 5) = Vx(i);           % Internal shear force - Vx (lb)
+%     dataOut2(i, 6) = Vy(i);           % Internal shear force - Vy (lb)
+%     dataOut2(i, 7) = Vz(i);           % Internal shear force - Vz (lb)
+%     dataOut2(i, 8) = Mx(i);           % Internal axial force - Mx (lb-in)
+%     dataOut2(i, 9) = My(i);           % Internal shear force - My (lb-in)
+%     dataOut2(i,10) = Mz(i);           % Internal shear force - Mz (lb-in)
+%     dataOut2(i,11) = Sxx1(i);         % Stringer (#1) Axial Stress (lb/in^2) 
+%     dataOut2(i,12) = Sxx2(i);         % Stringer (#2) Axial Stress (lb/in^2) 
+%     dataOut2(i,13) = Sxx3(i);         % Stringer (#3) Axial Stress (lb/in^2) 
+%     dataOut2(i,14) = Sxx4(i);         % Stringer (#4) Axial Stress (lb/in^2) 
+%     dataOut2(i,15) = Tau_12(i);       % Skin Panel (1.2) Shear Stress (lb/in^2) 
+%     dataOut2(i,16) = Tau_23(i);       % Skin Panel (2.3) Shear Stress (lb/in^2) 
+%     dataOut2(i,17) = Tau_34(i);       % Skin Panel (3.4) Shear Stress (lb/in^2) 
+%     dataOut2(i,18) = Tau_41(i);       % Skin Panel (4.1) Shear Stress (lb/in^2)
+%     dataOut2(i,19) = Displacement - X Direction (inch) 
+%     dataOut2(i,20) = Disp_Y(i);       % Displacement - Y Direction (inch)
+%     dataOut2(i,21) = Disp_Z(i);       % Displacement - z Direction (inch) 
+%     dataOut2(i,22) = Twist(i);        % Wing Twist (degree)
+%     dataOut2(i,23) = DvDx(i);         % Bending Slope (dv/dx) (inch/inch)
+%     dataOut2(i,24) = DwDx(i);         % Bending Slope (dw/dx) (inch/inch)
+%     dataOut2(i,25) = Twist1(i);       % Wing Twist from Vy (degree)
+%     dataOut2(i,26) = Twist2(i);       % Wing Twist from Vz (degree)
+%     dataOut2(i,27) = Twist3(i);       % Wing Twist from Mx (degree)
 
    end;
    
@@ -1102,12 +1102,6 @@ end
                 <li><strong>Sting Balance:</strong> Directly measured axial force, normal force, and pitching moment using a strain-gage sting balance.</li>
                 <li><strong>Wake Survey:</strong> Employed the wake-survey method to estimate drag through downstream momentum deficit analysis.</li>
               </ul>
-              <h3>Key Takeaways & Conclusions</h3>
-              <ul>
-                <li><strong>Method Consistency:</strong> Comparison between pressure-integration, wake-survey, and direct sting-balance measurements provided internal validation of the experimental methods.</li>
-                <li><strong>Aerodynamic Behavior:</strong> Demonstrated the linear increase of lift coefficient with angle of attack in pre-stall conditions, which is consistent with thin airfoil theory. Increasing the airspeed over the airfoils delayed the angle of attack at which maximum lift occurred and also delayed stall conditions.</li>
-                <li><strong>Incompressible Flow Validation:</strong> Confirmed that the pressure coefficient distribution is largely independent of freestream velocity when properly nondimensionalized, which is consistent with incompressible flow theory.</li>
-              </ul>
             </div>
 
             <div class="dossier-image cinematic-wide">
@@ -1118,6 +1112,48 @@ end
               <h3>Wind Tunnel Testing</h3>
               <p>Clark Y-14 Airfoil Aerodynamics.</p>
               <span class="dossier-link">View Full Report &rarr;</span>
+            </div>
+          </div>
+
+          <div class="dossier-card bento-large stagger-reveal project-click-target dynamic-glow"
+            data-title="SeaGlide Autonomous Underwater Vehicle"
+            data-images="assets/seaglide.jpg"
+            data-video="assets/seaglide.mp4"
+            data-skills="Hydrodynamics,Buoyancy Engine,MATLAB,AUV Design,Hardware Assembly"
+            data-pdf="assets/seaglide.pdf">
+
+            <div class="project-html-desc" style="display: none;">
+              <h3>Executive Summary</h3>
+              <p>Design, build, and performance analysis of a miniature autonomous underwater glider ("SeaGlide") for MAE 190. The vehicle propels itself by actively altering its buoyancy and center of gravity to create vertical motion, which is translated into forward glide by fixed wings.</p>
+              <h3>Hardware & Build</h3>
+              <ul>
+                <li><strong>Hull & Structure:</strong> Assembled using a cylindrical housing (water bottle) modified with 3D-printed brackets and flat foam wings.</li>
+                <li><strong>Buoyancy Engine:</strong> Utilized a motorized syringe system capable of shifting the vehicle's center of gravity longitudinally by ±1.25 cm and changing the displacement volume by up to ±14 mL to initiate dive and climb states.</li>
+              </ul>
+              <h3>Hydrodynamic Analysis</h3>
+              <ul>
+                <li><strong>Aerodynamic Modeling:</strong> Approximated wing efficiency using a NACA 0012 airfoil baseline. Calculated induced drag ($K = 0.066$) and lift-curve slopes for an aspect ratio of 6.8.</li>
+                <li><strong>Performance Prediction:</strong> Developed a MATLAB simulation to predict the vehicle's flight path angle (up to ±44.5°), lift coefficients, and both vertical/horizontal velocities across a spectrum of vehicle speeds.</li>
+              </ul>
+              <h3>Technical Specifications</h3>
+              <table class="spec-table">
+                <tr><td>Wing Span (b)</td><td>51 cm</td></tr>
+                <tr><td>Wing Area (S)</td><td>382.5 cm²</td></tr>
+                <tr><td>Dry Weight</td><td>10.32 N</td></tr>
+                <tr><td>Buoyancy Change (Dive)</td><td>+0.0589 N</td></tr>
+                <tr><td>Buoyancy Change (Climb)</td><td>-0.2551 N</td></tr>
+                <tr><td>Max Pitch Attitude Angle</td><td>±44.5°</td></tr>
+              </table>
+            </div>
+
+            <div class="dossier-image cinematic-wide">
+              <img src="assets/seaglide.jpg" class="parallax-img" alt="SeaGlide AUV">
+            </div>
+            <div class="dossier-info chamfer-box glass-panel offset-right">
+              <span class="micro-label">// HRD-04</span>
+              <h3>SeaGlide AUV</h3>
+              <p>Autonomous underwater glider with variable buoyancy.</p>
+              <span class="dossier-link">View Media & Report &rarr;</span>
             </div>
           </div>
 
@@ -1138,19 +1174,13 @@ end
                 <li><strong>Assembly:</strong> correct mate strategy to represent mechanism behavior and maintain stable rebuilds.</li>
                 <li><strong>Motion validation:</strong> motion study used to verify kinematics and visually confirm timing relationships.</li>
               </ul>
-              <h3>What This Project Demonstrates</h3>
-              <ul>
-                <li>Ability to manage complex assemblies without mate conflicts.</li>
-                <li>Understanding of kinematic relationships (rotating-to-reciprocating motion, timing logic).</li>
-                <li>Clear documentation and presentation of a mechanical system.</li>
-              </ul>
             </div>
 
             <div class="dossier-image cinematic-standard">
               <img src="assets/4pistonengine.jpg" class="parallax-img" alt="Engine">
             </div>
             <div class="dossier-info chamfer-box glass-panel">
-              <span class="micro-label">// HRD-04</span>
+              <span class="micro-label">// HRD-05</span>
               <h3>4-Piston Engine CAD</h3>
               <p>Mechanical Design & Kinematics.</p>
               <span class="dossier-link">View Report & Model &rarr;</span>
@@ -1170,7 +1200,6 @@ end
               <ul>
                 <li><strong>Goal:</strong> validate simplified models (e.g., lumped capacitance assumptions where applicable) and estimate convective behavior from measured temperature response.</li>
                 <li><strong>Implementation:</strong> Arduino-based sensing and logging, then MATLAB-based processing and visualization.</li>
-                <li><strong>Outcome:</strong> connected transient temperature data to physical parameters and documented where assumptions hold or break.</li>
               </ul>
               <h3>Acoustics Work</h3>
               <ul>
@@ -1183,7 +1212,7 @@ end
               <img src="assets/lab_work.gif" class="parallax-img" alt="Lab Work">
             </div>
             <div class="dossier-info chamfer-box glass-panel offset-left">
-              <span class="micro-label">// HRD-05</span>
+              <span class="micro-label">// HRD-06</span>
               <h3>Lab Operations</h3>
               <p>Acoustics & Thermodynamics.</p>
               <span class="dossier-link">View Full Reports &rarr;</span>
@@ -1200,9 +1229,9 @@ end
         </div>
         
         <div class="aspirations-content chamfer-box glass-panel dynamic-glow stagger-reveal">
-        <p>My long-term goal is to propel humanity into the next age of space exploration by contributing to the development of advanced astronautical and space vehicles. I aim to work at the forefront of spacecraft design, system integration, and propulsion innovation, helping create technologies that expand human presence beyond Earth. I’m especially motivated by cutting-edge vehicle concepts and design decisions informed by disciplined trade studies, simulation, and test-driven iteration.</p>
-        <br>
-        <p>I’m exploring Master’s programs in Europe that allow me to deepen my expertise in flight performance, propulsion, and system-level aerospace engineering, while remaining closely connected to the broader space ecosystem. As an Argentine and Italian citizen fluent in English, Spanish, and French, I thrive in international technical teams — and I want my career to be defined by high-impact engineering work that advances humanity’s capabilities in space.</p>
+            <p>My long-term goal is to work at the intersection of aerodynamic performance, propulsion integration, and system-level aircraft design — building the next generation of ultra-efficient commercial aircraft. I’m especially motivated by unconventional configurations (like blended wing bodies) and by design decisions grounded in disciplined trade studies, simulation, and test-informed iteration.</p>
+            <br>
+            <p>I’m exploring Master’s programs in Europe with a focus aligned to flight performance and power, while keeping a strong interest in the broader space ecosystem and advanced vehicle development. As an Argentine and Italian citizen and fluent in English, Spanish, and French, I thrive in international technical teams — and I want my career to be defined by high-impact engineering work that connects clean performance to real-world operability.</p>
         </div>
       </section>
 
