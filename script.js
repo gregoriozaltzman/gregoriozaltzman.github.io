@@ -1,72 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* =========================================
-     1) WEB AUDIO API (ACOUSTIC UI)
-  ========================================= */
-  let audioCtx;
-  let audioEnabled = false;
-  const audioToggle = document.getElementById('audio-toggle');
-
-  function initAudio() {
-      if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-      }
-  }
-
-  if (audioToggle) {
-      audioToggle.addEventListener('click', () => {
-          audioEnabled = !audioEnabled;
-          audioToggle.textContent = audioEnabled ? "Audio: ON" : "Audio: OFF";
-          if (audioEnabled) {
-              initAudio();
-              playClick();
-          }
-      });
-  }
-
-  function playClick() {
-      if (!audioEnabled || !audioCtx) return;
-      const osc = audioCtx.createOscillator();
-      const gainNode = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.05);
-      gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
-      osc.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-      osc.start();
-      osc.stop(audioCtx.currentTime + 0.05);
-  }
-
-  function playThud() {
-      if (!audioEnabled || !audioCtx) return;
-      const osc = audioCtx.createOscillator();
-      const gainNode = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(150, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.15);
-      gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
-      osc.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-      osc.start();
-      osc.stop(audioCtx.currentTime + 0.15);
-  }
-
-  document.querySelectorAll('a, button, .project-card, .timeline-card').forEach(el => {
-      el.addEventListener('mousedown', (e) => {
-          if(el.id !== 'mode-toggle' && el.id !== 'audio-toggle') {
-              playClick();
-          }
-      });
-  });
-
-  /* =========================================
-     2) LOADING, TYPEWRITER & REVEALS
+     1) LOADING, TYPEWRITER & REVEALS
   ========================================= */
   const loadingScreen = document.getElementById('loading-screen');
   const typeTextElement = document.getElementById('typewriter-text');
@@ -75,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', () => {
     
     resizeCanvas();
-    initSpace();
+    // Note: initSpace() removed here so Space Mode stays OFF by default
     
     loadingScreen.style.opacity = '0';
     setTimeout(() => {
@@ -105,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* =========================================
-     3) DYNAMIC MOUSE GLOW
+     2) DYNAMIC MOUSE GLOW
   ========================================= */
   const glowBoxes = document.querySelectorAll('.dynamic-glow');
   glowBoxes.forEach(box => {
@@ -119,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* =========================================
-     4) NATIVE SCROLL OBSERVERS (REVEALS & PARALLAX)
+     3) NATIVE SCROLL OBSERVERS (REVEALS & PARALLAX)
   ========================================= */
   const rocketBtn = document.getElementById('scroll-top');
 
@@ -152,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll(".reveal-mask, .stagger-reveal").forEach(el => revealObserver.observe(el));
 
   /* =========================================
-     5) IMAGE PARALLAX ENGINE
+     4) IMAGE PARALLAX ENGINE
   ========================================= */
   const parallaxImages = document.querySelectorAll('.parallax-img');
   function updateParallax() {
@@ -168,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 /* =========================================
-     6) SIDEBAR ACTIVE STATE (Scroll Spy)
+     5) SIDEBAR ACTIVE STATE (Scroll Spy)
   ========================================= */
   const navLinks = Array.from(document.querySelectorAll('#sidebar-nav a'));
   const sections = Array.from(document.querySelectorAll('section[data-nav]'));
@@ -192,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setActiveNav('skills'); 
 
   /* =========================================
-     7) MODAL LOGIC + PDF REPORTS + CODE TYPING
+     6) MODAL LOGIC + PDF REPORTS + CODE TYPING
   ========================================= */
   const modal = document.getElementById('project-modal');
   const modalTitle = document.getElementById('modal-title');
@@ -216,8 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.target = "_blank";
       btn.className = "btn chamfer-btn";
       btn.textContent = links.length > 1 ? `View Full Report ${index + 1}` : `View Full Report`;
-      
-      btn.addEventListener('mousedown', playClick);
       
       modalActions.appendChild(btn);
     });
@@ -339,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* =========================================
-     8) TIMELINE DRAG LOGIC
+     7) TIMELINE DRAG LOGIC
   ========================================= */
   const timeline = document.querySelector('.horizontal-timeline');
   let isDown = false;
@@ -371,13 +304,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =========================================
-     9) SPACE MODE TOGGLE
+     8) SPACE MODE TOGGLE
   ========================================= */
-  let isSpaceMode = true;
+  let isSpaceMode = false;
   const modeBtn = document.getElementById('mode-toggle');
   const modeLabel = document.getElementById('mode-label'); 
   const canvasElement = document.getElementById('space-canvas');
   
+  canvasElement.style.opacity = '0'; // Default hidden
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       isSpaceMode = false;
       modeLabel.textContent = "Clean Mode";
@@ -385,7 +320,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   modeBtn.addEventListener('click', () => {
-    playThud();
     isSpaceMode = !isSpaceMode;
     if (isSpaceMode) {
         modeLabel.textContent = "Space Mode: ON";
@@ -398,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* =========================================
-     10) THE FULL SPACE ENGINE
+     9) THE FULL SPACE ENGINE
   ========================================= */
   const canvas = document.getElementById('space-canvas');
   const ctx = canvas.getContext('2d');
@@ -754,7 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resizeCanvas(); 
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-          initSpace(); 
+          if (isSpaceMode) initSpace(); 
       }, 250);
   });
   
@@ -770,6 +704,5 @@ document.addEventListener('DOMContentLoaded', () => {
     satellite = new Satellite(); 
   }
   
-  initSpace(); 
   animate();
 });

@@ -43,7 +43,7 @@
       <path d="M5 21L12 5l7 16"></path>
       <path d="M8 15h8"></path>
     </svg>
-    <span id="mode-label">Space Mode: ON</span>
+    <span id="mode-label">Clean Mode</span>
   </button>
 
   <div class="app-layout">
@@ -79,7 +79,6 @@
 
         <div class="sidebar-actions">
           <a href="assets/resume.pdf" target="_blank" rel="noopener" class="btn chamfer-btn">View Resume</a>
-          <button id="audio-toggle" class="btn chamfer-btn audio-btn">Audio: OFF</button>
         </div>
       </div>
     </aside>
@@ -150,32 +149,38 @@
         <div class="horizontal-timeline stagger-reveal">
           <div class="timeline-card chamfer-box glass-panel dynamic-glow">
             <h3>Sep 2022</h3>
-            <h4>UC San Diego — B.S. Aerospace</h4>
-            <p>Built fundamentals across aerodynamics, structures, propulsion, and controls.</p>
+            <h4>UC San Diego — B.S.c Aerospace</h4>
+            <p>Commenced a Bachelor of Science in Aerospace Engineering, building a rigorous theoretical foundation. Completed extensive core coursework spanning Fluid Dynamics, Solid Mechanics, Thermodynamics, Aerospace Structures, Propulsion, Orbital Mechanics, Linear Control, and Engineering Experimental Techniques, bridging theoretical mathematics with applied aerospace physics.</p>
           </div>
 
           <div class="timeline-card chamfer-box glass-panel dynamic-glow">
             <h3>Sep 2023</h3>
             <h4>ITS Service Desk Technician</h4>
-            <p>Resolved campus-wide technical issues and improved support workflows.</p>
+            <p>Service Desk technician, worked extensively to resolve campus-wide technical issues and improved support workflows. Also collaborated with other ITS teams to help increase support efficiency and improve quality of service for customers.</p>
+          </div>
+
+          <div class="timeline-card chamfer-box glass-panel dynamic-glow"> 
+            <h3>May 2025</h3>
+            <h4>Promoted — Service Desk Lead</h4>
+            <p>Led a 60+ member technician team, overseeing daily campus-wide IT operations, complex troubleshooting, and cross-departmental workflow coordination. Drove long-term organizational growth by facilitating staff training, supporting the hiring pipeline, managing documentation, and continually optimizing service resources for maximum operational efficiency.</p>
           </div>
 
           <div class="timeline-card chamfer-box glass-panel dynamic-glow">
-            <h3>May 2025</h3>
-            <h4>Promoted — Service Desk Lead</h4>
-            <p>Led team operations, triage, and incident response for complex outages.</p>
+            <h3>Jun 2025</h3>
+            <h4>RPL at UCSD</h4>
+            <p>Supported the design, build, and launch of a G-class model rocket (~2,100 ft), contributing to assembly, CAD support, testing preparation, and team design discussions while gaining exposure to rocket stability, avionics integration, and flight performance analysis.</p>
           </div>
 
           <div class="timeline-card chamfer-box glass-panel dynamic-glow">
             <h3>Sep 2025</h3>
             <h4>Design-Build-Fly (DBF)</h4>
-            <p>Supported aero configuration work, CAD iteration, and build/flight-test coordination on a student RC aircraft team.</p>
+            <p>Collaborated on the Aerodynamics and Structures subteams for a competition-scale RC aircraft. Drove performance-based design trade studies by assisting with airfoil selection, configuration optimization, structural sizing, and CAD modeling, translating theoretical engineering analysis into a manufactured flight-ready vehicle.</p>
           </div>
 
           <div class="timeline-card chamfer-box glass-panel dynamic-glow">
             <h3>Present</h3>
             <h4>Senior Design Capstone</h4>
-            <p>Leading BWB aircraft concept work: propulsion integration, aerodynamics, and structural assessments.</p>
+            <p>Serving as Chief Engineer for an ultra-efficient Blended Wing Body commercial airliner concept. Leading cross-functional efforts spanning gradient-free aerodynamic optimization, unconventional structural layout, aft-propulsion integration, direct operating cost analysis, and dynamic stability, culminating in a fully verified 3D CAD model.</p>
           </div>
         </div>
       </section>
@@ -228,41 +233,37 @@
         <div class="dossier-grid">
 
           <div class="dossier-card bento-large stagger-reveal project-click-target dynamic-glow"
-            data-title="Concept Blended Wing Body"
+            data-title="BWB Airliner Concept 'Manta'"
             data-images="assets/bwb.jpg"
-            data-skills="OpenVSP,AVL,XFLR5,Conceptual Sizing,Drag Build-Up,Stability & Trim"
+            data-skills="OpenVSP,AVL,Particle Swarm Optimization,Monte Carlo,Stability & Trim"
             data-pdf="assets/bwb_report.pdf"
             data-model="assets/bwb.glb">
 
             <div class="project-html-desc" style="display: none;">
               <h3>Executive Summary</h3>
-              <p>Conceptual design study for an ultra-efficient blended-wing-body (BWB) commercial transport focused on configuration trades, propulsion-airframe integration, and performance-driven sizing. The goal was to build a defensible concept using low-fidelity tools and structured aircraft-design methods, then document the engineering logic behind the final layout.</p>
-              <h3>Design Objectives</h3>
+              <p>Conceptual design study for an ultra-efficient blended-wing-body (BWB) commercial transport named "Manta", focused on configuration trades, propulsion-airframe integration, and performance-driven sizing. The design targets a 7,400 nmi long-haul route carrying 250 passengers at Mach 0.85, significantly improving upon traditional Tube and Wing (TAW) architectures.</p>
+              <h3>Design Optimization & Analysis</h3>
               <ul>
-                <li><strong>Efficiency-first configuration:</strong> maximize cruise L/D through reduced wetted area per payload and favorable lift distribution.</li>
-                <li><strong>Integration-focused propulsion:</strong> explore aft upper-surface installation concepts compatible with modern high-bypass turbofans and BWB packaging constraints.</li>
-                <li><strong>Gate/operations realism:</strong> incorporate practical constraints like airport compatibility and system-level integration.</li>
-              </ul>
-              <h3>Methods & Tools</h3>
-              <ul>
-                <li><strong>Geometry & packaging:</strong> OpenVSP for configuration definition and iteration.</li>
-                <li><strong>Stability & trimming logic:</strong> AVL / low-fidelity aero models to evaluate static margin and control authority trends.</li>
-                <li><strong>Performance sizing:</strong> constraint-style sizing and drag build-up methods to connect geometry to cruise and mission-level implications.</li>
+                <li><strong>Gradient-Free Optimization:</strong> Utilized Particle Swarm Optimization (PSO) via Python to maximize cruise L/D, improving the baseline from 24.85 to an optimized 25.30 while satisfying strict material yield stress and stability constraints.</li>
+                <li><strong>Sensitivity Analysis:</strong> Conducted a Monte Carlo simulation using Latin Hypercube sampling to map the design space, revealing that aspect ratio has the greatest influence on L/D, while chord length drives cost per seat-mile.</li>
+                <li><strong>Stability & Control:</strong> Implemented a digital Fly-By-Wire (FBW) active control system to counteract the inherent dynamic instabilities of the reflexed center body and outer wing sections.</li>
               </ul>
               <h3>Key Engineering Decisions</h3>
               <ul>
-                <li><strong>Cabin architecture trade:</strong> wide BWB internal volume used to explore multi-aisle seating layouts while keeping a coherent pressure vessel concept.</li>
-                <li><strong>Propulsion placement rationale:</strong> aft upper-surface installation studied for packaging, aero/structural integration, and shielding considerations.</li>
-                <li><strong>Wingtip folding concept:</strong> explored as a practical mechanism to reconcile cruise efficiency with airport gate constraints.</li>
+                <li><strong>Cabin Architecture:</strong> A triple-aisle (2-4-4-2) main cabin configuration housed within a PRSEUS (Pultruded Rod Stitched Efficient Unitized Structures) reinforced fuselage to handle asymmetric internal pressurization.</li>
+                <li><strong>Propulsion Integration:</strong> Twin GEnX-1B high-bypass turbofan engines mounted on the aft upper-surface to maximize boundary layer ingestion (BLI) and provide acoustic shielding.</li>
+                <li><strong>Materials:</strong> Carbon Fiber Reinforced Polymer (CFRP) and High Modulus Carbon Fiber used for primary lifting structures to minimize empty weight.</li>
               </ul>
               <h3>Technical Specifications</h3>
               <table class="spec-table">
                 <tr><td>Passenger Capacity</td><td>250 PAX</td></tr>
-                <tr><td>Max Takeoff Weight</td><td>1,707,321 N</td></tr>
-                <tr><td>Range</td><td>7,500 NMI</td></tr>
-                <tr><td>Wing Loading</td><td>3,683 N/m²</td></tr>
-                <tr><td>Thrust-to-Weight</td><td>0.42</td></tr>
-                <tr><td>Thrust Required</td><td>717 kN</td></tr>
+                <tr><td>Max Takeoff Weight</td><td>1,435,400 N</td></tr>
+                <tr><td>Range</td><td>7,400 NMI</td></tr>
+                <tr><td>Cruise Mach / Altitude</td><td>Mach 0.85 / 40,000 ft</td></tr>
+                <tr><td>Wingspan (Code E gate limit)</td><td>64.7 m</td></tr>
+                <tr><td>Cruise L/D</td><td>25.30</td></tr>
+                <tr><td>Cost per Available Seat Mile (CASM)</td><td>$0.0873</td></tr>
+                <tr><td>Powerplant</td><td>2x GEnX-1B</td></tr>
               </table>
             </div>
 
@@ -271,8 +272,8 @@
             </div>
             <div class="dossier-info chamfer-box glass-panel offset-left">
               <span class="micro-label">// HRD-01</span>
-              <h3>Concept Blended Wing Body</h3>
-              <p>Ultra-efficient commercial aircraft concept.</p>
+              <h3>BWB Airliner Concept "Manta"</h3>
+              <p>Ultra-efficient commercial aircraft concept targeting Mach 0.85.</p>
               <span class="dossier-link">View Report & Model &rarr;</span>
             </div>
           </div>
@@ -1047,10 +1048,10 @@ Twist3 = (180/pi)*(Ss*q_matrix*F3*IntMx)./(2*A_full*G_sk*T_sk);
 %     dataOut2(i,12) = Sxx2(i);         % Stringer (#2) Axial Stress (lb/in^2) 
 %     dataOut2(i,13) = Sxx3(i);         % Stringer (#3) Axial Stress (lb/in^2) 
 %     dataOut2(i,14) = Sxx4(i);         % Stringer (#4) Axial Stress (lb/in^2) 
-%     dataOut2(i,15) = Tau_12(i);       % Skin Panel (1.2) Shear Stress (lb/in^2) 
-%     dataOut2(i,16) = Tau_23(i);       % Skin Panel (2.3) Shear Stress (lb/in^2) 
-%     dataOut2(i,17) = Tau_34(i);       % Skin Panel (3.4) Shear Stress (lb/in^2) 
-%     dataOut2(i,18) = Tau_41(i);       % Skin Panel (4.1) Shear Stress (lb/in^2)
+%     dataOut2(i,15) = Skin Panel (1.2) Shear Stress (lb/in^2) 
+%     dataOut2(i,16) = Skin Panel (2.3) Shear Stress (lb/in^2) 
+%     dataOut2(i,17) = Skin Panel (3.4) Shear Stress (lb/in^2) 
+%     dataOut2(i,18) = Skin Panel (4.1) Shear Stress (lb/in^2)
 %     dataOut2(i,19) = Displacement - X Direction (inch) 
 %     dataOut2(i,20) = Disp_Y(i);       % Displacement - Y Direction (inch)
 %     dataOut2(i,21) = Disp_Z(i);       % Displacement - z Direction (inch) 
@@ -1162,8 +1163,7 @@ end
             data-images="assets/4pistonengine.jpg"
             data-skills="SolidWorks,Mechanical Design,Assemblies,Kinematics"
             data-model="assets/piston_engine.glb"
-            data-video="assets/Final assembly pistong engine.mp4"
-            data-pdf="assets/engine_cad_report.pdf">
+            data-video="assets/Final assembly pistong engine.mp4">
 
             <div class="project-html-desc" style="display: none;">
               <h3>Executive Summary</h3>
@@ -1183,7 +1183,7 @@ end
               <span class="micro-label">// HRD-05</span>
               <h3>4-Piston Engine CAD</h3>
               <p>Mechanical Design & Kinematics.</p>
-              <span class="dossier-link">View Report & Model &rarr;</span>
+              <span class="dossier-link">View Model &rarr;</span>
             </div>
           </div>
 

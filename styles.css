@@ -33,14 +33,14 @@ body { font-family: var(--font-body); background-color: var(--bg); color: var(--
 h1, h2, h3, .logo { font-family: var(--font-header); letter-spacing: -0.04em; }
 
 /* COMPACT H1 to prevent layout pushing */
-h1 { font-size: clamp(2.5rem, 4.5vw, 4.5rem); font-weight: 500; line-height: 1.05; margin-bottom: 0.5rem; color: var(--light);}
+h1 { font-size: clamp(2.5rem, 4.5vw, 4.5rem); font-weight: 500; line-height: 1.05; margin-bottom: 0; color: var(--light);}
 
-.subtitle { color: var(--muted); font-weight: 400; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.5rem; }
+.subtitle { color: var(--muted); font-weight: 400; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0; }
 p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
 .micro-label { font-family: 'Courier Prime', monospace; font-size: 0.75rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 1.5rem; display: block; }
 
 /* Pre-reserve space so the typing effect doesn't push down the buttons */
-.hero-text { margin-bottom: 1rem; min-height: 90px; } 
+.hero-text { margin-bottom: 0; min-height: 100px; } 
 
 /* Terminal Cursor */
 .terminal-cursor { display: inline-block; width: 8px; font-weight: bold; color: var(--light); animation: blink 1s step-end infinite; margin-left: 4px; }
@@ -82,8 +82,8 @@ p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
    ========================================= */
 .sidebar {
   width: 35%; height: 100vh; position: sticky; top: 0;
-  padding: 2.5rem 2.5rem; display: flex; flex-direction: column; gap: 1.5rem;
-  justify-content: space-between; z-index: 20;
+  padding: 3rem 2.5rem; display: flex; flex-direction: column;
+  z-index: 20;
   background: #030303; 
   border-right: 1px solid var(--border-color);
   overflow-y: auto;
@@ -92,16 +92,26 @@ p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
 }
 .sidebar::-webkit-scrollbar { display: none; }
 .content-stream { width: 65%; padding: 0; }
-.logo-text { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; color: var(--light); display: inline-block; margin-bottom: 1rem;}
 
-.hero-content { margin-top: 1rem; }
+.sidebar-top {
+  display: flex; flex-direction: column; gap: 1.5rem;
+}
+
+.logo-text { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; color: var(--light); display: inline-block;}
+
+.hero-content {
+  display: flex; flex-direction: column; gap: 1.2rem; margin-top: 1rem; 
+}
 
 .sidebar-actions { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem; flex-shrink: 0;}
-.audio-btn { background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid var(--border-color);}
-.audio-btn:hover { background: rgba(255,255,255,0.1); color: var(--light);}
 
-.nav-menu { list-style: none; margin-bottom: 0.5rem; width: 100%; }
-.nav-menu li { margin-bottom: 0.2rem; }
+.sidebar-bottom {
+  margin-top: 3rem; /* Decent spacing from the text to the list */
+  display: flex; flex-direction: column; gap: 1.5rem;
+}
+
+.nav-menu { list-style: none; width: 100%; display: flex; flex-direction: column; gap: 0.2rem;}
+.nav-menu li { margin-bottom: 0; }
 .nav-menu a {
   position: relative; display: flex; align-items: center; padding: 0.6rem 1rem; border-radius: 8px;
   text-decoration: none; font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: rgba(255,255,255,0.4);
@@ -115,8 +125,10 @@ p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
   .app-layout { flex-direction: column; }
   .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border-color); padding: 2rem; overflow-y: visible;}
   .content-stream { width: 100%; }
+  .hero-text { min-height: 70px; } /* Let it flow naturally on mobile */
+  .sidebar-bottom { margin-top: 0; gap: 1.5rem; }
   .nav-menu { display: none; } 
-  .sidebar-actions { flex-direction: row; }
+  .sidebar-actions { flex-direction: row; margin-top: 1rem;}
 }
 
 /* =========================================
@@ -178,7 +190,15 @@ p { font-size: 1rem; line-height: 1.6; color: var(--muted); font-weight: 300; }
 .horizontal-timeline::-webkit-scrollbar { height: 6px; }
 .horizontal-timeline::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
 .horizontal-timeline::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
-.timeline-card { scroll-snap-align: start; min-width: 260px; max-width: 280px; flex-shrink: 0; padding: 2.5rem; transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); cursor: grab; }
+.timeline-card { 
+  scroll-snap-align: start; 
+  min-width: 350px; /* Increased to make boxes wider */
+  max-width: 400px; /* Increased to allow text to spread out */
+  flex-shrink: 0; 
+  padding: 2.5rem; 
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+  cursor: grab; 
+}
 .timeline-card:active { cursor: grabbing; }
 .timeline-card:hover { transform: translateY(-5px); }
 .timeline-card h3 { font-size: 1.1rem; color: var(--light); margin-bottom: 0.5rem; }
