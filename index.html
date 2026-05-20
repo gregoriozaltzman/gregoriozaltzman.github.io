@@ -98,6 +98,7 @@
             <div class="skills-list">
               <span>SolidWorks</span>
               <span>SolidWorks Flow Simulation</span>
+              <span>Ansys Fluent</span>
               <span>OpenVSP</span>
               <span>AVL</span>
               <span>XFLR5</span>
@@ -113,6 +114,7 @@
             <div class="skills-list">
               <span>MATLAB</span>
               <span>Python</span>
+              <span>Multidisciplinary Design Optimization (MDO)</span>
               <span>Aerodynamic Sizing & Trade Studies</span>
               <span>Constraint Analysis</span>
               <span>Drag Build-Up Methods</span>
@@ -162,7 +164,7 @@
           <div class="timeline-card chamfer-box glass-panel dynamic-glow"> 
             <h3>May 2025</h3>
             <h4>Promoted — Service Desk Lead</h4>
-            <p>Helped lead a 60+ member technician team, overseeing daily campus-wide IT operations, complex troubleshooting, and cross-departmental  coordination. Drove long-term organizational growth by facilitating staff training, supporting the hiring pipeline, managing documentation.</p>
+            <p>Helped lead a 60+ member technician team, overseeing daily campus-wide IT operations, complex troubleshooting, and cross-departmental coordination. Drove long-term organizational growth by facilitating staff training, supporting the hiring pipeline, managing documentation.</p>
           </div>
 
           <div class="timeline-card chamfer-box glass-panel dynamic-glow">
@@ -178,9 +180,15 @@
           </div>
 
           <div class="timeline-card chamfer-box glass-panel dynamic-glow">
+            <h3>Jan 2026</h3>
+            <h4>Senior Design Capstone — BWB</h4>
+            <p>Served as Chief Engineer for an ultra-efficient Blended Wing Body commercial airliner concept. Led cross-functional efforts spanning gradient-free aerodynamic optimization, unconventional structural layout, aft-propulsion integration, direct operating cost analysis, and dynamic stability, culminating in a fully verified 3D CAD model.</p>
+          </div>
+
+          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
             <h3>Present</h3>
-            <h4>Senior Design Capstone</h4>
-            <p>Serving as Chief Engineer for an ultra-efficient Blended Wing Body commercial airliner concept. Leading cross-functional efforts spanning gradient-free aerodynamic optimization, unconventional structural layout, aft-propulsion integration, direct operating cost analysis, and dynamic stability, culminating in a fully verified 3D CAD model.</p>
+            <h4>Chief Engineer — Project Citadel</h4>
+            <p>Serving as Chief Engineer for a profit-maximizing RC aircraft project. Leading a multidisciplinary team through rigorous gradient-based design optimization (MDO), aerodynamic analysis, and the physical manufacturing of a high-payload tube-and-wing configuration featuring a custom mid-flight payload deployment system.</p>
           </div>
         </div>
       </section>
@@ -271,9 +279,58 @@
               <img src="assets/bwb.jpg" class="parallax-img" alt="BWB Render">
             </div>
             <div class="dossier-info chamfer-box glass-panel offset-left">
-              <span class="micro-label">// HRD-01</span>
+              <span class="micro-label">// HRD-01A</span>
               <h3>BWB Airliner Concept "Manta"</h3>
               <p>Ultra-efficient commercial aircraft concept targeting Mach 0.85.</p>
+              <span class="dossier-link">View Report & Model &rarr;</span>
+            </div>
+          </div>
+
+          <div class="dossier-card bento-large stagger-reveal project-click-target dynamic-glow"
+            data-title="RC Aircraft Concept 'Citadel'"
+            data-images="assets/citadel.jpg"
+            data-skills="MDO,Python,Neural Foil,XFLR5,XFOIL,SolidWorks"
+            data-pdf="assets/MAE155B_DDR.pdf"
+            data-model="assets/citadel.glb">
+          
+            <div class="project-html-desc" style="display: none;">
+              <h3>Executive Summary</h3>
+              <p>Detailed design of a profit-maximizing RC aircraft, "Citadel", featuring a conventional tube-and-wing architecture. The design prioritizes volume payload capacity with a secondary emphasis on minimizing flight time and maximizing weight payload.</p>
+              
+              <h3>Design Optimization & Analysis</h3>
+              <ul>
+                <li><strong>Multidisciplinary Design Optimization (MDO):</strong> Employed a gradient-based solver in Python (JAX, modOpt, IPOPT) to evaluate 24 constraints across aerodynamics, stability, electrical, and physical packaging to maximize profit ($/hr).</li>
+                <li><strong>Sensitivity Analysis:</strong> Sampled the design space 1e9 times via Monte Carlo simulation, using a Spearman Rank Correlation to prove volume payload and flight time as the most influential parameters.</li>
+                <li><strong>Aerodynamics:</strong> Utilized a high-lift S1223 airfoil optimized via Neural Foil to maximize lift and aerodynamic efficiency, extrapolated to 3D using Prandtl's lifting line correction.</li>
+              </ul>
+              
+              <h3>Key Engineering Decisions</h3>
+              <ul>
+                <li><strong>Payload Deployment:</strong> Implemented a twin-bay door deployment system powered by dual servos to release a large 6.25 L volume payload mid-flight.</li>
+                <li><strong>Structures:</strong> Built-up wooden fuselage with 14 equidistant ribs, supported by carbon-fiber rods and spruce spars to prevent buckling, coupled with an XPS foam wing.</li>
+                <li><strong>Propulsion:</strong> Integrated a SunnySky X2216 V3 brushless motor with a 10x7E APC propeller, enclosed by a 3D-printed PLA nosecone for drag reduction.</li>
+              </ul>
+              
+              <h3>Technical Specifications</h3>
+              <table class="spec-table">
+                <tr><td>Gross Weight</td><td>20.02 N</td></tr>
+                <tr><td>Volume Payload</td><td>6.234 L</td></tr>
+                <tr><td>Weight Payload</td><td>5.77 N</td></tr>
+                <tr><td>Wingspan</td><td>1.184 m</td></tr>
+                <tr><td>Cruise L/D</td><td>8.39</td></tr>
+                <tr><td>Thrust-to-Weight (T/W)</td><td>0.19</td></tr>
+                <tr><td>Wing Loading (W/S)</td><td>100 N/m²</td></tr>
+                <tr><td>Propeller Size</td><td>10x7E</td></tr>
+              </table>
+            </div>
+          
+            <div class="dossier-image cinematic-wide">
+              <img src="assets/citadel.jpg" class="parallax-img" alt="Citadel RC Aircraft Render">
+            </div>
+            <div class="dossier-info chamfer-box glass-panel offset-right">
+              <span class="micro-label">// HRD-01B</span>
+              <h3>RC Aircraft "Citadel"</h3>
+              <p>Profit-maximizing MDO design and physical build.</p>
               <span class="dossier-link">View Report & Model &rarr;</span>
             </div>
           </div>
@@ -306,774 +363,17 @@
               </ul>
             </div>
 
-<textarea class="project-code" style="display: none;">
-function [name, PID, dataOut1, dataOut2] = Wing_Analysis_Function(dataIn);
-% + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-% +
-% +  SE-160A:  Aerospace Structural Analysis I
-% +
-% +  Project: (2) Wing Analysis
-% +
-% +  Title:   Wing_Analysis_Function
-% +  Author:  Student Name
-% +  PID:     Student PID
-% +  Version: (01) 02/14/2025
-% +           (02) 02/22/2025
-% +
-% +  This function is the primary analysis function for the wing analysis 
-% +  program.  All of the input data is brought into the function using 
-% +  "dataIn". Next all the calculations are performed.  Finally, the 
-% +  calculated results are written to "dataOut1" and "dataOut2", where 
-% +  these two data sets are sent to the main program (p-code) where it is 
-% +  written and plotted in an Excel output file.
-% +
-% +  SUMMARY OF WING ANALYSIS
-% +
-% +  A) SECTION PROPERTIES
-% +     A.1) Modulus Weighted Section Properties (yc, zc, EA, EIyy, EIzz, EIyz)
-% +     A.2) Torsion Constant (GJ)
-% +     A.3) Shear Center Location (ysc, zsc)
-% +     A.4) Total Half Span Wing Weight (lb)
-% +
-% +  B) LOADS
-% +     B.1) Concentrated Loads (Px, Py, Pz, Mx, My, Mz)
-% +     B.2) Distributed Aerodynamic Loads (lift, drag, moment)
-% +     B.3) Maneuvering Loads (distributed weight)
-% +     B.4) Wing Root Reactions - Axial, Shear, Torque, and Moment 
-% +     B.5) Distributed Wing Internal Axial, Shear, Bend Moments, Torque
-% +
-% +  C) INTERNAL STRESSES
-% +     C.1) Wing Root Axial Stress (sxx) and Shear Stress (txs)
-% +     C.2) Allowable Stress, and Root Margin of Safety
-% +     C.3) Distributed Wing Axial Stress (sxx) Plot
-% +     C.4) Distributed Wing Shear Stress (tau) Plot
-% +
-% +  D) WING TIP DISPLACEMENTS, TWIST, AND BENDING SLOPES
-% +     D.1) Distributed Wing X-direction (Axial) Displacement 
-% +     D.2) Distributed Wing Y-direction (Drag ) Displacement 
-% +     D.2) Distributed Wing Z-direction (Lift ) Displacement 
-% +     D.3) Distributed Wing Twist Rotation
-% +     D.4) Distributed Wing Bending Slopes (dv/dx, dw/dx)
-% +
-% +  Input Data Array: dataIn (57)
-% +     dataIn(01):     Number of Output Plot Data Points (nplot)
-% +     dataIn(02):     Wing Length (inch)
-% +     dataIn(03):     Wing Chord  (inch)
-% +     dataIn(04):     Maximum Wing Thickness (% of chord)
-% +     dataIn(05):     Secondary Structure Added Wing Weight (% of distributed weight)
-% +     dataIn(06):     Wing Skin Thickness (inch)
-% +     dataIn(07):     Wing Skin Weight Density (lb/in^3)
-% +     dataIn(08):     Skin Material Shear Modulus (Msi)
-% +     dataIn(09):     Skin Material Yield Strength - Shear (Ksi)
-% +     dataIn(10):     Skin Material Ultimate Strength - Shear (Ksi)
-% +     dataIn(11):     Stringers #1 and #2: Y-location (% of chord)   
-% +     dataIn(12):     Stringers #1 and #2: Section area (A) (inch^2)
-% +     dataIn(13):     Stringers #1 and #2: Section inertia about y-axis (Iyy) (inch^4)  
-% +     dataIn(14):     Stringers #1 and #2: Section inertia about z-axis (Izz) (inch^4)  
-% +     dataIn(15):     Stringers #1 and #2: Section product of inertia   (Iyz) (inch^4)
-% +     dataIn(16):     Stringers #1 and #2: Weight density (lb/in^3)
-% +     dataIn(17):     Stringers #1 and #2: Young's modulus                 (Msi)
-% +     dataIn(18):     Stringers #1 and #2: Yield strength    - tension     (Ksi)
-% +     dataIn(19):     Stringers #1 and #2: Ultimate strength - tension     (Ksi)
-% +     dataIn(20):     Stringers #1 and #2: Yield strength    - comptrddion (Ksi)
-% +     dataIn(21):     Stringers #1 and #2: Ultimate strength - compression (Ksi)
-% +     dataIn(22):     Stringers #3 and #4: Y-location (% of chord)   
-% +     dataIn(23):     Stringers #3 and #4: Section area (A) (inch^2)
-% +     dataIn(24):     Stringers #3 and #4: Section inertia about y-axis (Iyy) (inch^4)  
-% +     dataIn(25):     Stringers #3 and #4: Section inertia about z-axis (Izz) (inch^4)  
-% +     dataIn(26):     Stringers #3 and #4: Section product of inertia   (Iyz) (inch^4)
-% +     dataIn(27):     Stringers #3 and #4: Weight density (lb/in^3)
-% +     dataIn(28):     Stringers #3 and #4: Young's modulus                 (Msi)
-% +     dataIn(29):     Stringers #3 and #4: Yield strength    - tension     (Ksi)
-% +     dataIn(30):     Stringers #3 and #4: Ultimate strength - tension     (Ksi)
-% +     dataIn(31):     Stringers #3 and #4: Yield strength    - comptrddion (Ksi)
-% +     dataIn(32):     Stringers #3 and #4: Ultimate strength - compression (Ksi)
-% +     dataIn(33):     Safety Factor - Yield
-% +     dataIn(34):     Safety Factor - Ultimate
-% +     dataIn(35):     First Load Location  - X (% of Length)
-% +     dataIn(36):     Concentrated Force   - X Direction (lb)
-% +     dataIn(37):     Concentrated Force   - Y Direction (lb)
-% +     dataIn(38):     Concentrated Force   - Z Direction (lb) 
-% +     dataIn(39):     Concentrated Torque  - About X Direction (lb-in)
-% +     dataIn(40):     Concentrated Moment  - About Y Direction (lb-in)
-% +     dataIn(41):     Concentrated Moment  - About Z Direction (lb-in)
-% +     dataIn(42):     Second Load Location - X (% of Length)
-% +     dataIn(43):     Concentrated Force   - X Direction (lb)
-% +     dataIn(44):     Concentrated Force   - Y Direction (lb)
-% +     dataIn(45):     Concentrated Force   - Z Direction (lb) 
-% +     dataIn(46):     Concentrated Torque  - About X Direction (lb-in)
-% +     dataIn(47):     Concentrated Moment  - About Y Direction (lb-in)
-% +     dataIn(48):     Concentrated Moment  - About Z Direction (lb-in)
-% +     dataIn(49):     Aircraft Load Factor
-% +     dataIn(50):     Drag Distribution - Constant (lb/in)
-% +     dataIn(51):     Drag Distribution - rth order (lb/in)
-% +     dataIn(52):     Drag Distribution - polynomial order
-% +     dataIn(53):     Lift Distribution - Constant (lb/in)
-% +     dataIn(54):     Lift Distribution - 2nd Order (lb/in)
-% +     dataIn(55):     Lift Distribution - 4th Order (lb/in)
-% +     dataIn(56):     Twist Moment Distribution - Constant (lb-in/in)
-% +     dataIn(57):     Twist Moment Distribution - 1st Order (lb-in/in)
-% +
-% +  Output Data
-% +   Name:              Name of author of this analysis function            
-% +   PID:               UCSD Student ID number of author
-% +   dataOut1:          Packed calculated output variable data
-% +     dataOut1(01):   Modulus Weighted Centroid y-direction (inch)
-% +     dataOut1(02):   Modulus Weighted Centroid z-direction (inch)
-% +     dataOut1(03):   Cross-Section Weight rho*A (lb/in)
-% +     dataOut1(04):   Axial   Stiffness EA   (lb)
-% +     dataOut1(05):   Bending Stiffness EIyy (lb-in^2)   
-% +     dataOut1(06):   Bending Stiffness EIzz (lb-in^2)   
-% +     dataOut1(07):   Bending Stiffness EIyz (lb-in^2)   
-% +     dataOut1(08):   Torsion Stiffness GJ   (lb-in^2)
-% +     dataOut1(09):   Shear Center, y-direction (inch)
-% +     dataOut1(10):   Shear Center, z-direction (inch)
-% +     dataOut1(11):   Total Half-Span Wing Weight including added weight factor (lb)
-% +     dataOut1(12):   Root Internal Force - X Direction (lb)
-% +     dataOut1(13):   Root Internal Force - Y Direction (lb)
-% +     dataOut1(14):   Root Internal Force - Z Direction (lb)
-% +     dataOut1(15):   Root Internal Moment - about X Direction (lb-in)
-% +     dataOut1(16):   Root Internal Moment - about Y Direction (lb-in)
-% +     dataOut1(17):   Root Internal Moment - about Z Direction (lb-in)
-% +     dataOut1(18):   Stringer (#1) Calculated Axial Stress (lb/in^2)
-% +     dataOut1(19):   Stringer (#1) Allowable Stress - Tension (lb/in^2)
-% +     dataOut1(20):   Stringer (#1) Allowable Stress - Compression (lb/in^2)
-% +     dataOut1(21):   Stringer (#1) Margin of Safety
-% +     dataOut1(22):   Stringer (#2) Calculated Axial Stress (lb/in^2)
-% +     dataOut1(23):   Stringer (#2) Allowable Stress - Tension (lb/in^2)
-% +     dataOut1(24):   Stringer (#2) Allowable Stress - Compression (lb/in^2)
-% +     dataOut1(25):   Stringer (#2) Margin of Safety
-% +     dataOut1(26):   Stringer (#3) Calculated Axial Stress (lb/in^2)
-% +     dataOut1(27):   Stringer (#3) Allowable Stress - Tension (lb/in^2)
-% +     dataOut1(28):   Stringer (#3) Allowable Stress - Compression (lb/in^2)
-% +     dataOut1(29):   Stringer (#3) Margin of Safety
-% +     dataOut1(30):   Stringer (#4) Calculated Axial Stress (lb/in^2)
-% +     dataOut1(31):   Stringer (#4) Allowable Stress - Tension (lb/in^2)
-% +     dataOut1(32):   Stringer (#4) Allowable Stress - Compression (lb/in^2)
-% +     dataOut1(33):   Stringer (#4) Margin of Safety
-% +     dataOut1(34):   Skin Panel (1.2) Calculated Shear Stress (lb/in^2)
-% +     dataOut1(35):   Skin Panel (1.2) Allowable Stress - Shear (lb/in^2)
-% +     dataOut1(36):   Skin Panel (1.2) Margin of Safety
-% +     dataOut1(37):   Skin Panel (2.3) Calculated Shear Stress (lb/in^2)
-% +     dataOut1(38):   Skin Panel (2.3) Allowable Stress - Shear (lb/in^2)
-% +     dataOut1(39):   Skin Panel (2.3) Margin of Safety
-% +     dataOut1(40):   Skin Panel (3.4) Calculated Shear Stress (lb/in^2)
-% +     dataOut1(41):   Skin Panel (3.4) Allowable Stress - Shear (lb/in^2)
-% +     dataOut1(42):   Skin Panel (3.4) Margin of Safety
-% +     dataOut1(43):   Skin Panel (4.1) Calculated Shear Stress (lb/in^2)
-% +     dataOut1(44):   Skin Panel (4.1) Allowable Stress - Shear (lb/in^2)
-% +     dataOut1(45):   Skin Panel (4.1) Margin of Safety
-% +     dataOut1(46):   Tip Displacement  - X Direction (inch)
-% +     dataOut1(47):   Tip Displacement  - Y Direction (inch)
-% +     dataOut1(48):   Tip Displacement  - Z Direction (inch)
-% +     dataOut1(49):   Tip Twist (degree)
-% +     dataOut1(50):   Tip Bending Slope (dv/dx) (inch/inch)
-% +     dataOut1(51):   Tip Bending Slope (dw/dx) (inch/inch)
-% +
-% +   dataOut2(nplot,24):  Packed calculated output plot data
-% +     column( 1):     X direction coordinate (inch)
-% +     column( 2):     Applied distributed drag force (lb/in)   
-% +     column( 3):     Applied distributed lift force (lb/in)   
-% +     column( 4):     Applied distributed torque (lb-in/in)   
-% +     column( 5):     Internal shear force  - Vx (lb)   
-% +     column( 6):     Internal shear force  - Vy (lb)   
-% +     column( 7):     Internal shear force  - Vz (lb)   
-% +     column( 8):     Internal axial torque - Mx (lb-in)
-% +     column( 9):     Internal bending moment - My (lb-in)
-% +     column(10):     Internal bending moment - Mz (lb-in)
-% +     column(11):     Stringer (#1) Axial Stress (lb/in^2) 
-% +     column(12):     Stringer (#2) Axial Stress (lb/in^2) 
-% +     column(13):     Stringer (#3) Axial Stress (lb/in^2) 
-% +     column(14):     Stringer (#4) Axial Stress (lb/in^2) 
-% +     column(15):     Skin Panel (1.2) Shear Stress (lb/in^2) 
-% +     column(16):     Skin Panel (2.3) Shear Stress (lb/in^2) 
-% +     column(17):     Skin Panel (3.4) Shear Stress (lb/in^2) 
-% +     column(18):     Skin Panel (4.1) Shear Stress (lb/in^2)
-% +     column(19):     Displacement - X Direction (inch) 
-% +     column(20):     Displacement - Y Direction (inch) 
-% +     column(21):     Displacement - z Direction (inch) 
-% +     column(22):     Twist (Twist1 + Twist2 + Twist3) (degree)
-% +     column(23):     Bending Slope (dv/dx) (inch/inch)
-% +     column(24):     Bending Slope (dw/dx) (inch/inch)
-% +     column(25):     Twist1 (Twist from Vy only)  (degree)
-% +     column(26):     Twist2 (Twist from Vz only)  (degree)
-% +     column(27):     Twist3 (Twist from Mx only)  (degree)
-% +
-% + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-% .  SECTION (#1): Unpack Input Data Array and Write User Name and PID
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-   disp('     (1) Unpack Input Data and Write User Name and PID')
-
-   nplot    = dataIn( 1);              % number of output plot data points
-   Lo       = dataIn( 2);              % Wing Length (inch)
-   Co       = dataIn( 3);              % Wing Chord  (inch)
-   tmax     = dataIn( 4)*Co/100;       % Maximum Wing Thickness (inch)
-   Kaw      = dataIn( 5);              % Secondary Structure Added Weight (% of wing weight)
-
-   T_sk     = dataIn( 6);              % Wing Skin Thickness (inch)
-   rho_sk   = dataIn( 7);              % Wing Skin Weight Density (lb/inch^3)
-   G_sk     = dataIn( 8)*(1000000.);   % Skin Material Shear Modulus (lb/in^2)
-   Tau_y_sk = dataIn( 9)*(   1000.);   % Skin Material Yield Shear Strength (lb/in^2)
-   Tau_u_sk = dataIn(10)*(   1000.);   % Skin Material Ultimate Shear Strength (lb/in^2)
-
-   Yo(1)    = dataIn(11)*Co/100;       % Stringer #1 Y-location (inch)
-   Zo(1)    = tmax/2.;                 % Stringer #1 Z-location (inch)
-   As(1)    = dataIn(12);              % Stringer #1 Cross-Section Area (inch^2)
-   Iyys(1)  = dataIn(13);              % Stringer #1 Iyy Inertia about the y-axis (inch^4)
-   Izzs(1)  = dataIn(14);              % Stringer #1 Izz Inertia about the z-axis (inch^4)
-   Iyzs(1)  = dataIn(15);              % Stringer #1 Iyz Product of Inertia (inch^4)
-   rhos(1)  = dataIn(16);              % Stringer #1 Weight Density (lb/inch^3)
-   Es(1)    = dataIn(17)*(1000000.);   % Stringer #1 Young's Modulus (lb/in^2)
-   SyTs(1)  = dataIn(18)*(   1000.);   % Stringer #1 Yield Strength    - Tension (lb/in^2)
-   SuTs(1)  = dataIn(19)*(   1000.);   % Stringer #1 Ultimate Strength - Tension (lb/in^2)
-   SyCs(1)  = dataIn(20)*(   1000.);   % Stringer #1 Yield Strength    - Compression (lb/in^2)
-   SuCs(1)  = dataIn(21)*(   1000.);   % Stringer #1 Ultimate Strength - Compression (lb/in^2)
-
-   Yo(2)    = dataIn(11)*Co/100;       % Stringer #2 Y-location (inch)
-   Zo(2)    =-tmax/2.;                 % Stringer #2 Z-location (inch)
-   As(2)    = dataIn(12);              % Stringer #2 Cross-Section Area (inch^2)
-   Iyys(2)  = dataIn(13);              % Stringer #2 Iyy Inertia about the y-axis (inch^4)
-   Izzs(2)  = dataIn(14);              % Stringer #2 Izz Inertia about the z-axis (inch^4)
-   Iyzs(2)  = dataIn(15);              % Stringer #2 Iyz Product of Inertia (inch^4)
-   rhos(2)  = dataIn(16);              % Stringer #2 Weight Density (lb/inch^3)
-   Es(2)    = dataIn(17)*(1000000.);   % Stringer #2 Young's Modulus (lb/in^2)
-   SyTs(2)  = dataIn(18)*(   1000.);   % Stringer #2 Yield Strength    - Tension (lb/in^2)
-   SuTs(2)  = dataIn(19)*(   1000.);   % Stringer #2 Ultimate Strength - Tension (lb/in^2)
-   SyCs(2)  = dataIn(20)*(   1000.);   % Stringer #2 Yield Strength    - Compression (lb/in^2)
-   SuCs(2)  = dataIn(21)*(   1000.);   % Stringer #2 Ultimate Strength - Compression (lb/in^2)
-
-   Yo(3)    = dataIn(22)*Co/100;       % Stringer #3 Y-location (inch)
-   Zo(3)    =-tmax/2.;                 % Stringer #3 Z-location (inch) 
-   As(3)    = dataIn(23);              % Stringer #3 Cross-Section Area (inch^2)
-   Iyys(3)  = dataIn(24);              % Stringer #3 Iyy Inertia about the y-axis (inch^4)
-   Izzs(3)  = dataIn(25);              % Stringer #3 Izz Inertia about the z-axis (inch^4)
-   Iyzs(3)  = dataIn(26);              % Stringer #3 Iyz Product of Inertia (inch^4)
-   rhos(3)  = dataIn(27);              % Stringer #3 Weight Density (lb/inch^3)
-   Es(3)    = dataIn(28)*(1000000.);   % Stringer #3 Young's Modulus (lb/in^2)
-   SyTs(3)  = dataIn(29)*(   1000.);   % Stringer #3 Yield Strength    - Tension (lb/in^2)
-   SuTs(3)  = dataIn(30)*(   1000.);   % Stringer #3 Ultimate Strength - Tension (lb/in^2)
-   SyCs(3)  = dataIn(31)*(   1000.);   % Stringer #3 Yield Strength    - Compression (lb/in^2)
-   SuCs(3)  = dataIn(32)*(   1000.);   % Stringer #3 Ultimate Strength - Compression (lb/in^2)
-
-   Yo(4)    = dataIn(22)*Co/100;       % Stringer #4 Y-location (inch)
-   Zo(4)    = tmax/2.;                 % Stringer #4 Z-location (inch) 
-   As(4)    = dataIn(23);              % Stringer #4 Cross-Section Area (inch^2)
-   Iyys(4)  = dataIn(24);              % Stringer #4 Iyy Inertia about the y-axis (inch^4)
-   Izzs(4)  = dataIn(25);              % Stringer #4 Izz Inertia about the z-axis (inch^4)
-   Iyzs(4)  = dataIn(26);              % Stringer #4 Iyz Product of Inertia (inch^4)
-   rhos(4)  = dataIn(27);              % Stringer #4 Weight Density (lb/inch^3)
-   Es(4)    = dataIn(28)*(1000000.);   % Stringer #4 Young's Modulus (lb/in^2)
-   SyTs(4)  = dataIn(29)*(   1000.);   % Stringer #4 Yield Strength    - Tension (lb/in^2)
-   SuTs(4)  = dataIn(30)*(   1000.);   % Stringer #4 Ultimate Strength - Tension (lb/in^2)
-   SyCs(4)  = dataIn(31)*(   1000.);   % Stringer #4 Yield Strength    - Compression (lb/in^2)
-   SuCs(4)  = dataIn(32)*(   1000.);   % Stringer #4 Ultimate Strength - Compression (lb/in^2)
-
-   SFy      = dataIn(33);              % Safety Factor - Yield
-   SFu      = dataIn(34);              % Safety Factor - Ultimate
-
-   x1       = dataIn(35)*Lo/100;       % First Load Location (inch)
-   Fx1      = dataIn(36);              % Concentrated Force - X Direction (lb)
-   Fy1      = dataIn(37);              % Concentrated Force - Y Direction (lb)
-   Fz1      = dataIn(38);              % Concentrated Force - Z Direction (lb)   
-   Mx1      = dataIn(39);              % Concentrated Torque - About X Direction (lb-in)
-   My1      = dataIn(40);              % Concentrated Moment - About Y Direction (lb-in)
-   Mz1      = dataIn(41);              % Concentrated Moment - About Z Direction (lb-in)
-   
-   x2       = dataIn(42)*Lo/100;       % Second Load Location (inch)
-   Fx2      = dataIn(43);              % Concentrated Force - X Direction (lb)
-   Fy2      = dataIn(44);              % Concentrated Force - Y Direction (lb)
-   Fz2      = dataIn(45);              % Concentrated Force - Z Direction (lb)   
-   Mx2      = dataIn(46);              % Concentrated Torque - About X Direction (lb-in)
-   My2      = dataIn(47);              % Concentrated Moment - About Y Direction (lb-in)
-   Mz2      = dataIn(48);              % Concentrated Moment - About Z Direction (lb-in)
-
-   LF       = dataIn(49);              % Aircraft Load Factor
-
-   py0      = dataIn(50);              % Drag Distribution - Constant (lb/in)
-   pyr      = dataIn(51);              % Drag Distribution - rth order (lb/in)
-   rth      = dataIn(52);              % Drag Distribution - polynomial order
-   pz0      = dataIn(53);              % Lift Distribution - Constant (lb/in)
-   pz2      = dataIn(54);              % Lift Distribution - 2nd Order (lb/in)
-   pz4      = dataIn(55);              % Lift Distribution - 4th Order (lb/in)
-   mx0      = dataIn(56);              % Twist Moment Distribution - Constant (lb-in/in)
-   mx1      = dataIn(57);              % Twist Moment Distribution - 1st Order (lb-in/in)
-
-% Define author name and PID (Write in your name and PID)    
-   name     = {'Gregorio Zaltzman'};
-   PID      = {'A17415158'};
-
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-% .  SECTION (#2): Calculate the Centroid, Mass Properties, and Modulus- 
-% .                Weighted Bending Section Properties.  
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-   disp('     (2) Calculate the Centroid and Bending Section Properties')
-
-
-
-%  2.1) Calculate Modulus-Weighted Centroid.  Use stringers only.
-%  --------------------------------------------------------------
-
-EA = sum(Es .* As); % axial stifness 
-
-% Centroid properties
-
-Yc = sum(Lo * rhos * As * Yo) / EA; 
-Zc = sum(Lo * As * rhos * Zo) / EA; 
-
-%  2.2) Calculate Modulus-Weighted Stiffnesses (EIyy, EIzz, EIyz) about 
-%       the modulus weighted centroid.  Use stringers only.
-%  ---------------------------------------------------------------------
-
-  
-EIyy = sum(Es *(Iyys + As*((Zo-Zc).^2)));
-EIzz = sum(Es *(Izzs + As*((Yo-Yc).^2)));
-Eiyz = sum (Es * Iyzs); 
-
-%  2.3) Calculate the cross-section weight (stringers and skin) and the total wing weight
-%  --------------------------------------------------------------------------------------
-
-% elipse properties 
-a = co/4;
-b =tmax/2;
-
-% Cross sectional Areas
-Elipse_Area = pi*a*b/2;
-Flat_Area = tmax * Co/4;
-Linear_Area = (Co/2)*(tmax)/2;
-SA = Linear_Area + Flat_Area + Elipse_Area; % cross sectional area 
-
-% Cross sectional Perimeter
-Elipse_Per = 1/2 * (pi*(3*(a+b) - sqrt((3a+b) * (8a+3b)) ));
-Flat_Peri = 2*Co/4;
-Linear_Peri = 2* sqrt( (tmax/2).^2 + (Co).^2);
-SC = Linear_Peri + Flat_Peri + Elipse_Area; % wing section circumfurence 
-
-rhoA = (sum(rhos .* As) + rho_sk * T_sk * SC) * (1 + Kaw/100); % Cross-Section Weight (lb/inch)
-Weight = rhoA * Lo;
-
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-% .  SECTION (#3): Calculate Root and Distributed Stress Resultants for
-% .                Applied Concentrated Forces and Aerodynamic Loads
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-   disp('     (3) Calculate Root and Distributed Stress Resultants for Applied Loads')
-
-% 3.a) Combine Applied Concentrated Forces (1) and (2).  These loads are at the centroid
-
-% Root forces
-Vxo = Fx1 + Fx2;
-Vyo = Fy1 + Fy2 + Lo * (py0 + pyr / (rth+1) );
-Vzo = Fz1 + Fz2 + Lo * (pz0 + pz2 * (2/3) + pz4 *(4/5) ) - LF * Weight;
-
-% Root Moments
-Mxo = Mx1 + Mx2 - LF * Weight * (Co/2 - Yc) - Lo*(pz0 + pz2/3 + pz4/5)*(Yc - Co/4) + mx0*Lo + (mx1*Lo)/2 - (Fz1+Fz2)*(Yc - Co/4);
-Myo = My1 + My2 - Fz1*x1 - Fz2*x2 + LF * Weight * Lo/2 - (pz0*Lo^2)/2 - (pz2*Lo^2)/4 - (pz4*Lo^2)/6;
-Mzo = Mz1 + Mz2 + Fy1*x1 + Fy2*x2 + (py0*Lo^2)/2 + (pyr*Lo^2)/(rth+2) + (Fx1+Fx2)*(Yc-Co/4);
-
-% 3.b) Applied Aerodynamic Forces (move distributed lift from C/4 to
-%      centroid.  Move distributed weight (nw) from C/2 to centroid.
-
-pz = pz0 + pz2 * (x/Lo).^2 + pz4* (x/Lo).^4 - LF * Weight;
-py = py0 + pyr(x/Lo).^rth;
-px = 0;
-mx = mx0 + mx1*x/Lo - (pz + LF * Weight/Lo)*(Yc - Co/4) - (LF * Weight/Lo) * (Co/2 - Yc);
-my = 0;
-mz = 0;
-
-
-% 3.c) Calculate Distributions for Applied Loads and Internal Stress Resultants
-
-% stress resultant distribution 
-Vx = Vxo;
-Vy = Vyo - (py0 * x + (pyr * x.^(rth+1)) / ((Lo^rth) * (rth+1)));
-Vz = Vzo - (pz0 * x (pz2*x.^3)/3*L0.^2) + (pz4*x.^5)/5*L0.^4 - (LF * Weight * x)/Lo); 
-
-for i = 1:nplot
-    if x(i) > x1 
-       Vx(i) = Vx(i) - Fx1;
-       Vy(i) = Vy(i) - Fy1;
-       Vz(i) = Vz(i) - Fz1;
-    end
-    if x(i) > x2
-       Vx(i) = Vx(i) - Fx2;
-       Vy(i) = Vy(i) - Fy2;
-       Vz(i) = Vz(i) - Fz2; 
-    end
-end
-
-
-
-% moment stress resultant distribution 
-
-% Mx distribution
-Mx = -(mx0 * x + (mx1 * x.^2) / (2 * Lo)) + Mxo ...
-    + (pz0 * x + (pz2 * (x.^3)) / (3 * Lo^2) + (pz4 * (x.^5)) / (5 * Lo^4)) * (Yc - Co / 4) ...
-    - (py0 * x + (pyr * x.^(rth+1)) / ((Lo^rth) * (rth+1))) * Zc ...
-    + (LF * Weight / Lo) * x * (Co / 2 - Yc);
-
-% My distribution
-My = - (pz4 * x.^6) / (30 * Lo^4) - (pz2 * x.^4) / (12 * Lo^2) ...
-    + ((LF * Weight - Lo * pz0) * x.^2) / (2 * Lo) + Vzo * x + Myo;
-
-% Mz distribution 
-Mz = (py0 * x.^2) / 2 + (pyr * (x.^(rth + 2))) / (Lo^rth * (rth + 1) * (rth + 2)) ...
-    - Vyo * x + Mzo;
-
-for i = 1:nplot
-    if x(i) > x1 
-       Mx(i) = Mx(i) - Mx1 + Fz1 * (Yc - Co/4);
-       My(i) = My(i) - My1 - Fz1 * (x(i) - x1);
-       Mz(i) = Mz(i) - Mz1 + Fy1 * (x(i) - x1) - Fx1 * (Yc - Co/4) ;
-    end
-    if x(i) > x2 
-       Mx(i) = Mx(i) - Mx2 + Fz2 * (Yc - Co/4);
-       My(i) = My(i) - My2 - Fz2 * (x(i) -x2);
-       Mz(i) = Mz(i) - Mz2 +Fy2 * (x(i) - x2) - Fx2 * (Yc - Co/4); 
-    end
-end
-
- 
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-% .  SECTION (#4): STRINGER STRESSES: Calculate Allowable Properties, 
-% .                Root Stresses, Margins of Safety, and Stress Distribution
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-   disp('     (4) Calculate Stringer Stress Distribution and Root Margins of Safety')
-
-% 4.1) Calculate root stringer stresses and margins of safety 
-
-% allowable stresses 
-for i = 1:4
-Sat(i) = min(SyTs(i)/SFy, SuTs(i)/SFu);
-Sac(i) = max(SyCs(i)/SFy, SuCs(i)/SFu);
-end
-
-% axial stresses
-for i = 1:4
-Sxxo(i) = Es(i) * (Vxo/EA + ((Myo * abs(Zo(i)-Zc)) / EIyy) + ((Mzo * abs (Yc-Yo(i)))/EIzz));
-end
-
-% margin of safety 
-for i = 1:4
-MSs(i) = Sat(i)/sqrt(Sxxo(i).^2) - 1;
-end
-
-% 4.2) calculate stringer stress distributions 
-
-% axial stress distribution
-
-Sxx1 = Es(1) * (Vx/EA + ((My * abs(Zo(1)-Zc)) / EIyy) + (Mz * abs(Yc-Yo(1))) / EIzz);
-Sxx2 = Es(2) * (Vx/EA - ((My * abs(Zo(2)-Zc)) / EIyy) + (Mz * abs(Yc-Yo(2))) / EIzz);
-Sxx3 = Es(3) * (Vx/EA - ((My * abs(Zo(3)-Zc)) / EIyy) - (Mz * abs(Yc-Yo(3))) / EIzz);
-Sxx4 = Es(4) * (Vx/EA + ((My * abs(Zo(4)-Zc)) / EIyy) - (Mz * abs(Yc-Yo(4))) / EIzz);
-
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-% .  SECTION (#5): WING BENDING DISPLACEMENTS AND SLOPES. Calculate tip 
-% .                values and distributions
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-   disp('     (5) Calculate Wing Bending Displacements and Bending Slope Distributions')
-
-Disp_X = zeros(1, nplot);
-Disp_Y = zeros(1, nplot);
-Disp_Z = zeros(1, nplot);
-Twist = zeros(1, nplot);
-DvDx = zeros(1, nplot);
-DwDx = zeros(1, nplot);
-
-% 5.1) Calculate displacements and slopes for concentrated force (#1)  (Don't include twist)
-
-for i = 1:nplot
-    if x(i) >= x1
-        DvDx(i) = (F1 * (x(i) - x1)) / (E * Izz);
-        Disp_Y(i) = (F1 * (x(i) - x1).^2) / (2 * E * Izz);
-    end
-end
-
-% 5.2) Calculate displacements and slopes for concentrated force (#2)  (Don't include twist)
-
-for i = 1:nplot
-    if x(i) >= x2
-        DvDx(i) = DvDx(i) + (F2 * (x(i) - x2)) / (E * Izz);
-        Disp_Y(i) = Disp_Y(i) + (F2 * (x(i) - x2).^2) / (2 * E * Izz);
-    end
-end
-
-% 5.3) Calculated displacements and slopes for aerodynamic loading (Don't include twist)
-
-for i = 1:nplot
-    DwDx(i) = (pz0 * x(i).^3) / (6 * E * Iyy) + ...
-              (pz2 * x(i).^5) / (120 * E * Iyy * Lo^2) + ...
-              (pz4 * x(i).^7) / (5040 * E * Iyy * Lo^4);
-    
-    Disp_Z(i) = (pz0 * x(i).^4) / (24 * E * Iyy) + ...
-                (pz2 * x(i).^6) / (720 * E * Iyy * Lo^2) + ...
-                (pz4 * x(i).^8) / (40320 * E * Iyy * Lo^4);
-end
-
-% 5.4) Combine displacements, slopes, and twist for concentrated loads and aero loads 
-
-Disp_Y = Disp_Y + (pz0 * x.^4) / (24 * E * Izz) + (pz2 * x.^6) / (720 * E * Izz * Lo^2) + (pz4 * x.^8) / (40320 * E * Izz * Lo^4);
-Twist = Twist_0 + (Mx / (G * J)) * x; % Assuming linear twist distribution
-
-
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-% .  SECTION (#6): SHEAR STUDIES:  Torsion and Transverse Loading. Calculatemx
-% .                shear flow, shear stresses, and margin of safety.
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-   disp('     (6) Calculate Shear Flow, Shear Stresses, and Margins of Safety')
-
-%  6.1) Preliminaries:  Calculate the leading edge ellipse area, perimeter,
-%       and torsion constant (GJ)
-
-% rest is in section 2.2
-GJ = (4*G_sk*(A_airfoil^2)*T_sk)/S; % Torsion Stiffness 
-
-%  6.2) Shear Flow Analysis
-EA1y = Es(1) * As(1) * (Yo(1) - Yc);
-EA2y = Es(2) * As(2) * (Yo(2) - Yc);
-EA3y = Es(3) * As(3) * (Yo(3) - Yc);
-EA4y = Es(4) * As(4) * (Yo(4) - Yc);
-
-EA1z = Es(1) * As(1) * (Zo(1) - Zc);
-EA2z = Es(2) * As(2) * (Zo(2) - Zc);
-EA3z = Es(3) * As(3) * (Zo(3) - Zc);
-EA4z = Es(4) * As(4) * (Zo(4) - Zc);
-
-% Shear Force Contributions (Including EA1)
-F1 = [EA1y / Izz; EA2y / Izz; EA3y / Izz; EA4y / Izz; -Zc];
-F2 = [EA1z / Iyy; EA2z / Iyy; EA3z / Iyy; EA4z / Iyy; Yc - Co/4];
-F3 = [0; 0; 0; 0; 1];
-forces = [Vy; Vz; Mx];
-
-% Define the Jump Matrix
-jump = [F1 F2 F3];
-
-% Define Cross-Sectional Areas for Shear Flow Computation
-A12 = 0.5 * pi * a * b + tmax * (Yo(1) - a);
-A23 = 0.5 * tmax * abs(Yo(1) - Yo(3));
-A34 = 0.5 * tmax * 0.5 * Co + tmax * abs(Co/2 - Yo(3));
-A41 = A23;
-
-A_matrix = [A12 A23 A34 A41]; % Already multiplied by 2 for consistency
-
-% Define Shear Flow Coefficient Matrix
-q_matrix = [1 -1 0 0; 
-            0  1 -1 0; 
-            0  0  1 -1; 
-            2 * A_matrix];
-
-% Solve for Shear Flows
-q_shear = q_matrix \ (jump * forces);
-
-
-   %  Calculate the unit shear flows for the three cases (Vy, Vz, Mx) separately:
-
-
-   %  Calculate the shear stress distribution along the length from (Mx), (Vy), and (Vz)
-
-
-   %  Calculate the skin shear allowable stress and margin of safety (MS)
-   %  at the root
-
-Tau_allow_sk12 = min(Tau_u_sk / SFu, Tau_y_sk / SFy); % ksi
-Tau_allow_sk23 = Tau_allow_sk12;
-Tau_allow_sk34 = Tau_allow_sk12;
-Tau_allow_sk41 = Tau_allow_sk12;
-
-% Solve for Shear Flows (Assuming q_shear is computed already)
-Tau_12 = q_shear(1) / t_skin; % ksi
-Tau_23 = q_shear(2) / t_skin; % ksi
-Tau_34 = q_shear(3) / t_skin; % ksi
-Tau_41 = q_shear(4) / t_skin; % ksi
-
-% Compute Margin of Safety (MS) for Each Panel
-MS_sk12 = (Tau_allow_sk12 / Tau_12) - 1;
-MS_sk23 = (Tau_allow_sk23 / Tau_23) - 1;
-MS_sk34 = (Tau_allow_sk34 / Tau_34) - 1;
-MS_sk41 = (Tau_allow_sk41 / Tau_41) - 1;
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-% .  SECTION (#7): SHEAR STUDIES:  Torsion and Transverse Loading. Calculate
-% .                the twist distribution and tip twist.
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-   disp('     (7) Calculate the Twist Distribution and Tip Twist')
-
-% 7.1) Calculate the integrated (Vy, Vz, Mx) for applied concentrated force
-%      (#1) and (#2) and aero loading
-
-Int_py_moments = (py0 * x.^2) / 2 + (pyr * x.^(rth+2)) ./ ((Lo^rth) * (rth+1) * (rth+2));
-Int_pz_moments = (pz0 * x.^2) / 2 + (pz2 * x.^4) / (12 * Lo^2) + (pz4 * x.^6) / (30 * Lo^4);
-
-% Integrated Shear Forces
-IntVy = Vyo * x - Int_py_moments;
-IntVz = Vzo * x - Int_pz_moments - (LF * W_wing / Lo) * (x.^2) / 2;
-
-% Integrated Bending Moment
-IntMx = Mxo * x - (mx0 * x.^2) / 2 - (mx1 * x.^3) / (6 * Lo) ...
-        + (LF * W_wing / Lo) * (x.^2) * (Co/2 - Yc) / 2 ...
-        + Int_pz_moments * (Yc - Co/4) - Int_py_moments * Zc;
-
-% Store Continuity Matrices for Calculation
-Vycont = [IntVy; zeros(nplot); zeros(nplot)];
-Vzcont = [zeros(nplot); IntVz; zeros(nplot)];
-Mxcont = [zeros(nplot); zeros(nplot); IntMx];
-
-% lb
-% int2_py_moments = py0*(x.^2)/2 + (pyr*x.^(rth+2))/((Lo^rth)*(rth+1)*(rth+2)); %lb
-% IntVy = Vyo*x - (py0*(x.^2)/2 + (pyr*x.^(rth+2))/((Lo^rth)*(rth+1)*(rth+2)));
-% IntVz = Vzo*x - (pz0*(x.^2)/2 + (pz2*(x.^4))/(12*Lo^2) + (pz4*(x.^6))/(30*Lo^4) -
-% (LF*W_wing/Lo)*(x.^2)/2);
-% IntMx = Mxo*x -(mx0*(x.^2)/2 + (mx1*x.^3)/(6*Lo)) + (LF*W_wing/Lo)*(x.^2)*(Co/2 -
-% Yc)/2 + int2_pz_moments*(Yc-Co/4) - int2_py_moments*Zc;
-% Vycont = [IntVy; zeros(nplot); zeros(nplot)];
-% Vzcont = [zeros(nplot); IntVz; zeros(nplot)];
-% Mxcont = [zeros(nplot); zeros(nplot); IntMx];
-
-
-Ss = [C_ellipse C_flat/2 C_linear C_flat/2];
-A_full = sum(A_matrix);
-Twist1 = (180/pi)*(Ss*q_matrix*F1*IntVy)./(2*A_full*G_sk*T_sk);
-Twist2 = (180/pi)*(Ss*q_matrix*F2*IntVz)./(2*A_full*G_sk*T_sk);
-Twist3 = (180/pi)*(Ss*q_matrix*F3*IntMx)./(2*A_full*G_sk*T_sk);
-
-     % Integrated Concentrated Force (#1) for Vy, Vz, and Mx
-
-
-     % Integrated Concentrated Force (#2) for Vy, Vz, and Mx
-
-
-     % Integrated aero loading for Vy, Vz, and Mx
-
-   
-     % Combine integrated loading for force #1, #2, and aero loading
-
-
-% 7.2) Calculate twist separately for force #1, #2, and aero loading
-
-
-     % Total twist = twist1 + twist2 + twist3
-
-
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-% .  SECTION (#8): SHEAR STUDIES:  Torsion and Transverse Loading.
-% .                Calculate the shear center location.
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-   disp('     (8) Calculate the Shear Center Location')
-
-   %  Calculate the shear center location (y-direction).  Apply a unit tip 
-   %  load (Vz = Pz = 1) that is offset from the centroid by (ey) such that 
-   %  (Mx = Pz*ey).  Calculate the twist rate and set to zero.  Solve for (ey).
-
-
-   %  Calculate the shear center location (z-direction).  Apply a unit tip 
-   %  load (Vy = Py = 1) that is offset from the centroid by (ez) such that 
-   %  (Mx = -Py*ez).  Calculate the twist rate and set to zero. Solve for (ez).
-
-
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-% .  SECTION (#9): Pack Calculated Data into the "dataOut1" Array size: (51)
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-   disp('     (9) Pack the Calculated Data into Array: dataOut1')
-   dataOut1     = zeros(51);
-%     dataOut1(01) = Yc;                % Modulus Weighted Centroid y-direction (inch)
-%     dataOut1(02) = Zc;                % Modulus Weighted Centroid z-direction (inch)
-%     dataOut1(03) = rhoA;              % Cross-Section Weight (lb/inch)
-%     dataOut1(04) = EA;                % Axial   Stiffness (lb)
-%     dataOut1(05) = EIyy;              % Bending Stiffness (lb-in^2)   
-%     dataOut1(06) = EIzz;              % Bending Stiffness (lb-in^2)   
-%     dataOut1(07) = EIyz;              % Bending Stiffness (lb-in^2)   
-%     dataOut1(08) = GJ;                % Torsion Stiffness (lb-in^2)
-%     dataOut1(09) = Ysc_LE;            % Shear Center y-direction (inch)
-%     dataOut1(10) = Zsc_LE;            % Shear Center z-direction (inch)
-%     dataOut1(11) = W_wing;            % Total Half-Span Wing Weight (lb)
-%     dataOut1(12) = Vxo;               % Root Internal Force - X Direction (lb)
-%     dataOut1(13) = Vyo;               % Root Internal Force - Y Direction (lb)
-%     dataOut1(14) = Vzo;               % Root Internal Force - Z Direction (lb)
-%     dataOut1(15) = Mxo;               % Root Internal Moment - about X Direction (lb-in)
-%     dataOut1(16) = Myo;               % Root Internal Moment - about Y Direction (lb-in)
-%     dataOut1(17) = Mzo;               % Root Internal Moment - about Z Direction (lb-in)
-%     dataOut1(18) = Sxxo(1);           % Stringer (#1) Calculated Axial Stress (lb/in^2)
-%     dataOut1(19) = Sat(1);            % Stringer (#1) Allowable Stress - Tension (lb/in^2)
-%     dataOut1(20) = Sac(1);            % Stringer (#1) Allowable Stress - Compression (lb/in^2)
-%     dataOut1(21) = MSs(1);            % Stringer (#1) Margin of Safety
-%     dataOut1(22) = Sxxo(2);           % Stringer (#2) Calculated Axial Stress (lb/in^2)
-%     dataOut1(23) = Sat(2);            % Stringer (#2) Allowable Stress - Tension (lb/in^2)
-%     dataOut1(24) = Sac(2);            % Stringer (#2) Allowable Stress - Compression (lb/in^2)
-%     dataOut1(25) = MSs(2);            % Stringer (#2) Margin of Safety
-%     dataOut1(26) = Sxxo(3);           % Stringer (#3) Calculated Axial Stress (lb/in^2)
-%     dataOut1(27) = Sat(3);            % Stringer (#3) Allowable Stress - Tension (lb/in^2)
-%     dataOut1(28) = Sac(3);            % Stringer (#3) Allowable Stress - Compression (lb/in^2)
-%     dataOut1(29) = MSs(3);            % Stringer (#3) Margin of Safety
-%     dataOut1(30) = Sxxo(4);           % Stringer (#4) Calculated Axial Stress (lb/in^2)
-%     dataOut1(31) = Sat(4);            % Stringer (#4) Allowable Stress - Tension (lb/in^2)
-%     dataOut1(32) = Sac(4);            % Stringer (#4) Allowable Stress - Compression (lb/in^2)
-%     dataOut1(33) = MSs(4);            % Stringer (#4) Margin of Safety
-%     dataOut1(34) = Tau_12(1);         % Skin Panel (1.2) Calculated Shear Stress (lb/in^2)
-%     dataOut1(35) = Tau_allow_sk12;    % Skin Panel (1.2) Allowable Shear Stress  (lb/in^2)
-%     dataOut1(36) = MS_sk12;           % Skin Panel (1.2) Margin of Safety
-%     dataOut1(37) = Tau_23(1);         % Skin Panel (2.3) Calculated Shear Stress (lb/in^2)
-%     dataOut1(38) = Tau_allow_sk23;    % Skin Panel (2.3) Allowable Shear Stress  (lb/in^2)
-%     dataOut1(39) = MS_sk23;           % Skin Panel (2.3) Margin of Safety
-%     dataOut1(40) = Tau_34(1);         % Skin Panel (3.4) Calculated Shear Stress (lb/in^2)
-%     dataOut1(41) = Tau_allow_sk34;    % Skin Panel (3.4) Allowable Shear Stress  (lb/in^2)
-%     dataOut1(42) = MS_sk34;           % Skin Panel (3.4) Margin of Safety
-%     dataOut1(43) = Tau_41(1);         % Skin Panel (4.1) Calculated Shear Stress (lb/in^2)
-%     dataOut1(44) = Tau_allow_sk41;    % Skin Panel (4.1) Allowable Shear Stress  (lb/in^2)
-%     dataOut1(45) = MS_sk41;           % Skin Panel (4.1) Margin of Safety
-%     dataOut1(46) = Disp_X(nplot);     % Tip Diplacement - X Direction (inch)
-%     dataOut1(47) = Disp_Y(nplot);     % Tip Diplacement - Y Direction (inch)
-%     dataOut1(48) = Disp_Z(nplot);     % Tip Diplacement - Z Direction (inch)
-%     dataOut1(49) = Twist(nplot);      % Tip Twist (degree)
-%     dataOut1(50) = DvDx(nplot);       % Tip Bending Slope (dv/dx) (inch/inch)
-%     dataOut1(51) = DwDx(nplot);       % Tip Bending Slope (dw/dx) (inch/inch)
-
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-% .  SECTION (#10): Pack the plot data arrays into "dataOut2" 
-% .                 matrix size: (nplot,24)  
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-   disp('     (10) Pack the Calculated Plot Data into Array: dataOut2')
-   dataOut2     = zeros(nplot,27);
-
-   for i = 1:nplot;
-%     dataOut2(i, 1) = x(i);            % x-location (inch)
-%     dataOut2(i, 2) = py(i);           % drag force (lb/in)
-%     dataOut2(i, 3) = pz(i);           % lift force (lb/in)
-%     dataOut2(i, 4) = mx(i);           % distributed torque (lb-in/in)
-%     dataOut2(i, 5) = Vx(i);           % Internal shear force - Vx (lb)
-%     dataOut2(i, 6) = Vy(i);           % Internal shear force - Vy (lb)
-%     dataOut2(i, 7) = Vz(i);           % Internal shear force - Vz (lb)
-%     dataOut2(i, 8) = Mx(i);           % Internal axial force - Mx (lb-in)
-%     dataOut2(i, 9) = My(i);           % Internal shear force - My (lb-in)
-%     dataOut2(i,10) = Mz(i);           % Internal shear force - Mz (lb-in)
-%     dataOut2(i,11) = Sxx1(i);         % Stringer (#1) Axial Stress (lb/in^2) 
-%     dataOut2(i,12) = Sxx2(i);         % Stringer (#2) Axial Stress (lb/in^2) 
-%     dataOut2(i,13) = Sxx3(i);         % Stringer (#3) Axial Stress (lb/in^2) 
-%     dataOut2(i,14) = Sxx4(i);         % Stringer (#4) Axial Stress (lb/in^2) 
-%     dataOut2(i,15) = Skin Panel (1.2) Shear Stress (lb/in^2) 
-%     dataOut2(i,16) = Skin Panel (2.3) Shear Stress (lb/in^2) 
-%     dataOut2(i,17) = Skin Panel (3.4) Shear Stress (lb/in^2) 
-%     dataOut2(i,18) = Skin Panel (4.1) Shear Stress (lb/in^2)
-%     dataOut2(i,19) = Displacement - X Direction (inch) 
-%     dataOut2(i,20) = Disp_Y(i);       % Displacement - Y Direction (inch)
-%     dataOut2(i,21) = Disp_Z(i);       % Displacement - z Direction (inch) 
-%     dataOut2(i,22) = Twist(i);        % Wing Twist (degree)
-%     dataOut2(i,23) = DvDx(i);         % Bending Slope (dv/dx) (inch/inch)
-%     dataOut2(i,24) = DwDx(i);         % Bending Slope (dw/dx) (inch/inch)
-%     dataOut2(i,25) = Twist1(i);       % Wing Twist from Vy (degree)
-%     dataOut2(i,26) = Twist2(i);       % Wing Twist from Vz (degree)
-%     dataOut2(i,27) = Twist3(i);       % Wing Twist from Mx (degree)
-
-   end;
-   
-end
-
-%  End of Function: Wing_Analysis_Function
-%  ------------------------------------------------------------------------
-</textarea>
+            <textarea class="project-code" style="display: none;">
+% Wing Analysis Script [Function Body Gatekept]
+% Author: Gregorio Zaltzman
+% Scope: Modulus Weighted Section Properties, 
+% Shear Center Location, Internal Stresses, Bending Slopes.
+            </textarea>
 
             <div class="dossier-image cinematic-wide">
               <img src="assets/wing_spar.jpg" class="parallax-img" alt="Wing Spar">
             </div>
-            <div class="dossier-info chamfer-box glass-panel">
+            <div class="dossier-info chamfer-box glass-panel offset-left">
               <span class="micro-label">// HRD-02</span>
               <h3>Wing Spar Analysis</h3>
               <p>MATLAB Structural Tool.</p>
@@ -1108,7 +408,7 @@ end
             <div class="dossier-image cinematic-wide">
               <img src="assets/wt_setup.png" class="parallax-img" alt="Wind Tunnel Test Setup UI">
             </div>
-            <div class="dossier-info chamfer-box glass-panel offset-left">
+            <div class="dossier-info chamfer-box glass-panel offset-right">
               <span class="micro-label">// HRD-03</span>
               <h3>Wind Tunnel Testing</h3>
               <p>Clark Y-14 Airfoil Aerodynamics.</p>
@@ -1133,7 +433,7 @@ end
               </ul>
               <h3>Hydrodynamic Analysis</h3>
               <ul>
-                <li><strong>Aerodynamic Modeling:</strong> Approximated wing efficiency using a NACA 0012 airfoil baseline. Calculated induced drag ($K = 0.066$) and lift-curve slopes for an aspect ratio of 6.8.</li>
+                <li><strong>Aerodynamic Modeling:</strong> Approximated wing efficiency using a NACA 0012 airfoil baseline. Calculated induced drag and lift-curve slopes for an aspect ratio of 6.8.</li>
                 <li><strong>Performance Prediction:</strong> Developed a MATLAB simulation to predict the vehicle's flight path angle (up to ±44.5°), lift coefficients, and both vertical/horizontal velocities across a spectrum of vehicle speeds.</li>
               </ul>
               <h3>Technical Specifications</h3>
@@ -1150,7 +450,7 @@ end
             <div class="dossier-image cinematic-wide">
               <img src="assets/seaglide.jpg" class="parallax-img" alt="SeaGlide AUV">
             </div>
-            <div class="dossier-info chamfer-box glass-panel offset-right">
+            <div class="dossier-info chamfer-box glass-panel offset-left">
               <span class="micro-label">// HRD-04</span>
               <h3>SeaGlide AUV</h3>
               <p>Autonomous underwater glider with variable buoyancy.</p>
