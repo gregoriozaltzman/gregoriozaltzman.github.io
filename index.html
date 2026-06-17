@@ -290,7 +290,7 @@
             data-title="RC Aircraft Concept 'Citadel'"
             data-images="assets/citadel.jpg"
             data-skills="MDO,Python,Neural Foil,XFLR5,XFOIL,SolidWorks"
-            data-pdf="assets/MAE155B_T3_FDR_Report.pdf"
+            data-pdf="assets/MAE155B_DDR.pdf"
             data-model="assets/citadel.glb">
           
             <div class="project-html-desc" style="display: none;">
@@ -336,6 +336,34 @@
           </div>
 
           <div class="dossier-card bento-large stagger-reveal project-click-target dynamic-glow"
+            data-title="Vortex-Cooled Rocket Engine CFD Analysis"
+            data-images="assets/image5.png,assets/image6.png,assets/image12.png"
+            data-skills="Ansys Fluent,CFD,Heat Transfer,Fluid Mechanics"
+            data-pdf="assets/MAE 185 Final Report.pdf">
+
+            <div class="project-html-desc" style="display: none;">
+              <h3>Executive Summary</h3>
+              <p>Conducted Computational Fluid Dynamics (CFD) simulations to investigate the thermal dissipation effectiveness of the Project Maelstrom vortex-cooled rocket engine. This cooling system utilizes oxidizer injection to generate a protective swirling flow field between the chamber wall and the hotter core flow.</p>
+              <h3>Key Technical Contributions</h3>
+              <ul>
+                <li><strong>Heat Transfer Analysis:</strong> Ran analyses across three flow conditions (maximum, half, and quarter) to evaluate the influence of oxidizer mass flow rates on vortex formation.</li>
+                <li><strong>Thermal Mapping:</strong> Mapped chamber, cross, nozzle, and plenum plane temperatures to quantify insulation effectiveness.</li>
+                <li><strong>Flow Thresholds:</strong> Demonstrated that a minimum threshold of oxidizer flow is required to sustain the vortex structure; lower flow rates caused the vortex to decay, exposing the chamber walls to core combustion temperatures.</li>
+              </ul>
+            </div>
+
+            <div class="dossier-image cinematic-wide">
+              <img src="assets/image5.png" class="parallax-img" alt="CFD Temperature Contour Simulation">
+            </div>
+            <div class="dossier-info chamfer-box glass-panel offset-left">
+              <span class="micro-label">// HRD-02A</span>
+              <h3>Vortex-Cooled Rocket Engine CFD</h3>
+              <p>CFD heat transfer analysis evaluating vortex cooling effectiveness.</p>
+              <span class="dossier-link">View Analysis &rarr;</span>
+            </div>
+          </div>
+
+          <div class="dossier-card bento-large stagger-reveal project-click-target dynamic-glow"
             data-title="Wing Spar Structural Analysis"
             data-images="assets/wing_spar.jpg"
             data-skills="MATLAB,Thin-Walled Beam Theory,Shear Flow,Structural Sizing"
@@ -374,7 +402,7 @@
               <img src="assets/wing_spar.jpg" class="parallax-img" alt="Wing Spar">
             </div>
             <div class="dossier-info chamfer-box glass-panel offset-left">
-              <span class="micro-label">// HRD-02</span>
+              <span class="micro-label">// HRD-02B</span>
               <h3>Wing Spar Analysis</h3>
               <p>MATLAB Structural Tool.</p>
               <span class="dossier-link">View Full Report &rarr;</span>
@@ -416,7 +444,7 @@
             </div>
           </div>
 
-          <div class="dossier-card bento-large stagger-reveal project-click-target dynamic-glow"
+          <div class="dossier-card bento-half stagger-reveal project-click-target dynamic-glow"
             data-title="SeaGlide Autonomous Underwater Vehicle"
             data-images="assets/seaglide.jpg"
             data-video="assets/seaglide.mp4"
@@ -447,14 +475,42 @@
               </table>
             </div>
 
-            <div class="dossier-image cinematic-wide">
+            <div class="dossier-image cinematic-standard">
               <img src="assets/seaglide.jpg" class="parallax-img" alt="SeaGlide AUV">
             </div>
-            <div class="dossier-info chamfer-box glass-panel offset-left">
-              <span class="micro-label">// HRD-04</span>
+            <div class="dossier-info chamfer-box glass-panel">
+              <span class="micro-label">// HRD-04A</span>
               <h3>SeaGlide AUV</h3>
               <p>Autonomous underwater glider with variable buoyancy.</p>
               <span class="dossier-link">View Media & Report &rarr;</span>
+            </div>
+          </div>
+
+          <div class="dossier-card bento-half stagger-reveal project-click-target dynamic-glow"
+            data-title="Orbit Determination for LEO Satellite"
+            data-images="assets/orbit_plot_placeholder.png"
+            data-skills="MATLAB,Kalman Filters,Orbital Mechanics,Data Estimation"
+            data-pdf="assets/MAE 182 Project.pdf">
+
+            <div class="project-html-desc" style="display: none;">
+              <h3>Executive Summary</h3>
+              <p>Developed and evaluated a MATLAB-based orbit determination algorithm for a low Earth orbit (LEO) satellite, modeled after NASA's QuickSCAT mission. The nonlinear force model incorporated two-body gravity, J2 oblateness, and exponential atmospheric drag.</p>
+              <h3>Key Technical Contributions</h3>
+              <ul>
+                <li><strong>Batch Least-Squares:</strong> Implemented a regression model for high-accuracy post-processing of range and range-rate tracking data.</li>
+                <li><strong>Kalman Filtering:</strong> Developed a sequential Kalman filter for real-time continuous navigation, utilizing the Joseph formulation to enforce covariance symmetry and resolve numerical instability.</li>
+                <li><strong>Performance Comparison:</strong> Compared estimator performances, achieving post-fit residuals of 0.1161 m in range and 0.0014 m/s in range-rate using the sequential filter.</li>
+              </ul>
+            </div>
+
+            <div class="dossier-image cinematic-standard">
+              <img src="assets/orbit_plot_placeholder.jpg" class="parallax-img" alt="Orbit Determination Plot">
+            </div>
+            <div class="dossier-info chamfer-box glass-panel">
+              <span class="micro-label">// HRD-04B</span>
+              <h3>LEO Orbit Determination</h3>
+              <p>MATLAB-based orbit determination for a LEO satellite.</p>
+              <span class="dossier-link">View Research &rarr;</span>
             </div>
           </div>
 
