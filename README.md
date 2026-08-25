@@ -5,7 +5,6 @@
 ## 🚀 Key Features
 
 * **Interactive WebGL Space Engine:** A lightweight, custom 2D `<canvas>` engine rendering a dynamic background of twinkling stars, multi-color volumetric gas nebulas, comets, and destructible asteroids.
-* **Acoustic UI (Web Audio API):** Zero-dependency synthetic audio generates mechanical UI clicks and deep space thuds in real-time using mathematical sine waves (no `.mp3` assets required).
 * **Dynamic Glassmorphism & Telemetry Tracking:** Frosted glass UI panels (`backdrop-filter`) combined with a custom JavaScript mouse-tracking effect that projects a subtle "flashlight" glow on the edges of cards as the user hovers.
 * **3D CAD Integration:** Immersive split-screen modals featuring interactive 3D model viewing via Google's `<model-viewer>` component.
 * **Asymmetrical Dossier Layout:** Native smooth scrolling with Intersection Observer-based scroll-spy navigation, pure CSS parallax image effects, and a responsive data-driven grid.
