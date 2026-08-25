@@ -14,14 +14,13 @@
   </script>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-
   <meta name="description" content="Aerospace Engineering portfolio — aircraft conceptual design, aero/structures analysis, CAD and simulation." />
   <meta property="og:title" content="Gregorio Zaltzman D'Ambrosio | Aerospace Engineering Portfolio">
   <meta property="og:description" content="Aerospace Engineering portfolio — aircraft conceptual design, aero/structures analysis, CAD and simulation.">
   <meta property="og:image" content="assets/bwb.jpg">
   <meta property="og:type" content="website">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
@@ -31,48 +30,50 @@
 
   <div id="loading-screen" aria-hidden="true">
     <div class="loader-square"></div>
-    <p>UPLINK ESTABLISHED...</p>
+    <p>INITIALIZING...</p>
   </div>
 
-  <div class="clean-backdrop"></div>
+  <div class="noise-overlay"></div>
   <canvas id="space-canvas"></canvas>
-
-  <button id="mode-toggle" class="floating-btn chamfer-btn top-right-pill" type="button" aria-label="Toggle Space Mode">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="12" cy="5" r="2"></circle>
-      <path d="M5 21L12 5l7 16"></path>
-      <path d="M8 15h8"></path>
-    </svg>
-    <span id="mode-label">Clean Mode</span>
-  </button>
 
   <div class="app-layout">
 
     <aside class="sidebar">
       <div class="sidebar-top">
-        <a href="#" class="logo" aria-label="Home">
-          <span class="logo-text">GZ</span>
-        </a>
+        <div class="header-row">
+          <a href="#" class="logo" aria-label="Home">
+            <span class="logo-text">GZ</span>
+          </a>
+          <a href="https://www.linkedin.com/in/gregoriozaltzman/" target="_blank" rel="noopener" class="linkedin-icon" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
 
         <div class="hero-content">
           <p class="subtitle reveal-mask"><span class="reveal-text">Aerospace Engineering</span></p>
-
           <h1 class="reveal-mask"><span class="reveal-text">Gregorio Zaltzman<br>D'Ambrosio</span></h1>
 
-          <p class="hero-text reveal-mask">
-            <span class="reveal-text">
-                <span id="typewriter-text"></span><span class="terminal-cursor">|</span>
-            </span>
-          </p>
+          <div class="education-block reveal-mask mt-4">
+            <div class="reveal-text">
+              <div class="edu-line">
+                <span class="text-white font-semibold">M.S. Aerospace Engineering '28</span><br>
+                <a href="https://www.asg.ed.tum.de/en/asg/home/" target="_blank" rel="noopener" class="uni-link">Technical University of Munich</a>
+              </div>
+              <div class="edu-line mt-3">
+                <span class="text-white font-semibold">B.S. Aerospace Engineering '26</span><br>
+                <a href="https://jacobsschool.ucsd.edu/" target="_blank" rel="noopener" class="uni-link">UC San Diego</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="sidebar-bottom">
         <ul class="nav-menu" id="sidebar-nav">
-          <li><a href="#skills" data-section="skills">Skills</a></li>
-          <li><a href="#timeline" data-section="timeline">Timeline</a></li>
-          <li><a href="#experience" data-section="experience">Experience</a></li>
           <li><a href="#projects" data-section="projects">Projects</a></li>
+          <li><a href="#timeline" data-section="timeline">Timeline</a></li>
+          <li><a href="#skills" data-section="skills">Skills</a></li>
+          <li><a href="#experience" data-section="experience">Experience</a></li>
           <li><a href="#aspirations" data-section="aspirations">Aspirations</a></li>
           <li><a href="#contact" data-section="contact">Contact</a></li>
         </ul>
@@ -85,168 +86,26 @@
 
     <main class="content-stream">
 
-      <section id="skills" class="section" data-nav="skills">
-        <span class="micro-label">DATA BLOCK 01</span>
-        <div class="reveal-mask">
-            <h2>Skills</h2>
-        </div>
-
-        <div class="skills-wrapper stagger-reveal">
-          
-          <div class="skill-row chamfer-box glass-panel dynamic-glow">
-            <div class="skill-head">Software & CAD</div>
-            <div class="skills-list">
-              <span>SolidWorks</span>
-              <span>SolidWorks Flow Simulation</span>
-              <span>Ansys Fluent</span>
-              <span>OpenVSP</span>
-              <span>AVL</span>
-              <span>XFLR5</span>
-              <span>XFOIL</span>
-              <span>Fusion 360</span>
-              <span>STK (Systems Tool Kit)</span>
-              <span>Technical Drawings & CAD Assemblies</span>
-            </div>
-          </div>
-
-          <div class="skill-row chamfer-box glass-panel dynamic-glow">
-            <div class="skill-head">Analysis & Simulation</div>
-            <div class="skills-list">
-              <span>MATLAB</span>
-              <span>Python</span>
-              <span>Multidisciplinary Design Optimization (MDO)</span>
-              <span>Aerodynamic Sizing & Trade Studies</span>
-              <span>Constraint Analysis</span>
-              <span>Drag Build-Up Methods</span>
-              <span>VLM / Low-Fidelity Aero Tools</span>
-              <span>Stability & Static Margin</span>
-              <span>Controls Fundamentals (Signals & Systems)</span>
-              <span>Thin-Walled Structures (Shear Flow)</span>
-              <span>FEA Fundamentals</span>
-            </div>
-          </div>
-
-          <div class="skill-row chamfer-box glass-panel dynamic-glow">
-            <div class="skill-head">Hardware & Lab</div>
-            <div class="skills-list">
-              <span>Arduino IDE</span>
-              <span>Sensor Instrumentation (lab-scale)</span>
-              <span>Data Logging & Post-Processing</span>
-              <span>Experimental Heat Transfer</span>
-              <span>Rapid Prototyping</span>
-              <span>RC Aircraft Integration Support</span>
-              <span>Flight Test Support (student team)</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section id="timeline" class="section" data-nav="timeline">
-        <span class="micro-label">DATA BLOCK 02</span>
-        <div class="reveal-mask">
-            <h2>Timeline</h2>
-        </div>
-
-        <div class="horizontal-timeline stagger-reveal">
-          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
-            <h3>Sep 2022</h3>
-            <h4>UC San Diego — B.S.c Aerospace</h4>
-            <p>Commenced a Bachelor of Science in Aerospace Engineering, building a rigorous theoretical foundation. Completed extensive core coursework spanning Fluid Dynamics, Solid Mechanics, Thermodynamics, Aerospace Structures, Propulsion, Orbital Mechanics, Linear Control, and Engineering Experimental Techniques, bridging theoretical mathematics with applied aerospace physics.</p>
-          </div>
-
-          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
-            <h3>Sep 2023</h3>
-            <h4>ITS Service Desk Technician</h4>
-            <p>Service Desk technician, worked extensively to resolve campus-wide technical issues and improved support workflows. Also collaborated with other ITS teams to help increase support efficiency and improve quality of service for customers.</p>
-          </div>
-
-          <div class="timeline-card chamfer-box glass-panel dynamic-glow"> 
-            <h3>May 2025</h3>
-            <h4>Promoted — Service Desk Lead</h4>
-            <p>Helped lead a 60+ member technician team, overseeing daily campus-wide IT operations, complex troubleshooting, and cross-departmental coordination. Drove long-term organizational growth by facilitating staff training, supporting the hiring pipeline, managing documentation.</p>
-          </div>
-
-          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
-            <h3>Jun 2025</h3>
-            <h4>RPL at UCSD</h4>
-            <p>Supported the design, build, and launch of a G-class model rocket (~2,100 ft), contributing to assembly, CAD support, testing preparation, and team design discussions while gaining exposure to rocket stability, avionics integration, and flight performance analysis.</p>
-          </div>
-
-          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
-            <h3>Sep 2025</h3>
-            <h4>Design-Build-Fly (DBF)</h4>
-            <p>Collaborated on the Aerodynamics and Structures subteams for a competition-scale RC aircraft. Drove performance-based design trade studies by assisting with airfoil selection, configuration optimization, structural sizing, and CAD modeling, translating theoretical engineering analysis into a manufactured flight-ready vehicle.</p>
-          </div>
-
-          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
-            <h3>Jan 2026</h3>
-            <h4>Senior Design Capstone — BWB</h4>
-            <p>Served as Chief Engineer for an ultra-efficient Blended Wing Body commercial airliner concept. Led cross-functional efforts spanning gradient-free aerodynamic optimization, unconventional structural layout, aft-propulsion integration, direct operating cost analysis, and dynamic stability, culminating in a fully verified 3D CAD model.</p>
-          </div>
-
-          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
-            <h3>Present</h3>
-            <h4>Chief Engineer — Project Citadel</h4>
-            <p>Serving as Chief Engineer for a profit-maximizing RC aircraft project. Leading a multidisciplinary team through rigorous gradient-based design optimization (MDO), aerodynamic analysis, and the physical manufacturing of a high-payload tube-and-wing configuration featuring a custom mid-flight payload deployment system.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" class="section" data-nav="experience">
-        <span class="micro-label">DATA BLOCK 03</span>
-        <div class="reveal-mask">
-            <h2>Experience</h2>
-        </div>
-
-        <div class="experience-stack">
-          <div class="experience-row chamfer-box glass-panel dynamic-glow stagger-reveal">
-            <div class="exp-image">
-                <img src="assets/dbf.jpg" alt="DBF Team">
-            </div>
-            <div class="exp-content">
-                <div class="exp-meta">
-                  <h3>Design Build Fly (DBF)</h3>
-                  <p class="exp-role">Aerodynamics Team</p>
-                </div>
-                <div class="exp-details">
-                  <p>Contributed to UCSD’s Design-Build-Fly effort by supporting aerodynamic configuration decisions and practical build-to-test iteration on a student RC aircraft. Performed airfoil screening and low-fidelity analysis (XFOIL/XFLR5) to compare lift/drag trends under Reynolds-number constraints typical of competition-scale aircraft, and used results to inform geometry choices and stability targets. Helped translate analysis into CAD updates and manufacturing-ready geometry, then supported flight readiness through preflight checks and post-flight review. Worked with onboard telemetry limited to battery voltage and link/signal strength to improve operational reliability and reduce “unknowns” during test days.</p>
-                </div>
-            </div>
-          </div>
-
-          <div class="experience-row chamfer-box glass-panel dynamic-glow stagger-reveal">
-            <div class="exp-image">
-                <img src="assets/its.jpg" alt="UCSD ITS">
-            </div>
-            <div class="exp-content">
-                <div class="exp-meta">
-                  <h3>UCSD ITS</h3>
-                  <p class="exp-role">Service Desk Lead</p>
-                </div>
-                <div class="exp-details">
-                 <p>Progressed from Service Desk Technician to Lead, taking responsibility for shift operations, escalation triage, and technician support during high-impact incidents. Mentored newer technicians, improved consistency in ticket handling through clearer triage routines and documentation, and served as a primary escalation point for complex account, device, and software issues. Coordinated with higher-tier teams when incidents required deeper network or systems support, focusing on fast communication, accurate handoffs, and restoring service with minimal user downtime. Also founded an ITS Social Media account to act as a zero-tier support for our customers.</p>
-                </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <!-- PROJECTS -->
       <section id="projects" class="section" data-nav="projects">
-        <span class="micro-label">DATA BLOCK 04</span>
+        <span class="micro-label">01 / Projects</span>
         <div class="reveal-mask">
             <h2>Projects</h2>
         </div>
 
+        <div class="focus-block stagger-reveal dynamic-glow chamfer-box">
+          <span class="focus-label font-semibold text-white">Focus: </span>
+          <span id="focus-typewriter"></span>
+        </div>
+
         <div class="dossier-grid">
 
-          <div class="dossier-card bento-large stagger-reveal project-click-target dynamic-glow"
+          <div class="dossier-card bento-large pop-up-element project-click-target dynamic-glow"
             data-title="BWB Airliner Concept 'Manta'"
             data-images="assets/bwb.jpg"
             data-skills="OpenVSP,AVL,Particle Swarm Optimization,Monte Carlo,Stability & Trim"
             data-pdf="assets/bwb_report.pdf"
             data-model="assets/bwb.glb">
-
             <div class="project-html-desc" style="display: none;">
               <h3>Executive Summary</h3>
               <p>Conceptual design study for an ultra-efficient blended-wing-body (BWB) commercial transport named "Manta", focused on configuration trades, propulsion-airframe integration, and performance-driven sizing. The design targets a 7,400 nmi long-haul route carrying 250 passengers at Mach 0.85, significantly improving upon traditional Tube and Wing (TAW) architectures.</p>
@@ -262,85 +121,60 @@
                 <li><strong>Propulsion Integration:</strong> Twin GEnX-1B high-bypass turbofan engines mounted on the aft upper-surface to maximize boundary layer ingestion (BLI) and provide acoustic shielding.</li>
                 <li><strong>Materials:</strong> Carbon Fiber Reinforced Polymer (CFRP) and High Modulus Carbon Fiber used for primary lifting structures to minimize empty weight.</li>
               </ul>
-              <h3>Technical Specifications</h3>
-              <table class="spec-table">
-                <tr><td>Passenger Capacity</td><td>250 PAX</td></tr>
-                <tr><td>Max Takeoff Weight</td><td>1,435,400 N</td></tr>
-                <tr><td>Range</td><td>7,400 NMI</td></tr>
-                <tr><td>Cruise Mach / Altitude</td><td>Mach 0.85 / 40,000 ft</td></tr>
-                <tr><td>Wingspan (Code E gate limit)</td><td>64.7 m</td></tr>
-                <tr><td>Cruise L/D</td><td>25.30</td></tr>
-                <tr><td>Cost per Available Seat Mile (CASM)</td><td>$0.0873</td></tr>
-                <tr><td>Powerplant</td><td>2x GEnX-1B</td></tr>
-              </table>
+              <h3>Lessons Learned</h3>
+              <ul>
+                <li>Managing constraints in gradient-free optimization requires robust, carefully tuned penalty functions to avoid solver divergence.</li>
+                <li>Unconventional aircraft architectures demand tight integration between aerodynamic performance and structural volume constraints incredibly early in the design cycle.</li>
+              </ul>
             </div>
-
             <div class="dossier-image cinematic-wide">
               <img src="assets/bwb.jpg" class="parallax-img" alt="BWB Render">
             </div>
             <div class="dossier-info chamfer-box glass-panel offset-left">
-              <span class="micro-label">// HRD-01A</span>
+              <span class="category-badge">Conceptual Aircraft Design</span>
               <h3>BWB Airliner Concept "Manta"</h3>
               <p>Ultra-efficient commercial aircraft concept targeting Mach 0.85.</p>
               <span class="dossier-link">View Report & Model &rarr;</span>
             </div>
           </div>
 
-          <div class="dossier-card bento-large stagger-reveal project-click-target dynamic-glow"
+          <div class="dossier-card bento-large pop-up-element project-click-target dynamic-glow"
             data-title="RC Aircraft Concept 'Citadel'"
             data-images="assets/citadel.jpg"
-            data-skills="MDO,Python,Neural Foil,XFLR5,XFOIL,SolidWorks"
+            data-skills="MDO,Python,Neural Foil,XFLR5,SolidWorks"
             data-pdf="assets/MAE155B_DDR.pdf"
             data-model="assets/citadel.glb">
-          
             <div class="project-html-desc" style="display: none;">
               <h3>Executive Summary</h3>
               <p>Detailed design of a profit-maximizing RC aircraft, "Citadel", featuring a conventional tube-and-wing architecture. The design prioritizes volume payload capacity with a secondary emphasis on minimizing flight time and maximizing weight payload.</p>
-              
               <h3>Design Optimization & Analysis</h3>
               <ul>
                 <li><strong>Multidisciplinary Design Optimization (MDO):</strong> Employed a gradient-based solver in Python (JAX, modOpt, IPOPT) to evaluate 24 constraints across aerodynamics, stability, electrical, and physical packaging to maximize profit ($/hr).</li>
                 <li><strong>Sensitivity Analysis:</strong> Sampled the design space 1e9 times via Monte Carlo simulation, using a Spearman Rank Correlation to prove volume payload and flight time as the most influential parameters.</li>
                 <li><strong>Aerodynamics:</strong> Utilized a high-lift S1223 airfoil optimized via Neural Foil to maximize lift and aerodynamic efficiency, extrapolated to 3D using Prandtl's lifting line correction.</li>
               </ul>
-              
-              <h3>Key Engineering Decisions</h3>
+              <h3>Lessons Learned</h3>
               <ul>
-                <li><strong>Payload Deployment:</strong> Implemented a twin-bay door deployment system powered by dual servos to release a large 6.25 L volume payload mid-flight.</li>
-                <li><strong>Structures:</strong> Built-up wooden fuselage with 14 equidistant ribs, supported by carbon-fiber rods and spruce spars to prevent buckling, coupled with an XPS foam wing.</li>
-                <li><strong>Propulsion:</strong> Integrated a SunnySky X2216 V3 brushless motor with a 10x7E APC propeller, enclosed by a 3D-printed PLA nosecone for drag reduction.</li>
+                <li>Physical manufacturing tolerances in materials like foam significantly impact the theoretical lift calculated by ideal CFD solvers.</li>
+                <li>MDO algorithms can save hundreds of manual trade study hours but rely entirely on the engineering intuition used to set the initial boundary conditions.</li>
               </ul>
-              
-              <h3>Technical Specifications</h3>
-              <table class="spec-table">
-                <tr><td>Gross Weight</td><td>20.02 N</td></tr>
-                <tr><td>Volume Payload</td><td>6.234 L</td></tr>
-                <tr><td>Weight Payload</td><td>5.77 N</td></tr>
-                <tr><td>Wingspan</td><td>1.184 m</td></tr>
-                <tr><td>Cruise L/D</td><td>8.39</td></tr>
-                <tr><td>Thrust-to-Weight (T/W)</td><td>0.19</td></tr>
-                <tr><td>Wing Loading (W/S)</td><td>100 N/m²</td></tr>
-                <tr><td>Propeller Size</td><td>10x7E</td></tr>
-              </table>
             </div>
-          
             <div class="dossier-image cinematic-wide">
               <img src="assets/citadel.jpg" class="parallax-img" alt="Citadel RC Aircraft Render">
             </div>
             <div class="dossier-info chamfer-box glass-panel offset-right">
-              <span class="micro-label">// HRD-01B</span>
+              <span class="category-badge">Aircraft Design & Testing</span>
               <h3>RC Aircraft "Citadel"</h3>
               <p>Profit-maximizing MDO design and physical build.</p>
               <span class="dossier-link">View Report & Model &rarr;</span>
             </div>
           </div>
 
-          <div class="dossier-card bento-large stagger-reveal project-click-target dynamic-glow"
+          <div class="dossier-card bento-large pop-up-element project-click-target dynamic-glow"
             data-title="Vortex-Cooled Rocket Engine CFD Analysis"
             data-images="assets/image5.png,assets/image6.png,assets/image12.png"
             data-skills="Ansys Fluent,CFD,Heat Transfer,Fluid Mechanics"
             data-pdf="assets/MAE 185 Final Report.pdf">
-
             <div class="project-html-desc" style="display: none;">
               <h3>Executive Summary</h3>
               <p>Conducted Computational Fluid Dynamics (CFD) simulations to investigate the thermal dissipation effectiveness of the Project Maelstrom vortex-cooled rocket engine. This cooling system utilizes oxidizer injection to generate a protective swirling flow field between the chamber wall and the hotter core flow.</p>
@@ -348,227 +182,205 @@
               <ul>
                 <li><strong>Heat Transfer Analysis:</strong> Ran analyses across three flow conditions (maximum, half, and quarter) to evaluate the influence of oxidizer mass flow rates on vortex formation.</li>
                 <li><strong>Thermal Mapping:</strong> Mapped chamber, cross, nozzle, and plenum plane temperatures to quantify insulation effectiveness.</li>
-                <li><strong>Flow Thresholds:</strong> Demonstrated that a minimum threshold of oxidizer flow is required to sustain the vortex structure; lower flow rates caused the vortex to decay, exposing the chamber walls to core combustion temperatures.</li>
+                <li><strong>Flow Thresholds:</strong> Demonstrated that a minimum threshold of oxidizer flow is required to sustain the vortex structure; lower flow rates caused the vortex to decay.</li>
+              </ul>
+              <h3>Lessons Learned</h3>
+              <ul>
+                <li>High-fidelity CFD demands intense mesh sensitivity studies to guarantee that thermal results aren't strictly a byproduct of grid resolution.</li>
+                <li>Vortex cooling efficacy is highly volatile and heavily dependent on specific boundary layer attachment conditions.</li>
               </ul>
             </div>
-
             <div class="dossier-image cinematic-wide">
               <img src="assets/image5.png" class="parallax-img" alt="CFD Temperature Contour Simulation">
             </div>
             <div class="dossier-info chamfer-box glass-panel offset-left">
-              <span class="micro-label">// HRD-02A</span>
+              <span class="category-badge">CFD & Simulation</span>
               <h3>Vortex-Cooled Rocket Engine CFD</h3>
               <p>CFD heat transfer analysis evaluating vortex cooling effectiveness.</p>
               <span class="dossier-link">View Analysis &rarr;</span>
             </div>
           </div>
 
-          <div class="dossier-card bento-large stagger-reveal project-click-target dynamic-glow"
+          <div class="dossier-card bento-large pop-up-element project-click-target dynamic-glow"
             data-title="Wing Spar Structural Analysis"
             data-images="assets/wing_spar.jpg"
             data-skills="MATLAB,Thin-Walled Beam Theory,Shear Flow,Structural Sizing"
             data-pdf="assets/Wing_Analysis_Zaltzman_Gregorio.pdf">
-
             <div class="project-html-desc" style="display: none;">
               <h3>Executive Summary</h3>
               <p>Structural sizing and comparison study for a thin-walled wingbox (single-cell) under representative aerodynamic and inertial loading. The report evaluates stress flow behavior, bending/shear response, and weight tradeoffs between an aluminum baseline and a composite alternative.</p>
-              <h3>Problem Framing</h3>
+              <h3>Key Highlights</h3>
               <ul>
-                <li><strong>Objective:</strong> produce a wingbox sizing workflow that is fast, auditable, and grounded in classical thin-walled theory.</li>
-                <li><strong>Inputs:</strong> distributed loads, section geometry, and material allowables.</li>
-                <li><strong>Outputs:</strong> shear flow, bending stress, margins, and mass comparison.</li>
+                <li>Classical structures: applied thin-walled beam theory, shear flow, and load-path interpretation.</li>
+                <li>Material trade: Carbon/Epoxy concept achieved substantial mass savings relative to the aluminum baseline.</li>
               </ul>
-              <h3>Methods & Tools</h3>
+              <h3>Lessons Learned</h3>
               <ul>
-                <li><strong>Classical structures:</strong> thin-walled beam theory, shear flow, and load-path interpretation.</li>
-                <li><strong>Implementation:</strong> MATLAB scripts for repeatability and rapid iteration.</li>
-                <li><strong>Trade logic:</strong> mass vs margin, stiffness implications, and manufacturability considerations.</li>
-              </ul>
-              <h3>Key Results</h3>
-              <ul>
-                <li><strong>Material trade:</strong> Carbon/Epoxy concept achieved substantial mass savings relative to the aluminum baseline while meeting strength requirements under the analyzed cases.</li>
-                <li><strong>Load-path insight:</strong> documented how geometry and material stiffness shift where the structure “wants” to carry load.</li>
+                <li>Classical thin-walled theory provides excellent baseline estimates and a necessary sanity check before transitioning to heavy FEA solvers.</li>
+                <li>Material stiffness differentials heavily dictate internal load paths in built-up cross sections.</li>
               </ul>
             </div>
-
-            <textarea class="project-code" style="display: none;">
-% Wing Analysis Script [Function Body Gatekept]
-% Author: Gregorio Zaltzman
-% Scope: Modulus Weighted Section Properties, 
-% Shear Center Location, Internal Stresses, Bending Slopes.
-            </textarea>
-
+            <textarea class="project-code" style="display: none;">% Wing Analysis Script [Function Body Gatekept]&#13;&#10;% Author: Gregorio Zaltzman&#13;&#10;% Scope: Modulus Weighted Section Properties</textarea>
             <div class="dossier-image cinematic-wide">
               <img src="assets/wing_spar.jpg" class="parallax-img" alt="Wing Spar">
             </div>
-            <div class="dossier-info chamfer-box glass-panel offset-left">
-              <span class="micro-label">// HRD-02B</span>
+            <div class="dossier-info chamfer-box glass-panel offset-right">
+              <span class="category-badge">Structures & Sizing</span>
               <h3>Wing Spar Analysis</h3>
-              <p>MATLAB Structural Tool.</p>
+              <p>MATLAB Structural Tool evaluating thin-walled beam theory.</p>
               <span class="dossier-link">View Full Report &rarr;</span>
             </div>
           </div>
 
-          <div class="dossier-card bento-large stagger-reveal project-click-target dynamic-glow"
+          <div class="dossier-card bento-large pop-up-element project-click-target dynamic-glow"
             data-title="Wind Tunnel Aerodynamic Analysis"
-            data-images="assets/wt_setup.png,assets/wt_picture.png,assets/wt_components.png,assets/wt_forces.png"
-            data-skills="Experimental Aerodynamics,Wind Tunnel Testing,LabVIEW,Uncertainty Analysis,Data Acquisition"
+            data-images="assets/wt_setup.png,assets/wt_picture.png"
+            data-skills="Experimental Aerodynamics,Wind Tunnel Testing,LabVIEW,Data Acquisition"
             data-pdf="assets/MAE 175 WT  (1).pdf">
-
             <div class="project-html-desc" style="display: none;">
               <h3>Executive Summary</h3>
               <p>Experimental investigation of the aerodynamic characteristics of a Clark Y-14 airfoil in a low-speed, incompressible wind tunnel environment. The primary objective was to determine lift, drag, and pitching moment characteristics across a range of freestream velocities and angles of attack, including pre-stall and post-stall behavior.</p>
-              <h3>Objectives & Problem Framing</h3>
+              <h3>Key Highlights</h3>
               <ul>
-                <li>Evaluate aerodynamic performance under subsonic conditions while maintaining precise control over freestream properties.</li>
-                <li>Compare independent aerodynamic measurement techniques for cross-validation.</li>
-                <li>Perform rigorous uncertainty analysis and wind tunnel calibration.</li>
+                <li>Wind Tunnel Calibration: Established relationship between fan power input and freestream velocity.</li>
+                <li>Pressure Integration: Obtained surface pressure distributions through pressure taps.</li>
+                <li>Wake Survey: Employed the wake-survey method to estimate drag through downstream momentum deficit analysis.</li>
               </ul>
-              <h3>Methods & Tools</h3>
+              <h3>Lessons Learned</h3>
               <ul>
-                <li><strong>Wind Tunnel Calibration:</strong> Established the relationship between percent fan power input and freestream velocity using Pitot-static measurements and Bernoulli's equation.</li>
-                <li><strong>Pressure Integration:</strong> Obtained surface pressure distributions through pressure taps distributed along the chord, allowing aerodynamic force and moment coefficients to be computed through numerical integration.</li>
-                <li><strong>Sting Balance:</strong> Directly measured axial force, normal force, and pitching moment using a strain-gage sting balance.</li>
-                <li><strong>Wake Survey:</strong> Employed the wake-survey method to estimate drag through downstream momentum deficit analysis.</li>
+                <li>Rigorous calibration and uncertainty propagation are arguably as important as the physical data acquisition itself.</li>
+                <li>Wall interference can severely skew high Angle-of-Attack (AoA) data in enclosed test sections without proper correction factors.</li>
               </ul>
             </div>
-
             <div class="dossier-image cinematic-wide">
               <img src="assets/wt_setup.png" class="parallax-img" alt="Wind Tunnel Test Setup UI">
             </div>
-            <div class="dossier-info chamfer-box glass-panel offset-right">
-              <span class="micro-label">// HRD-03</span>
+            <div class="dossier-info chamfer-box glass-panel offset-left">
+              <span class="category-badge">Aerodynamic Testing</span>
               <h3>Wind Tunnel Testing</h3>
               <p>Clark Y-14 Airfoil Aerodynamics.</p>
               <span class="dossier-link">View Full Report &rarr;</span>
             </div>
           </div>
 
-          <div class="dossier-card bento-half stagger-reveal project-click-target dynamic-glow"
+          <!-- ASYMMETRIC GRID START: 60/40 -->
+          <div class="dossier-card bento-60 pop-up-element project-click-target dynamic-glow"
             data-title="SeaGlide Autonomous Underwater Vehicle"
             data-images="assets/seaglide.jpg"
             data-video="assets/seaglide.mp4"
             data-skills="Hydrodynamics,Buoyancy Engine,MATLAB,AUV Design,Hardware Assembly"
             data-pdf="assets/seaglide.pdf">
-
             <div class="project-html-desc" style="display: none;">
               <h3>Executive Summary</h3>
               <p>Design, build, and performance analysis of a miniature autonomous underwater glider ("SeaGlide") for MAE 190. The vehicle propels itself by actively altering its buoyancy and center of gravity to create vertical motion, which is translated into forward glide by fixed wings.</p>
-              <h3>Hardware & Build</h3>
+              <h3>Key Highlights</h3>
               <ul>
-                <li><strong>Hull & Structure:</strong> Assembled using a cylindrical housing (water bottle) modified with 3D-printed brackets and flat foam wings.</li>
-                <li><strong>Buoyancy Engine:</strong> Utilized a motorized syringe system capable of shifting the vehicle's center of gravity longitudinally by ±1.25 cm and changing the displacement volume by up to ±14 mL to initiate dive and climb states.</li>
+                <li>Hull & Structure: Assembled using a cylindrical housing modified with 3D-printed brackets.</li>
+                <li>Buoyancy Engine: Utilized a motorized syringe system to shift center of gravity.</li>
               </ul>
-              <h3>Hydrodynamic Analysis</h3>
+              <h3>Lessons Learned</h3>
               <ul>
-                <li><strong>Aerodynamic Modeling:</strong> Approximated wing efficiency using a NACA 0012 airfoil baseline. Calculated induced drag and lift-curve slopes for an aspect ratio of 6.8.</li>
-                <li><strong>Performance Prediction:</strong> Developed a MATLAB simulation to predict the vehicle's flight path angle (up to ±44.5°), lift coefficients, and both vertical/horizontal velocities across a spectrum of vehicle speeds.</li>
+                <li>Waterproofing dynamic mechanical seals under pressure often poses a stricter constraint than designing the hydrodynamic shape itself.</li>
+                <li>Internal buoyancy control requires incredibly precise volumetric calculations and weight distribution mapping.</li>
               </ul>
-              <h3>Technical Specifications</h3>
-              <table class="spec-table">
-                <tr><td>Wing Span (b)</td><td>51 cm</td></tr>
-                <tr><td>Wing Area (S)</td><td>382.5 cm²</td></tr>
-                <tr><td>Dry Weight</td><td>10.32 N</td></tr>
-                <tr><td>Buoyancy Change (Dive)</td><td>+0.0589 N</td></tr>
-                <tr><td>Buoyancy Change (Climb)</td><td>-0.2551 N</td></tr>
-                <tr><td>Max Pitch Attitude Angle</td><td>±44.5°</td></tr>
-              </table>
             </div>
-
             <div class="dossier-image cinematic-standard">
               <img src="assets/seaglide.jpg" class="parallax-img" alt="SeaGlide AUV">
             </div>
-            <div class="dossier-info chamfer-box glass-panel">
-              <span class="micro-label">// HRD-04A</span>
+            <div class="dossier-info chamfer-box glass-panel offset-left">
+              <span class="category-badge">Hydrodynamics & Systems</span>
               <h3>SeaGlide AUV</h3>
               <p>Autonomous underwater glider with variable buoyancy.</p>
               <span class="dossier-link">View Media & Report &rarr;</span>
             </div>
           </div>
 
-          <div class="dossier-card bento-half stagger-reveal project-click-target dynamic-glow"
+          <div class="dossier-card bento-40 pop-up-element project-click-target dynamic-glow"
             data-title="Orbit Determination for LEO Satellite"
             data-images="assets/orbit_plot_placeholder.png"
             data-skills="MATLAB,Kalman Filters,Orbital Mechanics,Data Estimation"
             data-pdf="assets/MAE 182 Project.pdf">
-
             <div class="project-html-desc" style="display: none;">
               <h3>Executive Summary</h3>
               <p>Developed and evaluated a MATLAB-based orbit determination algorithm for a low Earth orbit (LEO) satellite, modeled after NASA's QuickSCAT mission. The nonlinear force model incorporated two-body gravity, J2 oblateness, and exponential atmospheric drag.</p>
-              <h3>Key Technical Contributions</h3>
+              <h3>Key Highlights</h3>
               <ul>
-                <li><strong>Batch Least-Squares:</strong> Implemented a regression model for high-accuracy post-processing of range and range-rate tracking data.</li>
-                <li><strong>Kalman Filtering:</strong> Developed a sequential Kalman filter for real-time continuous navigation, utilizing the Joseph formulation to enforce covariance symmetry and resolve numerical instability.</li>
-                <li><strong>Performance Comparison:</strong> Compared estimator performances, achieving post-fit residuals of 0.1161 m in range and 0.0014 m/s in range-rate using the sequential filter.</li>
+                <li>Batch Least-Squares: Implemented regression model for high-accuracy post-processing.</li>
+                <li>Kalman Filtering: Developed sequential Kalman filter for real-time continuous navigation.</li>
+              </ul>
+              <h3>Lessons Learned</h3>
+              <ul>
+                <li>Extended Kalman Filters are highly susceptible to divergence if process noise isn't tuned carefully against measurement noise.</li>
+                <li>Accounting for J2 oblateness is an absolute necessity for achieving reasonable accuracy in Low Earth Orbit propagation.</li>
               </ul>
             </div>
-
             <div class="dossier-image cinematic-standard">
-              <img src="assets/orbit_plot_placeholder.jpg" class="parallax-img" alt="Orbit Determination Plot">
+              <img src="assets/orbit_plot_placeholder.png" class="parallax-img" alt="Orbit Determination Plot">
             </div>
-            <div class="dossier-info chamfer-box glass-panel">
-              <span class="micro-label">// HRD-04B</span>
-              <h3>LEO Orbit Determination</h3>
-              <p>MATLAB-based orbit determination for a LEO satellite.</p>
+            <div class="dossier-info chamfer-box glass-panel offset-right">
+              <span class="category-badge">Orbital Simulation</span>
+              <h3>LEO Orbit Det.</h3>
+              <p>MATLAB-based orbit determination.</p>
               <span class="dossier-link">View Research &rarr;</span>
             </div>
           </div>
 
-          <div class="dossier-card bento-half stagger-reveal project-click-target dynamic-glow"
+          <!-- ASYMMETRIC GRID START: 40/60 -->
+          <div class="dossier-card bento-40 pop-up-element project-click-target dynamic-glow"
             data-title="4-Piston Engine CAD"
             data-images="assets/4pistonengine.jpg"
             data-skills="SolidWorks,Mechanical Design,Assemblies,Kinematics"
             data-model="assets/piston_engine.glb"
             data-video="assets/Final assembly pistong engine.mp4">
-
             <div class="project-html-desc" style="display: none;">
               <h3>Executive Summary</h3>
               <p>Mechanical CAD assembly project demonstrating multi-part modeling, constraint-based assemblies, and motion-driven verification. The emphasis is on clean part construction, proper mates, and an assembly that behaves like a coherent mechanism.</p>
-              <h3>Scope</h3>
+              <h3>Key Highlights</h3>
               <ul>
-                <li><strong>Part modeling:</strong> engine block and major rotating/reciprocating components modeled with manufacturable intent.</li>
-                <li><strong>Assembly:</strong> correct mate strategy to represent mechanism behavior and maintain stable rebuilds.</li>
-                <li><strong>Motion validation:</strong> motion study used to verify kinematics and visually confirm timing relationships.</li>
+                <li>Part modeling: engine block and major rotating/reciprocating components modeled.</li>
+                <li>Motion validation: motion study used to verify kinematics and timing relationships.</li>
+              </ul>
+              <h3>Lessons Learned</h3>
+              <ul>
+                <li>Top-down assembly design prevents cascading mate failures during design iteration.</li>
+                <li>Building real-world clearances into physical CAD parts is essential for producing valid motion studies.</li>
               </ul>
             </div>
-
             <div class="dossier-image cinematic-standard">
               <img src="assets/4pistonengine.jpg" class="parallax-img" alt="Engine">
             </div>
-            <div class="dossier-info chamfer-box glass-panel">
-              <span class="micro-label">// HRD-05</span>
-              <h3>4-Piston Engine CAD</h3>
-              <p>Mechanical Design & Kinematics.</p>
+            <div class="dossier-info chamfer-box glass-panel offset-left">
+              <span class="category-badge">CAD & Kinematics</span>
+              <h3>Piston Engine</h3>
+              <p>CAD Assemblies & Motion Validation.</p>
               <span class="dossier-link">View Model &rarr;</span>
             </div>
           </div>
 
-          <div class="dossier-card bento-half stagger-reveal project-click-target dynamic-glow"
+          <div class="dossier-card bento-60 pop-up-element project-click-target dynamic-glow"
             data-title="Experimental Laboratory Work"
             data-images="assets/lab_work.gif"
             data-skills="MATLAB,Arduino,DAQ,Signal Processing"
             data-pdf="assets/lab_report_1.pdf,assets/lab_report_2.pdf">
-
             <div class="project-html-desc" style="display: none;">
               <h3>Executive Summary</h3>
               <p>Hands-on experimental work across acoustics and heat transfer, emphasizing instrumentation, repeatable data collection, and clean post-processing. The focus was on translating theory into measurable results and understanding uncertainty drivers.</p>
-              <h3>Heat Transfer Work</h3>
+              <h3>Key Highlights</h3>
               <ul>
-                <li><strong>Goal:</strong> validate simplified models (e.g., lumped capacitance assumptions where applicable) and estimate convective behavior from measured temperature response.</li>
-                <li><strong>Implementation:</strong> Arduino-based sensing and logging, then MATLAB-based processing and visualization.</li>
+                <li>Heat Transfer: Validated simplified models and estimated convective behavior.</li>
+                <li>Acoustics: Measured and interpreted time-domain signals under noise and reflections.</li>
               </ul>
-              <h3>Acoustics Work</h3>
+              <h3>Lessons Learned</h3>
               <ul>
-                <li><strong>Goal:</strong> measure and interpret time-domain signals under noise and reflections.</li>
-                <li><strong>Approach:</strong> signal interpretation techniques (filtering/averaging where appropriate) and structured comparison of trials.</li>
+                <li>Digital signal filtering (e.g., Butterworth low-pass) is mandatory for extracting usable trends from physical acoustics data.</li>
+                <li>Convective heat transfer coefficients fluctuate wildly in uncontrolled laboratory environments, necessitating large sample sizes.</li>
               </ul>
             </div>
-
             <div class="dossier-image cinematic-standard">
               <img src="assets/lab_work.gif" class="parallax-img" alt="Lab Work">
             </div>
-            <div class="dossier-info chamfer-box glass-panel offset-left">
-              <span class="micro-label">// HRD-06</span>
+            <div class="dossier-info chamfer-box glass-panel offset-right">
+              <span class="category-badge">Experimental Thermodynamics</span>
               <h3>Lab Operations</h3>
               <p>Acoustics & Thermodynamics.</p>
               <span class="dossier-link">View Full Reports &rarr;</span>
@@ -578,39 +390,197 @@
         </div>
       </section>
 
-      <section id="aspirations" class="section" data-nav="aspirations">
-        <span class="micro-label">DATA BLOCK 05</span>
+      <!-- TIMELINE -->
+      <section id="timeline" class="section" data-nav="timeline">
+        <span class="micro-label">02 / Timeline</span>
         <div class="reveal-mask">
-            <h2>Aspirations</h2>
+            <h2 class="animated-header">Timeline</h2>
         </div>
-        
-        <div class="aspirations-content chamfer-box glass-panel dynamic-glow stagger-reveal">
-            <p>My long-term goal is to help propel humanity into the next era of space exploration by contributing to the development of advanced astronautical vehicles and space systems. I aspire to work at the forefront of spacecraft design, system integration, and propulsion innovation, developing technologies that strengthen human capabilities on Earth while expanding our presence beyond it. I am particularly motivated by cutting-edge vehicle concepts and emerging technologies that push the boundaries of what is currently possible.</p>
-            <p>I’m exploring Master’s programs in Europe with a focus aligned with space engineering, while keeping a strong interest in the broader aerospace ecosystem and advanced vehicle development.</p>
+
+        <div class="timeline-container pop-up-element">
+          <div class="timeline-line" id="timeline-line"></div>
+          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
+            <h3>Sep 2022</h3>
+            <h4>UC San Diego — B.S. Aerospace</h4>
+            <p>Commenced a Bachelor of Science in Aerospace Engineering, building a rigorous theoretical foundation. Completed extensive core coursework spanning Fluid Dynamics, Solid Mechanics, Thermodynamics, Aerospace Structures, Propulsion, Orbital Mechanics, Linear Control, and Engineering Experimental Techniques.</p>
+          </div>
+          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
+            <h3>Sep 2023</h3>
+            <h4>ITS Service Desk Technician</h4>
+            <p>Service Desk technician, worked extensively to resolve campus-wide technical issues and improved support workflows. Also collaborated with other ITS teams to help increase support efficiency and improve quality of service for customers.</p>
+          </div>
+          <div class="timeline-card chamfer-box glass-panel dynamic-glow"> 
+            <h3>May 2025</h3>
+            <h4>Promoted — Service Desk Lead</h4>
+            <p>Helped lead a 60+ member technician team, overseeing daily campus-wide IT operations, complex troubleshooting, and cross-departmental coordination. Drove long-term organizational growth by facilitating staff training and managing documentation.</p>
+          </div>
+          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
+            <h3>Jun 2025</h3>
+            <h4>RPL at UCSD</h4>
+            <p>Supported the design, build, and launch of a G-class model rocket (~2,100 ft), contributing to assembly, CAD support, testing preparation, and team design discussions while gaining exposure to rocket stability and flight performance analysis.</p>
+          </div>
+          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
+            <h3>Sep 2025</h3>
+            <h4>Design-Build-Fly (DBF)</h4>
+            <p>Collaborated on the Aerodynamics and Structures subteams for a competition-scale RC aircraft. Drove performance-based design trade studies by assisting with airfoil selection, structural sizing, and CAD modeling.</p>
+          </div>
+          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
+            <h3>Jan 2026</h3>
+            <h4>Senior Design Capstone — BWB</h4>
+            <p>Served as Chief Engineer for an ultra-efficient Blended Wing Body commercial airliner concept. Led cross-functional efforts spanning gradient-free aerodynamic optimization, unconventional structural layout, and aft-propulsion integration.</p>
+          </div>
+          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
+            <h3>Present</h3>
+            <h4>Chief Engineer — Project Citadel</h4>
+            <p>Serving as Chief Engineer for a profit-maximizing RC aircraft project. Leading a multidisciplinary team through rigorous gradient-based design optimization (MDO), aerodynamic analysis, and the physical manufacturing of a high-payload configuration.</p>
+          </div>
+          <div class="timeline-card chamfer-box glass-panel dynamic-glow">
+            <h3>Oct 2026</h3>
+            <h4>TUM — M.S. Aerospace Engineering</h4>
+            <p>Commencing Master's degree, focusing on advanced astronautical vehicles and space systems.</p>
+          </div>
         </div>
       </section>
 
-      <section id="contact" class="section stagger-reveal" data-nav="contact">
-        <span class="micro-label">DATA BLOCK 06</span>
+      <!-- SKILLS -->
+      <section id="skills" class="section" data-nav="skills">
+        <span class="micro-label">03 / Skills</span>
         <div class="reveal-mask">
-            <h2>Contact</h2>
+            <h2 class="animated-header">Skills</h2>
         </div>
 
-        <div class="form-container glass-panel chamfer-box dynamic-glow">
+        <div class="skills-wrapper">
+          <div class="skill-row chamfer-box glass-panel pop-up-element dynamic-glow">
+            <div class="skill-head">Software & CAD</div>
+            <div class="skills-list">
+              <span>SolidWorks</span>
+              <span>SolidWorks Flow Simulation</span>
+              <span>Ansys Fluent</span>
+              <span>OpenVSP</span>
+              <span>AVL</span>
+              <span>XFLR5</span>
+              <span>XFOIL</span>
+              <span>Fusion 360</span>
+              <span>STK (Systems Tool Kit)</span>
+              <span>Technical Drawings & CAD Assemblies</span>
+            </div>
+          </div>
+          <div class="skill-row chamfer-box glass-panel pop-up-element dynamic-glow">
+            <div class="skill-head">Analysis & Simulation</div>
+            <div class="skills-list">
+              <span>MATLAB</span>
+              <span>Python</span>
+              <span>Multidisciplinary Design Optimization (MDO)</span>
+              <span>Aerodynamic Sizing & Trade Studies</span>
+              <span>Constraint Analysis</span>
+              <span>Drag Build-Up Methods</span>
+              <span>VLM / Low-Fidelity Aero Tools</span>
+              <span>Stability & Static Margin</span>
+              <span>Controls Fundamentals (Signals & Systems)</span>
+              <span>Thin-Walled Structures (Shear Flow)</span>
+              <span>FEA Fundamentals</span>
+            </div>
+          </div>
+          <div class="skill-row chamfer-box glass-panel pop-up-element dynamic-glow">
+            <div class="skill-head">Hardware & Lab</div>
+            <div class="skills-list">
+              <span>Arduino IDE</span>
+              <span>Sensor Instrumentation (lab-scale)</span>
+              <span>Data Logging & Post-Processing</span>
+              <span>Experimental Heat Transfer</span>
+              <span>Rapid Prototyping</span>
+              <span>RC Aircraft Integration Support</span>
+              <span>Flight Test Support (student team)</span>
+            </div>
+          </div>
+          <!-- IMPROVEMENT #3: LANGUAGES -->
+          <div class="skill-row chamfer-box glass-panel pop-up-element dynamic-glow">
+            <div class="skill-head">Languages</div>
+            <div class="skills-list">
+              <span>English (Fluent)</span>
+              <span>Spanish (Native)</span>
+              <span>French (Fluent)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="section" data-nav="experience">
+        <span class="micro-label">04 / Experience</span>
+        <div class="reveal-mask">
+            <h2 class="animated-header">Experience</h2>
+        </div>
+
+        <div class="experience-stack">
+          <div class="experience-row chamfer-box glass-panel pop-up-element dynamic-glow">
+            <div class="exp-image">
+                <img src="assets/dbf.jpg" alt="DBF Team">
+            </div>
+            <div class="exp-content">
+                <div class="exp-meta">
+                  <h3>Design Build Fly (DBF)</h3>
+                  <p class="exp-role">Aerodynamics Team</p>
+                </div>
+                <div class="exp-details">
+                  <p>Contributed to UCSD’s Design-Build-Fly effort by supporting aerodynamic configuration decisions and practical build-to-test iteration on a student RC aircraft. Performed airfoil screening and low-fidelity analysis (XFOIL/XFLR5) to compare lift/drag trends under Reynolds-number constraints typical of competition-scale aircraft, and used results to inform geometry choices and stability targets. Helped translate analysis into CAD updates and manufacturing-ready geometry, then supported flight readiness through preflight checks and post-flight review.</p>
+                </div>
+            </div>
+          </div>
+
+          <div class="experience-row chamfer-box glass-panel pop-up-element dynamic-glow">
+            <div class="exp-image">
+                <img src="assets/its.jpg" alt="UCSD ITS">
+            </div>
+            <div class="exp-content">
+                <div class="exp-meta">
+                  <h3>UCSD ITS</h3>
+                  <p class="exp-role">Service Desk Lead</p>
+                </div>
+                <div class="exp-details">
+                 <p>Progressed from Service Desk Technician to Lead, taking responsibility for shift operations, escalation triage, and technician support during high-impact incidents. Mentored newer technicians, improved consistency in ticket handling through clearer triage routines and documentation, and served as a primary escalation point for complex account, device, and software issues. Coordinated with higher-tier teams when incidents required deeper network or systems support, focusing on fast communication, accurate handoffs, and restoring service with minimal user downtime.</p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ASPIRATIONS -->
+      <section id="aspirations" class="section" data-nav="aspirations">
+        <span class="micro-label">05 / Aspirations</span>
+        <div class="reveal-mask">
+            <h2 class="animated-header">Aspirations</h2>
+        </div>
+        
+        <div class="aspirations-content chamfer-box glass-panel pop-up-element dynamic-glow">
+            <p>My long-term goal is to help propel humanity into the next era of space exploration by contributing to the development of advanced astronautical vehicles and space systems. I aspire to work at the forefront of spacecraft design, system integration, and propulsion innovation, developing technologies that strengthen human capabilities on Earth while expanding our presence beyond it. I am particularly motivated by cutting-edge vehicle concepts and emerging technologies that push the boundaries of what is currently possible.</p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section" data-nav="contact">
+        <span class="micro-label">06 / Contact</span>
+        <div class="reveal-mask">
+            <h2 class="animated-header">Contact</h2>
+        </div>
+
+        <div class="form-container glass-panel chamfer-box pop-up-element dynamic-glow">
           <form id="contact-form" action="https://formspree.io/f/mdaejvek" method="POST" class="contact-form">
             <div class="form-group">
               <input type="text" name="name" placeholder="Name" class="chamfer-input" required>
               <input type="email" name="email" placeholder="Email Address" class="chamfer-input" required>
             </div>
             <textarea name="message" rows="5" placeholder="Your Message" class="chamfer-input" required></textarea>
-            <button type="submit" class="btn chamfer-btn" id="send-btn">Send Message</button>
+            <div class="contact-actions">
+              <button type="submit" class="btn chamfer-btn magnetic-btn" id="send-btn">Send Message</button>
+            </div>
           </form>
         </div>
       </section>
 
-      <footer class="terminal-footer section centered-footer stagger-reveal">
+      <footer class="terminal-footer section centered-footer">
         <div class="footer-links">
-            <a href="https://www.linkedin.com/in/gregorio-zaltzman-d-ambrosio-25510a313/" target="_blank" rel="noopener" class="chamfer-btn">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/gregoriozaltzman/" target="_blank" rel="noopener" class="chamfer-btn">LinkedIn</a>
             <a href="mailto:gregoriozaltzman@gmail.com" class="chamfer-btn">Email</a>
             <a href="https://github.com/gregoriozaltzman" target="_blank" rel="noopener" class="chamfer-btn">GitHub</a>
         </div>
@@ -624,10 +594,15 @@
     </main>
   </div> 
 
+  <!-- FANCY POP-UP MODAL WITH NEXT/PREV ARROWS -->
   <div id="project-modal" class="modal" aria-hidden="true">
     <div class="modal-close-wrapper">
       <button class="close-modal" type="button" aria-label="Close modal">&times;</button>
     </div>
+    
+    <!-- IMPROVEMENT #6: Navigation Arrows -->
+    <button class="nav-modal prev-modal" aria-label="Previous Project">&#10094;</button>
+    <button class="nav-modal next-modal" aria-label="Next Project">&#10095;</button>
 
     <div class="modal-split">
       <div class="modal-left">
