@@ -27,7 +27,7 @@ export default function MobileNav() {
           {personalInfo.initials}
         </span>
         <div className="flex flex-col">
-          <span className="text-sm font-medium text-white">{personalInfo.name}</span>
+          <span className="text-sm font-medium text-white">{personalInfo.name} {personalInfo.surname}</span>
           <span className="text-[10px] text-zinc-400 uppercase tracking-wider">
             Aerospace Engineering
           </span>

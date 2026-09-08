@@ -81,7 +81,7 @@ export default function Sidebar() {
 
           <h1 className="text-3xl xl:text-4xl font-semibold tracking-[-0.04em] text-white leading-[1.1]">
             {personalInfo.name} <br />
-            <span className="text-zinc-400 font-normal">{personalInfo.surname}</span>
+            {personalInfo.surname}
           </h1>
 
           <p className="text-sm text-zinc-400 font-light leading-relaxed pt-1">
