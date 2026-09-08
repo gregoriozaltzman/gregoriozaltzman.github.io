@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { ExternalLink, Mail, FileText, ChevronRight } from "lucide-react";
+import { ExternalLink, Mail, ChevronRight } from "lucide-react";
 import { LinkedinIcon, GithubIcon } from "../ui/SocialIcons";
 import { personalInfo } from "../../data/portfolioData";
 import ChamferButton from "../ui/ChamferButton";
 
 const navSections = [
-  { id: "projects", label: "Projects", tag: "01" },
-  { id: "experience", label: "Experience", tag: "02" },
-  { id: "skills", label: "Skills", tag: "03" },
-  { id: "timeline", label: "Timeline", tag: "04" },
-  { id: "aspirations", label: "Aspirations", tag: "05" },
-  { id: "contact", label: "Contact", tag: "06" },
+  { id: "projects", label: "Projects" },
+  { id: "experience", label: "Experience" },
+  { id: "skills", label: "Technical Skills" },
+  { id: "timeline", label: "Milestones" },
+  { id: "aspirations", label: "Aspirations" },
+  { id: "contact", label: "Contact" },
 ];
 
 export default function Sidebar() {
@@ -41,14 +41,8 @@ export default function Sidebar() {
       {/* Top Header / Profile Info */}
       <div className="space-y-8">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-xl font-bold tracking-wider px-2.5 py-1 bg-white/10 border border-white/20 chamfer-pill">
-              {personalInfo.initials}
-            </span>
-            <div className="flex items-center gap-2 font-mono text-[11px] text-zinc-400 uppercase tracking-widest">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 blinking" />
-              <span>SYS.ACTIVE</span>
-            </div>
+          <div className="font-semibold text-lg tracking-wider px-3 py-1 bg-white/10 border border-white/20 chamfer-pill text-white">
+            {personalInfo.initials}
           </div>
 
           <div className="flex items-center gap-3 text-muted">
@@ -80,25 +74,25 @@ export default function Sidebar() {
           </div>
         </div>
 
-        <div className="space-y-4">
-          <div className="inline-block font-mono text-[11px] text-sky-400/90 tracking-widest uppercase px-2.5 py-1 bg-sky-500/10 border border-sky-500/20 chamfer-tag">
-            // AEROSPACE ENGINEERING
-          </div>
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.2em] text-zinc-400 font-medium">
+            Aerospace Engineering
+          </p>
 
-          <h1 className="text-3xl xl:text-4xl font-semibold tracking-tight text-white leading-[1.15]">
+          <h1 className="text-3xl xl:text-4xl font-semibold tracking-[-0.04em] text-white leading-[1.1]">
             {personalInfo.name} <br />
             <span className="text-zinc-400 font-normal">{personalInfo.surname}</span>
           </h1>
 
-          <p className="text-xs xl:text-sm text-zinc-400 font-light leading-relaxed">
+          <p className="text-sm text-zinc-400 font-light leading-relaxed pt-1">
             {personalInfo.focus}
           </p>
         </div>
 
         {/* Education Blocks */}
         <div className="space-y-2.5 pt-2 border-t border-white/10">
-          <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-wider block">
-            Academic Track
+          <span className="text-xs text-zinc-500 font-medium uppercase tracking-wider block">
+            Education
           </span>
           {personalInfo.degrees.map((deg, i) => (
             <a
@@ -112,7 +106,7 @@ export default function Sidebar() {
                 <span>{deg.degree}</span>
                 <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              <div className="text-[11px] text-zinc-500 group-hover:text-zinc-400 font-mono">
+              <div className="text-[11px] text-zinc-500 group-hover:text-zinc-400">
                 {deg.institution}
               </div>
             </a>
@@ -122,8 +116,8 @@ export default function Sidebar() {
 
       {/* Middle Navigation - Desktop Scrollspy */}
       <div className="hidden lg:block py-6 my-auto">
-        <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-wider block mb-3">
-          Telemetry Index
+        <span className="text-xs text-zinc-500 font-medium uppercase tracking-wider block mb-3">
+          Navigation
         </span>
         <nav className="space-y-1">
           {navSections.map((sec) => {
@@ -132,22 +126,17 @@ export default function Sidebar() {
               <a
                 key={sec.id}
                 href={`#${sec.id}`}
-                className={`group flex items-center justify-between py-2 px-3 rounded font-mono text-xs uppercase tracking-wider transition-all duration-200 ${
+                className={`group flex items-center justify-between py-2 px-3 rounded text-xs uppercase tracking-wider transition-all duration-200 ${
                   isActive
-                    ? "text-white bg-white/10 border-l-2 border-sky-400 font-semibold translate-x-1"
+                    ? "text-white bg-white/10 border-l-2 border-white font-medium translate-x-1"
                     : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
                 }`}
               >
-                <div className="flex items-center gap-2.5">
-                  <span className={`text-[10px] ${isActive ? "text-sky-400" : "text-zinc-600 group-hover:text-zinc-400"}`}>
-                    // {sec.tag}
-                  </span>
-                  <span>{sec.label}</span>
-                </div>
+                <span>{sec.label}</span>
                 <ChevronRight
-                  size={14}
+                  size={12}
                   className={`transition-transform duration-200 ${
-                    isActive ? "translate-x-0 opacity-100 text-sky-400" : "-translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
+                    isActive ? "translate-x-1 opacity-100" : "opacity-0 group-hover:opacity-60"
                   }`}
                 />
               </a>
@@ -156,26 +145,16 @@ export default function Sidebar() {
         </nav>
       </div>
 
-      {/* Bottom Actions & Status */}
-      <div className="space-y-4 pt-6 border-t border-white/10">
+      {/* Bottom Actions */}
+      <div className="pt-6 border-t border-white/10 space-y-3">
         <ChamferButton
-          href={personalInfo.resumeUrl}
+          href="/assets/resume.pdf"
           target="_blank"
-          rel="noreferrer"
-          variant="primary"
-          icon={FileText}
-          className="w-full"
+          variant="outline"
+          className="w-full justify-center text-xs py-2.5"
         >
-          View Curriculum Vitae
+          View Resume
         </ChamferButton>
-
-        <div className="flex items-center justify-between font-mono text-[10px] text-zinc-500 pt-1">
-          <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span className="text-zinc-300">{personalInfo.status}</span>
-          </div>
-          <span>{personalInfo.location}</span>
-        </div>
       </div>
     </aside>
   );

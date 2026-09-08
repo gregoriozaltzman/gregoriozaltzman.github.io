@@ -23,13 +23,13 @@ export default function MobileNav() {
   return (
     <header className="lg:hidden sticky top-0 z-40 bg-[#030303]/90 backdrop-blur-xl border-b border-borderCustom px-6 py-4 flex items-center justify-between">
       <a href="#" className="flex items-center gap-2.5">
-        <span className="font-mono text-sm font-bold px-2 py-0.5 bg-white/10 border border-white/20 chamfer-pill">
+        <span className="text-sm font-bold px-2.5 py-0.5 bg-white/10 border border-white/20 chamfer-pill text-white">
           {personalInfo.initials}
         </span>
         <div className="flex flex-col">
           <span className="text-sm font-medium text-white">{personalInfo.name}</span>
-          <span className="font-mono text-[9px] text-zinc-400 uppercase tracking-widest">
-            // Aerospace Engineering
+          <span className="text-[10px] text-zinc-400 uppercase tracking-wider">
+            Aerospace Engineering
           </span>
         </div>
       </a>
@@ -57,10 +57,10 @@ export default function MobileNav() {
                   key={sec.id}
                   href={`#${sec.id}`}
                   onClick={close}
-                  className="flex items-center justify-between p-3 rounded font-mono text-xs uppercase tracking-wider text-zinc-300 hover:text-white hover:bg-white/10 transition-colors"
+                  className="flex items-center justify-between p-3 rounded text-xs uppercase tracking-wider text-zinc-300 hover:text-white hover:bg-white/10 transition-colors"
                 >
-                  <span className="text-zinc-500">// {sec.tag}</span>
-                  <span className="font-semibold">{sec.label}</span>
+                  <span className="text-zinc-500">{sec.tag}</span>
+                  <span className="font-medium">{sec.label}</span>
                 </a>
               ))}
             </nav>

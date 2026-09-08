@@ -27,17 +27,14 @@ export default function App() {
 
         {/* Primary Content Stream */}
         <main className="w-full lg:w-[64%] xl:w-[68%] p-6 sm:p-10 lg:p-14 xl:p-16 space-y-24 sm:space-y-32">
-          {/* Welcome / Telemetry Focus Header */}
-          <div className="p-6 sm:p-8 chamfer-box border border-white/10 bg-white/[0.02] backdrop-blur-md space-y-3">
-            <div className="flex items-center gap-2 font-mono text-xs text-zinc-400">
-              <span className="w-2 h-2 rounded-full bg-sky-400 blinking" />
-              <span>TERMINAL READY // INITIALIZING TELEMETRY</span>
-            </div>
-            <div className="text-sm sm:text-base text-zinc-200 font-light leading-relaxed">
+          {/* Clean Focus Header */}
+          <div className="p-6 sm:p-8 chamfer-box border border-white/10 bg-white/[0.02] backdrop-blur-md">
+            <div className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+              <span className="font-semibold text-white">Focus: </span>
               <Typewriter
-                text="Mission Profile: Aircraft design, aerodynamics, space systems, and spacecraft engineering. Specializing in multidisciplinary design optimization (MDO) and high-fidelity computational fluid dynamics."
+                text="Aircraft design, aerodynamics, space systems, and spacecraft engineering."
                 delay={0.4}
-                speed={20}
+                speed={25}
               />
             </div>
           </div>

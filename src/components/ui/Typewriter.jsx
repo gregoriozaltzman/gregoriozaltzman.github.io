@@ -37,7 +37,7 @@ export default function Typewriter({
   }, [text, delay, speed, onComplete]);
 
   return (
-    <span className={`inline font-mono ${className}`}>
+    <span className={`inline ${className}`}>
       {displayed}
       {cursor && (!isFinished || hasStarted) && (
         <span className="inline-block w-1.5 h-3.5 bg-white/70 ml-1 translate-y-0.5 animate-pulse" />

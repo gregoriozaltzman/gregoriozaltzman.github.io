@@ -4,28 +4,25 @@ import DynamicGlow from "../ui/DynamicGlow";
 
 export default function Timeline() {
   return (
-    <section id="timeline" className="space-y-8">
+    <section id="timeline" className="space-y-6">
       {/* Section Header */}
-      <div className="space-y-3">
-        <div className="inline-block font-mono text-[11px] text-sky-400 tracking-widest uppercase">
-          // DATA BLOCK 04 — TRAJECTORY
-        </div>
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
-            Engineering Milestones
+      <div className="space-y-2">
+        <span className="text-xs uppercase tracking-[0.2em] text-zinc-500 font-medium block">
+          04 / Milestones
+        </span>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.04em] text-white">
+            Milestones
           </h2>
-          <span className="font-mono text-xs text-zinc-500">2022 – 2028+</span>
+          <span className="text-xs text-zinc-500">2022 – 2028+</span>
         </div>
-        <p className="text-xs sm:text-sm text-zinc-400 font-light max-w-2xl leading-relaxed">
-          Chronological progression across university studies, technical leadership, rocketry, competition aircraft, capstone systems, and forward-looking graduate studies.
-        </p>
       </div>
 
       {/* Vertical Trajectory Track */}
-      <div className="relative pl-6 sm:pl-8 border-l border-white/15 space-y-8 ml-2 sm:ml-4">
+      <div className="relative pl-6 sm:pl-8 border-l border-white/15 space-y-8 ml-2 sm:ml-4 pt-2">
         {timelineData.map((item, idx) => {
-          const isFuture = item.date.includes("2026") && item.title.includes("TUM");
           const isPresent = item.date.toLowerCase() === "present";
+          const isFuture = item.date.toLowerCase().includes("future");
 
           return (
             <motion.div
@@ -39,11 +36,11 @@ export default function Timeline() {
               {/* Milestone Node */}
               <div
                 className={`absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 transition-all ${
-                  isFuture
-                    ? "bg-sky-400 border-sky-300 shadow-[0_0_12px_#38bdf8]"
-                    : isPresent
+                  isPresent
                     ? "bg-emerald-400 border-emerald-300 shadow-[0_0_12px_#22c55e]"
-                    : "bg-[#070707] border-zinc-400"
+                    : isFuture
+                    ? "bg-sky-400 border-sky-300 shadow-[0_0_12px_#38bdf8]"
+                    : "bg-[#070707] border-zinc-500"
                 }`}
               />
 
@@ -51,34 +48,34 @@ export default function Timeline() {
               <DynamicGlow className="chamfer-box p-6 border border-borderCustom hover:border-white/30 space-y-2">
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/5 pb-2">
                   <span
-                    className={`font-mono text-xs tracking-wider px-2 py-0.5 rounded border ${
-                      isFuture
-                        ? "bg-sky-500/10 text-sky-400 border-sky-500/30 font-semibold"
-                        : isPresent
-                        ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30 font-semibold"
+                    className={`text-xs px-2.5 py-0.5 rounded border ${
+                      isPresent
+                        ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30 font-medium"
+                        : isFuture
+                        ? "bg-sky-500/10 text-sky-400 border-sky-500/30 font-medium"
                         : "bg-white/5 text-zinc-400 border-white/10"
                     }`}
                   >
                     {item.date}
                   </span>
                   {isPresent && (
-                    <span className="font-mono text-[10px] text-emerald-400 flex items-center gap-1.5">
+                    <span className="text-[11px] text-emerald-400 flex items-center gap-1.5 font-medium">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 blinking" />
-                      ACTIVE INITIATIVE
+                      Active Studies
                     </span>
                   )}
                   {isFuture && (
-                    <span className="font-mono text-[10px] text-sky-400">
-                      UPCOMING HORIZON
+                    <span className="text-[11px] text-sky-400 font-medium">
+                      Future Goal
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-semibold text-white pt-1">
+                <h3 className="text-lg sm:text-xl font-medium text-white pt-1">
                   {item.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed">
+                <p className="text-sm text-zinc-400 font-light leading-relaxed">
                   {item.desc}
                 </p>
               </DynamicGlow>

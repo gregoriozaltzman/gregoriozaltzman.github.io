@@ -36,32 +36,29 @@ export default function ProjectGrid() {
   return (
     <section id="projects" className="space-y-8">
       {/* Section Header */}
-      <div className="space-y-3">
-        <div className="inline-block font-mono text-[11px] text-sky-400 tracking-widest uppercase">
-          // DATA BLOCK 01 — DOSSIERS
-        </div>
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
-            Featured Projects
+      <div className="space-y-2">
+        <span className="text-xs uppercase tracking-[0.2em] text-zinc-500 font-medium block">
+          01 / Projects
+        </span>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.04em] text-white">
+            Projects
           </h2>
-          <span className="font-mono text-xs text-zinc-500">
-            {projectsData.length} Selected Technical Case Studies
+          <span className="text-xs text-zinc-500">
+            {projectsData.length} Projects
           </span>
         </div>
-        <p className="text-xs sm:text-sm text-zinc-400 font-light max-w-2xl leading-relaxed">
-          From multi-disciplinary design optimization (MDO) to high-fidelity CFD, wind tunnel testing, and space flight simulation. Click any card to launch the interactive engineering dossier.
-        </p>
       </div>
 
       {/* Category Filter Pills */}
-      <div className="flex flex-wrap gap-2 pt-2">
+      <div className="flex flex-wrap gap-2 pt-1">
         {categoryFilters.map((cat) => {
           const isSelected = activeCategory === cat;
           return (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1.5 chamfer-tag font-mono text-xs transition-all cursor-pointer ${
+              className={`px-3 py-1.5 chamfer-tag text-xs font-medium transition-all cursor-pointer ${
                 isSelected
                   ? "bg-white text-black font-semibold shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                   : "bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-white/10"

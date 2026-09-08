@@ -78,7 +78,7 @@ export const timelineData = [
   {
     date: "Sep 2022",
     title: "UC San Diego — B.S. Aerospace",
-    desc: "Commenced a Bachelor of Science in Aerospace Engineering, building a rigorous theoretical foundation. Completed coursework spanning Fluid Dynamics, Solid Mechanics, Thermodynamics, Aerospace Structures, Propulsion, Orbital Mechanics, Linear Control, and Experimental Techniques.",
+    desc: "Commenced a Bachelor of Science in Aerospace Engineering, building a rigorous theoretical foundation. Coursework spanned Fluid Dynamics, Solid Mechanics, Thermodynamics, Aerospace Structures, Propulsion, Orbital Mechanics, Linear Control, and Experimental Techniques.",
   },
   {
     date: "Sep 2023",
@@ -91,11 +91,6 @@ export const timelineData = [
     desc: "Helped lead a 60+ member technician team, overseeing daily campus-wide IT operations, complex troubleshooting, and cross-departmental coordination. Facilitated staff training and created technical documentation.",
   },
   {
-    date: "Jun 2025",
-    title: "RPL at UCSD",
-    desc: "Supported the design, build, and launch of a G-class model rocket (~2,100 ft), contributing to assembly, CAD support, testing preparation, and team design discussions while gaining exposure to rocket stability and flight performance.",
-  },
-  {
     date: "Sep 2025",
     title: "Design-Build-Fly (DBF)",
     desc: "Collaborated on the Aerodynamics and Structures subteams for a competition-scale RC aircraft. Drove performance-based design trade studies by assisting with airfoil selection, structural sizing, and CAD modeling.",
@@ -106,14 +101,19 @@ export const timelineData = [
     desc: "Served as Chief Engineer for an ultra-efficient Blended Wing Body commercial airliner concept. Led cross-functional efforts spanning gradient-free aerodynamic optimization, unconventional structural layout, and aft-propulsion integration.",
   },
   {
-    date: "Present",
+    date: "2026",
     title: "Chief Engineer — Project Citadel",
-    desc: "Serving as Chief Engineer for a profit-maximizing RC aircraft project. Leading a multidisciplinary team through rigorous gradient-based design optimization (MDO), aerodynamic analysis, and physical manufacturing.",
+    desc: "Served as Chief Engineer for a profit-maximizing RC aircraft project. Led a multidisciplinary team through rigorous gradient-based design optimization (MDO), aerodynamic analysis, and physical manufacturing.",
   },
   {
-    date: "Oct 2026",
-    title: "TUM — M.S. Aerospace Engineering",
-    desc: "Commencing Master of Science degree at the Technical University of Munich (Class of 2028), focusing on advanced astronautical vehicles and space systems.",
+    date: "Present",
+    title: "Technical University of Munich — M.S. Aerospace Engineering",
+    desc: "Master of Science candidate in Aerospace Engineering (Class of 2028), specializing in advanced astronautics, spacecraft engineering, and space systems.",
+  },
+  {
+    date: "Future Prospect",
+    title: "EUSPA / ESA — Space Systems & Astronautics",
+    desc: "Targeting European space initiatives with EUSPA (European Union Agency for the Space Programme) and ESA (European Space Agency), contributing to next-generation European satellite navigation, Earth observation, space transportation, and orbital infrastructure.",
   },
 ];
 
@@ -123,7 +123,7 @@ export const experienceData = [
     org: "Design Build Fly (DBF)",
     role: "Aerodynamics Team Subteam Member",
     image: "/assets/dbf.jpg",
-    period: "Sep 2025 – Present",
+    period: "Sep 2025 – 2026",
     desc: "Contributed to UCSD's Design-Build-Fly effort by supporting aerodynamic configuration decisions and practical build-to-test iteration on a student RC aircraft. Performed airfoil screening and low-fidelity analysis (XFOIL/XFLR5) to compare lift/drag trends under Reynolds-number constraints typical of competition-scale aircraft, and used results to inform geometry choices and stability targets. Helped translate analysis into CAD updates and manufacturing-ready geometry, then supported flight readiness through preflight checks and post-flight review.",
     highlights: [
       "Low-fidelity airfoil screening (XFOIL/XFLR5) at low Reynolds numbers",
@@ -136,7 +136,7 @@ export const experienceData = [
     org: "UCSD ITS",
     role: "Service Desk Lead (Promoted from Technician)",
     image: "/assets/its.jpg",
-    period: "Sep 2023 – Present",
+    period: "Sep 2023 – 2026",
     desc: "Progressed from Service Desk Technician to Lead, taking responsibility for shift operations, escalation triage, and technician support during high-impact incidents. Mentored newer technicians, improved consistency in ticket handling through clearer triage routines and documentation, and served as a primary escalation point for complex account, device, and software issues. Coordinated with higher-tier teams when incidents required deeper network or systems support, focusing on fast communication, accurate handoffs, and restoring service with minimal user downtime.",
     highlights: [
       "Co-managed operations and mentoring for a 60+ member technician team",
@@ -148,12 +148,12 @@ export const experienceData = [
 
 export const aspirationsData = {
   quote:
-    "My long-term goal is to help propel humanity into the next era of space exploration by contributing to the development of advanced astronautical vehicles and space systems.",
-  body: "I aspire to work at the forefront of spacecraft design, system integration, and propulsion innovation, developing technologies that strengthen human capabilities on Earth while expanding our presence beyond it. I am particularly motivated by cutting-edge vehicle concepts and emerging technologies that push the boundaries of what is currently possible.",
+    "My long-term goal is to help propel humanity into the next era of space exploration by contributing to the development of advanced astronautical vehicles and space systems with organizations like EUSPA and ESA.",
+  body: "I aspire to work at the forefront of spacecraft design, system integration, and orbital missions—with a direct future focus on European space programs including EUSPA (European Union Agency for the Space Programme) and ESA (European Space Agency). Developing technologies that strengthen human capabilities on Earth while expanding European and international presence beyond it.",
   destinations: [
     { label: "B.S. Aerospace", org: "UC San Diego", year: "2026" },
-    { label: "M.S. Aerospace", org: "TUM Munich", year: "2028" },
-    { label: "Specialization", org: "Astronautics & Space Vehicles", year: "Future" },
+    { label: "M.S. Aerospace", org: "TUM Munich (Present)", year: "2028" },
+    { label: "Future Goal", org: "EUSPA / ESA", year: "2028+" },
   ],
 };
 
@@ -162,7 +162,7 @@ export const projectsData = [
     id: "manta",
     title: "BWB Airliner Concept 'Manta'",
     category: "Conceptual Aircraft Design",
-    tag: "// HRD-01A",
+    tag: "01",
     size: "large",
     summary:
       "Conceptual design study for an ultra-efficient blended-wing-body (BWB) commercial transport named 'Manta', focused on configuration trades, propulsion-airframe integration, and performance-driven sizing. The design targets a 7,400 nmi long-haul route carrying 250 passengers at Mach 0.85, significantly improving upon traditional Tube and Wing (TAW) architectures.",
@@ -227,7 +227,7 @@ export const projectsData = [
     id: "citadel",
     title: "RC Aircraft Concept 'Citadel'",
     category: "Aircraft Design & Testing",
-    tag: "// HRD-01B",
+    tag: "02",
     size: "large",
     summary:
       "Detailed design of a profit-maximizing RC aircraft, 'Citadel', featuring a conventional tube-and-wing architecture. The design prioritizes volume payload capacity with a secondary emphasis on minimizing flight time and maximizing weight payload.",
@@ -276,7 +276,7 @@ export const projectsData = [
     id: "cfd-rocket",
     title: "Vortex-Cooled Rocket Engine CFD",
     category: "CFD & Simulation",
-    tag: "// HRD-02A",
+    tag: "03",
     size: "large",
     summary:
       "Conducted Computational Fluid Dynamics (CFD) simulations to investigate the thermal dissipation effectiveness of the Project Maelstrom vortex-cooled rocket engine. This cooling system utilizes oxidizer injection to generate a protective swirling flow field between the chamber wall and the hotter core flow.",
@@ -323,7 +323,7 @@ export const projectsData = [
     id: "wing-spar",
     title: "Wing Spar Structural Analysis",
     category: "Structures & Sizing",
-    tag: "// HRD-02B",
+    tag: "04",
     size: "large",
     summary:
       "Structural sizing and comparison study for a thin-walled wingbox (single-cell) under representative aerodynamic and inertial loading. The report evaluates stress flow behavior, bending/shear response, and weight tradeoffs between an aluminum baseline and a composite alternative.",
@@ -396,7 +396,7 @@ end`,
     id: "wind-tunnel",
     title: "Wind Tunnel Aerodynamic Analysis",
     category: "Aerodynamic Testing",
-    tag: "// HRD-03",
+    tag: "05",
     size: "large",
     summary:
       "Experimental investigation of the aerodynamic characteristics of a Clark Y-14 airfoil in a low-speed, incompressible wind tunnel environment. The primary objective was to determine lift, drag, and pitching moment characteristics across a range of freestream velocities and angles of attack, including pre-stall and post-stall behavior.",
@@ -448,7 +448,7 @@ end`,
     id: "seaglide",
     title: "SeaGlide Autonomous Underwater Vehicle",
     category: "Hydrodynamics & Systems",
-    tag: "// HRD-04A",
+    tag: "06",
     size: "half",
     summary:
       "Design, build, and performance analysis of a miniature autonomous underwater glider ('SeaGlide') for MAE 190. The vehicle propels itself by actively altering its buoyancy and center of gravity to create vertical motion, which is translated into forward glide by fixed hydrodynamic wings.",
@@ -492,7 +492,7 @@ end`,
     id: "orbit-det",
     title: "Orbit Determination for LEO Satellite",
     category: "Orbital Simulation",
-    tag: "// HRD-04B",
+    tag: "07",
     size: "half",
     summary:
       "Developed and evaluated a MATLAB-based orbit determination algorithm for a low Earth orbit (LEO) satellite, modeled after NASA's QuickSCAT mission. The nonlinear force model incorporated two-body gravity, J2 oblateness, and exponential atmospheric drag.",
@@ -535,7 +535,7 @@ end`,
     id: "piston-engine",
     title: "4-Piston Engine CAD & Kinematics",
     category: "CAD & Kinematics",
-    tag: "// HRD-05",
+    tag: "08",
     size: "half",
     summary:
       "Mechanical CAD assembly project demonstrating multi-part modeling, constraint-based assemblies, and motion-driven kinematic verification in SolidWorks. The emphasis was on clean part construction, proper mate tolerance, and mechanism synchronization.",
@@ -577,7 +577,7 @@ end`,
     id: "lab-ops",
     title: "Experimental Laboratory Work",
     category: "Experimental Thermodynamics",
-    tag: "// HRD-06",
+    tag: "09",
     size: "half",
     summary:
       "Hands-on experimental engineering across acoustics and heat transfer, emphasizing instrumentation, repeatable data collection, and signal post-processing. The focus was on translating physical conservation equations into measurable experimental results.",

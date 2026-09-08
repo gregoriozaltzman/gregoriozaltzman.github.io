@@ -13,7 +13,7 @@ export default function ChamferButton({
   icon: Icon,
 }) {
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:pointer-events-none";
+    "inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-semibold transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:pointer-events-none";
 
   const variantStyles = {
     primary:

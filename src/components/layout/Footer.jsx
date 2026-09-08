@@ -7,10 +7,10 @@ export default function Footer() {
 
   return (
     <footer className="pt-20 pb-12 border-t border-borderCustom text-center space-y-8">
-      {/* Telemetry Status Bar */}
-      <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/[0.03] border border-white/10 chamfer-pill text-xs font-mono text-zinc-300">
+      {/* Status Bar */}
+      <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/[0.03] border border-white/10 chamfer-pill text-xs text-zinc-300">
         <span className="w-2 h-2 rounded-full bg-emerald-400 blinking" />
-        <span className="font-semibold text-white">{personalInfo.status}</span>
+        <span className="font-medium text-white">{personalInfo.status}</span>
         <span className="text-zinc-600">|</span>
         <span className="text-zinc-400">{personalInfo.location}</span>
       </div>
@@ -44,9 +44,9 @@ export default function Footer() {
         </a>
       </div>
 
-      <div className="space-y-1 font-mono text-[11px] text-zinc-600">
+      <div className="space-y-1 text-xs text-zinc-500">
         <p>© {currentYear} {personalInfo.name} {personalInfo.surname}. All rights reserved.</p>
-        <p className="text-zinc-700">Aerospace Engineering & Computational Design</p>
+        <p className="text-zinc-600">Aerospace Engineering & Spacecraft Systems</p>
       </div>
     </footer>
   );

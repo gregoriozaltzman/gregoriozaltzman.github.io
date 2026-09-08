@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Box, Video, FileText, Code2 } from "lucide-react";
+import { ArrowRight, Box, Video, FileText, Code2 } from "lucide-react";
 import DynamicGlow from "../ui/DynamicGlow";
 
 export default function ProjectCard({ project, onSelect, index }) {
@@ -29,74 +29,69 @@ export default function ProjectCard({ project, onSelect, index }) {
           {/* Media Feature Badges in top-right */}
           <div className="absolute top-3 right-3 flex items-center gap-1.5 z-10">
             {project.model && (
-              <span className="px-2 py-1 bg-black/75 backdrop-blur-md border border-white/20 chamfer-tag font-mono text-[10px] text-sky-400 flex items-center gap-1">
-                <Box size={11} /> 3D GLB
+              <span className="px-2 py-1 bg-black/75 backdrop-blur-md border border-white/20 chamfer-tag text-[10px] text-sky-400 font-medium flex items-center gap-1">
+                <Box size={11} /> 3D Model
               </span>
             )}
             {project.video && (
-              <span className="px-2 py-1 bg-black/75 backdrop-blur-md border border-white/20 chamfer-tag font-mono text-[10px] text-amber-400 flex items-center gap-1">
-                <Video size={11} /> VIDEO
+              <span className="px-2 py-1 bg-black/75 backdrop-blur-md border border-white/20 chamfer-tag text-[10px] text-amber-400 font-medium flex items-center gap-1">
+                <Video size={11} /> Video
               </span>
             )}
             {project.codeSnippet && (
-              <span className="px-2 py-1 bg-black/75 backdrop-blur-md border border-white/20 chamfer-tag font-mono text-[10px] text-emerald-400 flex items-center gap-1">
+              <span className="px-2 py-1 bg-black/75 backdrop-blur-md border border-white/20 chamfer-tag text-[10px] text-emerald-400 font-medium flex items-center gap-1">
                 <Code2 size={11} /> MATLAB
               </span>
             )}
             {project.pdfs && project.pdfs.length > 0 && (
-              <span className="px-2 py-1 bg-black/75 backdrop-blur-md border border-white/20 chamfer-tag font-mono text-[10px] text-zinc-300 flex items-center gap-1">
-                <FileText size={11} /> PDF
+              <span className="px-2 py-1 bg-black/75 backdrop-blur-md border border-white/20 chamfer-tag text-[10px] text-zinc-300 font-medium flex items-center gap-1">
+                <FileText size={11} /> PDF Report
               </span>
             )}
           </div>
 
           {/* Dark gradient fade for text legibility */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-
-          {/* Tag Overlay */}
-          <div className="absolute bottom-3 left-4 z-10">
-            <span className="font-mono text-[11px] text-zinc-300 tracking-wider bg-black/70 px-2 py-0.5 rounded border border-white/10">
-              {project.tag}
-            </span>
-          </div>
         </div>
 
         {/* Card Body */}
         <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
           <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-[11px] text-sky-400/90 uppercase tracking-wider">
-                {project.category}
-              </span>
-              <div className="p-1 rounded bg-white/5 group-hover:bg-white text-zinc-400 group-hover:text-black transition-all">
-                <ArrowUpRight size={16} />
-              </div>
-            </div>
+            <span className="text-xs text-sky-400 font-medium uppercase tracking-wider block">
+              {project.category}
+            </span>
 
-            <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight group-hover:text-sky-300 transition-colors">
+            <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight group-hover:text-zinc-200 transition-colors">
               {project.title}
             </h3>
 
-            <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed line-clamp-3">
+            <p className="text-sm text-zinc-400 font-light leading-relaxed line-clamp-3">
               {project.summary}
             </p>
           </div>
 
-          {/* Skills pills */}
-          <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
-            {project.skills?.slice(0, 4).map((skill, i) => (
-              <span
-                key={i}
-                className="chamfer-tag px-2 py-0.5 bg-white/[0.04] border border-white/10 font-mono text-[10px] text-zinc-400"
-              >
-                {skill}
-              </span>
-            ))}
-            {project.skills?.length > 4 && (
-              <span className="font-mono text-[10px] text-zinc-500 self-center">
-                +{project.skills.length - 4}
-              </span>
-            )}
+          {/* Skills pills and Arrow Action */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-white/5">
+            <div className="flex flex-wrap gap-1.5">
+              {project.skills?.slice(0, 3).map((skill, i) => (
+                <span
+                  key={i}
+                  className="chamfer-tag px-2.5 py-0.5 bg-white/[0.04] border border-white/10 text-[11px] text-zinc-400"
+                >
+                  {skill}
+                </span>
+              ))}
+              {project.skills?.length > 3 && (
+                <span className="text-[11px] text-zinc-500 self-center">
+                  +{project.skills.length - 3} more
+                </span>
+              )}
+            </div>
+
+            <div className="flex items-center gap-1.5 text-xs font-medium text-white group-hover:text-sky-400 transition-colors shrink-0">
+              <span>View Project</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </div>
           </div>
         </div>
       </DynamicGlow>
