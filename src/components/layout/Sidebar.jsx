@@ -37,7 +37,7 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <aside className="lg:w-[36%] xl:w-[32%] lg:h-screen lg:sticky top-0 bg-[#030303]/90 backdrop-blur-2xl border-b lg:border-b-0 lg:border-r border-borderCustom p-8 lg:p-12 xl:p-14 flex flex-col justify-between overflow-y-auto scrollbar-none z-20">
+    <aside className="w-full lg:w-[36%] xl:w-[32%] lg:sticky lg:top-0 lg:self-start lg:h-screen shrink-0 bg-[#030303]/90 backdrop-blur-2xl border-b lg:border-b-0 lg:border-r border-borderCustom p-8 lg:p-12 xl:p-14 flex flex-col justify-between overflow-y-auto scrollbar-none z-20">
       {/* Top Header / Profile Info */}
       <div className="space-y-8">
         <div className="flex items-center justify-between">

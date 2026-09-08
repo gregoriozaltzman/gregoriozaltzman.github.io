@@ -21,7 +21,7 @@ export default function App() {
       <MobileNav />
 
       {/* Main Dual-Column Aerospace Application Layout */}
-      <div className="flex flex-col lg:flex-row relative z-10 max-w-[1600px] mx-auto">
+      <div className="flex flex-col lg:flex-row lg:items-start relative z-10 max-w-[1600px] mx-auto">
         {/* Sticky Sidebar on Desktop */}
         <Sidebar />
 
