@@ -4,7 +4,6 @@ import MobileNav from "./components/layout/MobileNav";
 import Footer from "./components/layout/Footer";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import ProjectGrid from "./components/projects/ProjectGrid";
-import FlightDeck from "./components/simulations/FlightDeck";
 import Experience from "./components/experience/Experience";
 import SkillsMatrix from "./components/skills/SkillsMatrix";
 import Timeline from "./components/timeline/Timeline";
@@ -30,10 +29,7 @@ export default function App() {
           {/* Section 01: Engineering Projects & Dossiers */}
           <ProjectGrid />
 
-          {/* Section 02: Interactive Aerospace Simulation Lab */}
-          <FlightDeck />
-
-          {/* Section 03: Practical Engineering Experience */}
+          {/* Section 02: Practical Engineering Experience */}
           <Experience />
 
           {/* Section 03: Skills Matrix */}

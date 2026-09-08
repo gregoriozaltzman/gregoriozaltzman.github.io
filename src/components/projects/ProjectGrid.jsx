@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { projectsData } from "../../data/portfolioData";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
@@ -18,6 +18,55 @@ export default function ProjectGrid() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeProject, setActiveProject] = useState(null);
 
+  // Sync URL query param with active modal state
+  const updateUrlParam = useCallback((projectId) => {
+    try {
+      const url = new URL(window.location);
+      if (projectId) {
+        url.searchParams.set("project", projectId);
+      } else {
+        url.searchParams.delete("project");
+      }
+      window.history.pushState({}, "", url.toString());
+    } catch {
+      // Fallback if URL manipulation is restricted
+    }
+  }, []);
+
+  // Listen to browser popstate (back/forward navigation)
+  useEffect(() => {
+    const handlePopState = () => {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const pId = params.get("project");
+        if (pId) {
+          const match = projectsData.find((p) => p.id === pId);
+          setActiveProject(match || null);
+        } else {
+          setActiveProject(null);
+        }
+      } catch {
+        setActiveProject(null);
+      }
+    };
+
+    // Check initial URL on mount
+    handlePopState();
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  const openProjectModal = (proj) => {
+    setActiveProject(proj);
+    updateUrlParam(proj.id);
+  };
+
+  const closeProjectModal = () => {
+    setActiveProject(null);
+    updateUrlParam(null);
+  };
+
   const filteredProjects =
     activeCategory === "All"
       ? projectsData
@@ -31,7 +80,9 @@ export default function ProjectGrid() {
     if (currentModalIndex === -1) return;
     const total = projectsData.length;
     let nextIndex = (currentModalIndex + direction + total) % total;
-    setActiveProject(projectsData[nextIndex]);
+    const nextProj = projectsData[nextIndex];
+    setActiveProject(nextProj);
+    updateUrlParam(nextProj.id);
   };
 
   return (
@@ -90,7 +141,7 @@ export default function ProjectGrid() {
             key={project.id}
             project={project}
             index={idx}
-            onSelect={(p) => setActiveProject(p)}
+            onSelect={openProjectModal}
           />
         ))}
       </div>
@@ -102,7 +153,7 @@ export default function ProjectGrid() {
           project={activeProject}
           projects={projectsData}
           currentIndex={currentModalIndex}
-          onClose={() => setActiveProject(null)}
+          onClose={closeProjectModal}
           onNavigate={handleNavigateModal}
         />
       )}

@@ -7,10 +7,12 @@ export default defineConfig({
   server: {
     host: true,
     cors: true,
+    allowedHosts: true,
   },
   preview: {
     host: true,
     cors: true,
+    allowedHosts: true,
   },
   build: {
     chunkSizeWarningLimit: 1500,

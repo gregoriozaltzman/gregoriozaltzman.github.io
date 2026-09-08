@@ -7,12 +7,11 @@ import ChamferButton from "../ui/ChamferButton";
 
 const navSections = [
   { id: "projects", label: "Projects", tag: "01" },
-  { id: "simulations", label: "Sim Lab", tag: "02" },
-  { id: "experience", label: "Experience", tag: "03" },
-  { id: "skills", label: "Skills", tag: "04" },
-  { id: "timeline", label: "Timeline", tag: "05" },
-  { id: "aspirations", label: "Aspirations", tag: "06" },
-  { id: "contact", label: "Contact", tag: "07" },
+  { id: "experience", label: "Experience", tag: "02" },
+  { id: "skills", label: "Skills", tag: "03" },
+  { id: "timeline", label: "Timeline", tag: "04" },
+  { id: "aspirations", label: "Aspirations", tag: "05" },
+  { id: "contact", label: "Contact", tag: "06" },
 ];
 
 export default function MobileNav() {
