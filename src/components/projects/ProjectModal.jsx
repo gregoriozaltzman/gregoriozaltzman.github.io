@@ -51,11 +51,12 @@ export default function ProjectModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose, onNavigate]);
 
-  // Prevent background scroll
+  // Prevent background scroll while modal is open
   useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = originalOverflow || "";
     };
   }, []);
 

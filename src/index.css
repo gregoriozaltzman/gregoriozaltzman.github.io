@@ -12,6 +12,8 @@ html {
   scroll-behavior: smooth;
   background-color: #000000;
   color: #ffffff;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
@@ -19,6 +21,8 @@ body {
   background-color: #000000;
   color: #ffffff;
   overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
 }
 
 h1, h2, h3 {

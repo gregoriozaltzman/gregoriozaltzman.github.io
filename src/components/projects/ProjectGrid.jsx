@@ -83,14 +83,16 @@ export default function ProjectGrid() {
       </div>
 
       {/* Interactive Dossier Modal */}
-      <ProjectModal
-        key={activeProject?.id || "none"}
-        project={activeProject}
-        projects={projectsData}
-        currentIndex={currentModalIndex}
-        onClose={() => setActiveProject(null)}
-        onNavigate={handleNavigateModal}
-      />
+      {activeProject && (
+        <ProjectModal
+          key={activeProject.id}
+          project={activeProject}
+          projects={projectsData}
+          currentIndex={currentModalIndex}
+          onClose={() => setActiveProject(null)}
+          onNavigate={handleNavigateModal}
+        />
+      )}
     </section>
   );
 }
