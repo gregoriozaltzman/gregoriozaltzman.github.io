@@ -14,8 +14,10 @@ import {
   Copy,
   Check,
   RotateCcw,
+  GitFork,
 } from "lucide-react";
 import "@google/model-viewer";
+import ProjectWorkflowFlowchart from "./ProjectWorkflowFlowchart";
 
 function getDefaultMediaTab(p) {
   if (!p) return "gallery";
@@ -35,6 +37,7 @@ export default function ProjectModal({
   const [activeMediaTab, setActiveMediaTab] = useState(() =>
     getDefaultMediaTab(project)
   );
+  const [activeDetailsTab, setActiveDetailsTab] = useState("overview");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [copiedCode, setCopiedCode] = useState(false);
   const modelViewerRef = useRef(null);
@@ -384,55 +387,91 @@ export default function ProjectModal({
                   </h2>
                 </div>
 
-                {/* Executive Summary */}
-                <div className="space-y-2">
-                  <span className="text-xs text-zinc-500 font-medium uppercase tracking-wider block">
-                    Executive Summary
-                  </span>
-                  <p className="text-sm text-zinc-300 font-light leading-relaxed">
-                    {project.summary}
-                  </p>
-                </div>
+                {/* Mode Selector (Overview vs Workflow Flowchart) if project has workflow */}
+                {project.workflow && (
+                  <div className="flex items-center gap-2 p-1 bg-white/[0.04] border border-white/10 rounded-lg">
+                    <button
+                      onClick={() => setActiveDetailsTab("overview")}
+                      className={`flex-1 py-1.5 px-3 rounded text-xs font-medium transition-all cursor-pointer ${
+                        activeDetailsTab === "overview"
+                          ? "bg-white text-black font-semibold shadow"
+                          : "text-zinc-400 hover:text-white"
+                      }`}
+                    >
+                      Dossier Overview
+                    </button>
+                    <button
+                      onClick={() => setActiveDetailsTab("workflow")}
+                      className={`flex-1 py-1.5 px-3 rounded text-xs font-medium flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                        activeDetailsTab === "workflow"
+                          ? "bg-sky-500 text-white font-semibold shadow-[0_0_15px_rgba(56,189,248,0.4)]"
+                          : "text-sky-400 hover:text-sky-300"
+                      }`}
+                    >
+                      <GitFork size={13} />
+                      <span>Design Workflow Flowchart</span>
+                    </button>
+                  </div>
+                )}
 
-                {/* Technical Sections (Analysis, Decisions, Lessons Learned) */}
-                {project.sections &&
-                  project.sections.map((sec, sIdx) => (
-                    <div key={sIdx} className="space-y-3 pt-2">
-                      <h3 className="text-sm font-semibold text-white tracking-wide border-b border-white/10 pb-1.5">
-                        {sec.heading}
-                      </h3>
-                      <div className="space-y-3">
-                        {sec.items.map((item, iIdx) => (
-                          <div key={iIdx} className="space-y-0.5">
-                            <span className="text-xs font-medium text-zinc-200 flex items-center gap-1.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
-                              {item.title}
-                            </span>
-                            <p className="text-xs text-zinc-400 font-light pl-3 leading-relaxed">
-                              {item.text}
-                            </p>
+                {project.workflow && activeDetailsTab === "workflow" ? (
+                  <ProjectWorkflowFlowchart
+                    workflow={project.workflow}
+                    projectTitle={project.title}
+                  />
+                ) : (
+                  <>
+                    {/* Executive Summary */}
+                    <div className="space-y-2">
+                      <span className="text-xs text-zinc-500 font-medium uppercase tracking-wider block">
+                        Executive Summary
+                      </span>
+                      <p className="text-sm text-zinc-300 font-light leading-relaxed">
+                        {project.summary}
+                      </p>
+                    </div>
+
+                    {/* Technical Sections (Analysis, Decisions, Lessons Learned) */}
+                    {project.sections &&
+                      project.sections.map((sec, sIdx) => (
+                        <div key={sIdx} className="space-y-3 pt-2">
+                          <h3 className="text-sm font-semibold text-white tracking-wide border-b border-white/10 pb-1.5">
+                            {sec.heading}
+                          </h3>
+                          <div className="space-y-3">
+                            {sec.items.map((item, iIdx) => (
+                              <div key={iIdx} className="space-y-0.5">
+                                <span className="text-xs font-medium text-zinc-200 flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
+                                  {item.title}
+                                </span>
+                                <p className="text-xs text-zinc-400 font-light pl-3 leading-relaxed">
+                                  {item.text}
+                                </p>
+                              </div>
+                            ))}
                           </div>
+                        </div>
+                      ))}
+
+                    {/* Skills & Technologies Tags */}
+                    <div className="space-y-2 pt-2">
+                      <span className="text-xs text-zinc-500 font-medium uppercase tracking-wider block">
+                        Tools & Competencies
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.skills?.map((s, i) => (
+                          <span
+                            key={i}
+                            className="chamfer-pill px-3 py-1 bg-white/5 border border-white/10 text-xs text-zinc-300"
+                          >
+                            {s}
+                          </span>
                         ))}
                       </div>
                     </div>
-                  ))}
-
-                {/* Skills & Technologies Tags */}
-                <div className="space-y-2 pt-2">
-                  <span className="text-xs text-zinc-500 font-medium uppercase tracking-wider block">
-                    Tools & Competencies
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.skills?.map((s, i) => (
-                      <span
-                        key={i}
-                        className="chamfer-pill px-3 py-1 bg-white/5 border border-white/10 text-xs text-zinc-300"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                  </>
+                )}
 
                 {/* Action Buttons: View Reports / PDFs */}
                 {project.pdfs && project.pdfs.length > 0 && (

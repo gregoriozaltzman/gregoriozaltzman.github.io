@@ -6,6 +6,7 @@ import ChamferButton from "../ui/ChamferButton";
 
 const navSections = [
   { id: "projects", label: "Projects" },
+  { id: "simulations", label: "Simulation Lab" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Technical Skills" },
   { id: "timeline", label: "Milestones" },

@@ -4,12 +4,12 @@ import MobileNav from "./components/layout/MobileNav";
 import Footer from "./components/layout/Footer";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import ProjectGrid from "./components/projects/ProjectGrid";
+import FlightDeck from "./components/simulations/FlightDeck";
 import Experience from "./components/experience/Experience";
 import SkillsMatrix from "./components/skills/SkillsMatrix";
 import Timeline from "./components/timeline/Timeline";
 import Aspirations from "./components/aspirations/Aspirations";
 import ContactForm from "./components/contact/ContactForm";
-import Typewriter from "./components/ui/Typewriter";
 
 export default function App() {
   return (
@@ -27,22 +27,13 @@ export default function App() {
 
         {/* Primary Content Stream */}
         <main className="w-full lg:w-[64%] xl:w-[68%] p-6 sm:p-10 lg:p-14 xl:p-16 space-y-24 sm:space-y-32">
-          {/* Clean Focus Header */}
-          <div className="p-6 sm:p-8 chamfer-box border border-white/10 bg-white/[0.02] backdrop-blur-md">
-            <div className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
-              <span className="font-semibold text-white">Focus: </span>
-              <Typewriter
-                text="Aircraft design, aerodynamics, space systems, and spacecraft engineering."
-                delay={0.4}
-                speed={25}
-              />
-            </div>
-          </div>
-
           {/* Section 01: Engineering Projects & Dossiers */}
           <ProjectGrid />
 
-          {/* Section 02: Practical Engineering Experience */}
+          {/* Section 02: Interactive Aerospace Simulation Lab */}
+          <FlightDeck />
+
+          {/* Section 03: Practical Engineering Experience */}
           <Experience />
 
           {/* Section 03: Skills Matrix */}
