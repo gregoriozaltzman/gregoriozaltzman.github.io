@@ -74,6 +74,113 @@ export const skillsData = [
   },
 ];
 
+export const milestoneGroups = [
+  {
+    id: "ucsd",
+    name: "UC San Diego",
+    fullName: "University of California, San Diego",
+    badge: "B.S. Aerospace '26",
+    period: "2022 – 2026",
+    location: "La Jolla, California",
+    statusBadge: "Graduated / Foundation",
+    accentColor: "border-amber-500/40 text-amber-400 bg-amber-500/10",
+    glowColor: "#f59e0b",
+    summary:
+      "Rigorous Bachelor of Science curriculum spanning fluid mechanics, structures, controls, and orbital mechanics, complemented by competitive collegiate flight test programs, capstone Chief Engineer leadership, and campus IT operations management.",
+    milestones: [
+      {
+        date: "Sep 2022",
+        title: "UC San Diego — B.S. Aerospace Engineering",
+        desc: "Commenced a Bachelor of Science in Aerospace Engineering at the Jacobs School of Engineering, establishing a rigorous theoretical foundation in Fluid Dynamics, Solid Mechanics, Thermodynamics, Aerospace Structures, Propulsion, Orbital Mechanics, and Linear Control.",
+        tag: "Academic Foundation",
+      },
+      {
+        date: "Sep 2023 – 2026",
+        title: "Service Desk Lead · Business & Technical Support Analyst",
+        desc: "Led a 60+ member student technician team at UCSD ITS, managing daily shift operations, critical incident escalations, business process workflows, staff mentoring, and campus-wide technical documentation.",
+        tag: "Leadership & IT Analysis",
+      },
+      {
+        date: "Sep 2025 – 2026",
+        title: "AIAA Design-Build-Fly (DBF) — Aerodynamics & Structures",
+        desc: "Collaborated on aerodynamic trade studies (XFOIL/XFLR5 airfoil screening at low Reynolds numbers) and structural integration for competition-class RC aircraft.",
+        tag: "Collegiate Team",
+      },
+      {
+        date: "Jan 2026",
+        title: "Senior Design Capstone — Chief Engineer (BWB 'Manta')",
+        desc: "Served as Chief Engineer for an ultra-efficient Blended Wing Body airliner concept. Directed particle swarm optimization, dynamic stability eigensolvers, and aft propulsion integration.",
+        tag: "Chief Engineer",
+      },
+      {
+        date: "2026",
+        title: "Chief Engineer — Project Citadel (RC Aircraft)",
+        desc: "Spearheaded profit-maximizing aircraft design utilizing gradient-based MDO (JAX/modOpt/IPOPT) balancing 24 aerodynamic, structural, and electrical constraints.",
+        tag: "Chief Engineer",
+      },
+    ],
+  },
+  {
+    id: "tum",
+    name: "Technical University of Munich",
+    fullName: "Technische Universität München",
+    badge: "M.S. Aerospace '28",
+    period: "2026 – Present",
+    location: "Munich, Germany",
+    statusBadge: "Active Studies",
+    accentColor: "border-emerald-500/40 text-emerald-400 bg-emerald-500/10",
+    glowColor: "#10b981",
+    summary:
+      "Master of Science program at TUM School of Engineering and Design (Department of Aerospace and Geodesy), specializing in advanced astronautics, spacecraft engineering, satellite systems, and orbital trajectory analysis.",
+    milestones: [
+      {
+        date: "Present",
+        title: "Technical University of Munich — M.S. Aerospace Engineering",
+        desc: "Master of Science candidate in Aerospace Engineering (Class of 2028), specializing in advanced astronautics, spacecraft engineering, and space systems in Munich, Germany.",
+        tag: "Graduate Studies",
+        active: true,
+      },
+      {
+        date: "2026 – Present",
+        title: "Graduate Aerospace Curriculum & Coursework",
+        desc: "Rigorous focus on advanced spacecraft systems, orbital dynamics, and space propulsion technologies at TUM.",
+        courses: [
+          "Rocket Propulsion",
+          "Antennas for Space",
+          "Human Spaceflight",
+          "Systems Engineering",
+          "Orbital Spaceflight Dynamics",
+          "Composites Structure-Property Relationships",
+          "Electric Space Propulsion",
+        ],
+        tag: "Current Curriculum",
+        active: true,
+      },
+    ],
+  },
+  {
+    id: "future",
+    name: "Future Horizon",
+    fullName: "European Space Programs & Beyond",
+    badge: "Target 2028+",
+    period: "2028 and Beyond",
+    location: "Europe / International",
+    statusBadge: "Strategic Horizon",
+    accentColor: "border-sky-500/40 text-sky-400 bg-sky-500/10",
+    glowColor: "#0284c7",
+    summary:
+      "Long-term career focus on contributing to major European and international space initiatives—collaborating with EUSPA, ESA, and European space partners to build next-generation satellite constellations, spacecraft systems, and orbital infrastructure.",
+    milestones: [
+      {
+        date: "2028+",
+        title: "European Space Engineering Initiatives",
+        desc: "Targeting engineering contributions to European space programs and industry initiatives (including EUSPA, ESA, and European aerospace partners), focused on spacecraft design, satellite systems, and orbital infrastructure.",
+        tag: "Space Initiatives",
+      },
+    ],
+  },
+];
+
 export const timelineData = [
   {
     date: "Sep 2022",
@@ -81,14 +188,9 @@ export const timelineData = [
     desc: "Commenced a Bachelor of Science in Aerospace Engineering, building a rigorous theoretical foundation. Coursework spanned Fluid Dynamics, Solid Mechanics, Thermodynamics, Aerospace Structures, Propulsion, Orbital Mechanics, Linear Control, and Experimental Techniques.",
   },
   {
-    date: "Sep 2023",
-    title: "ITS Service Desk Technician",
-    desc: "Worked extensively to resolve campus-wide technical issues and improved support workflows. Collaborated with other ITS teams to help increase support efficiency and improve service quality.",
-  },
-  {
-    date: "May 2025",
-    title: "Promoted — Service Desk Lead",
-    desc: "Helped lead a 60+ member technician team, overseeing daily campus-wide IT operations, complex troubleshooting, and cross-departmental coordination. Facilitated staff training and created technical documentation.",
+    date: "Sep 2023 – 2026",
+    title: "Service Desk Lead · Business & Technical Support Analyst",
+    desc: "Led a 60+ member technician team at UCSD ITS, managing campus-wide IT operations, complex troubleshooting, business process workflows, staff training, and technical documentation.",
   },
   {
     date: "Sep 2025",
@@ -111,9 +213,9 @@ export const timelineData = [
     desc: "Master of Science candidate in Aerospace Engineering (Class of 2028), specializing in advanced astronautics, spacecraft engineering, and space systems.",
   },
   {
-    date: "Future Prospect",
-    title: "EUSPA / ESA — Space Systems & Astronautics",
-    desc: "Targeting European space initiatives with EUSPA (European Union Agency for the Space Programme) and ESA (European Space Agency), contributing to next-generation European satellite navigation, Earth observation, space transportation, and orbital infrastructure.",
+    date: "2028+",
+    title: "European Space Engineering Initiatives",
+    desc: "Targeting engineering contributions to European space programs and industry initiatives (including EUSPA, ESA, and European space partners), contributing to next-generation European satellite navigation, spacecraft design, and orbital infrastructure.",
   },
 ];
 
@@ -134,14 +236,14 @@ export const experienceData = [
   {
     id: "its",
     org: "UCSD ITS",
-    role: "Service Desk Lead (Promoted from Technician)",
+    role: "Service Desk Lead · Business & Technical Support Analyst",
     image: "/assets/its.jpg",
     period: "Sep 2023 – 2026",
-    desc: "Progressed from Service Desk Technician to Lead, taking responsibility for shift operations, escalation triage, and technician support during high-impact incidents. Mentored newer technicians, improved consistency in ticket handling through clearer triage routines and documentation, and served as a primary escalation point for complex account, device, and software issues. Coordinated with higher-tier teams when incidents required deeper network or systems support, focusing on fast communication, accurate handoffs, and restoring service with minimal user downtime.",
+    desc: "Served as Service Desk Lead and Business & Technical Support Analyst at UCSD ITS, taking operational responsibility for a 60+ member technician team, escalation triage, and campus-wide technical support during high-impact incidents. Mentored technicians, improved consistency in ticket handling through optimized workflows and documentation, and collaborated across departments to resolve complex system, account, and business software challenges with minimal user downtime.",
     highlights: [
-      "Co-managed operations and mentoring for a 60+ member technician team",
-      "Point of escalation for major university-wide technical incidents",
-      "Streamlined dispatch protocols and internal technical documentation",
+      "Co-managed operations, scheduling, and mentoring for a 60+ member technician team",
+      "Point of escalation for major university-wide technical incidents and business software workflows",
+      "Streamlined dispatch protocols, troubleshooting procedures, and internal technical documentation",
     ],
   },
 ];
