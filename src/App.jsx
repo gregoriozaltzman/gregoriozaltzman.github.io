@@ -1,56 +1,97 @@
+import { useState, useEffect } from "react";
 import SpaceCanvas from "./components/canvas/SpaceCanvas";
-import Sidebar from "./components/layout/Sidebar";
-import MobileNav from "./components/layout/MobileNav";
-import Footer from "./components/layout/Footer";
-import ScrollToTop from "./components/layout/ScrollToTop";
-import ProjectGrid from "./components/projects/ProjectGrid";
-import Experience from "./components/experience/Experience";
-import SkillsMatrix from "./components/skills/SkillsMatrix";
-import Timeline from "./components/timeline/Timeline";
-import Aspirations from "./components/aspirations/Aspirations";
-import ContactForm from "./components/contact/ContactForm";
+import JamHeader from "./components/layout/JamHeader";
+import MorphingHeroTitle from "./components/hero/MorphingHeroTitle";
+import JamHero from "./components/hero/JamHero";
+import JamProjects from "./components/projects/JamProjects";
+import JamExperience from "./components/experience/JamExperience";
+import JamMilestones from "./components/milestones/JamMilestones";
+import JamSkills from "./components/skills/JamSkills";
+import JamAbout from "./components/about/JamAbout";
+import JamContact from "./components/contact/JamContact";
+import JamFooter from "./components/layout/JamFooter";
+
+const SECTION_IDS = [
+  "projects",
+  "experience",
+  "milestones",
+  "skills",
+  "about",
+  "contact",
+];
 
 export default function App() {
+  const [activeSection, setActiveSection] = useState("projects");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight * 0.35;
+
+      for (let i = SECTION_IDS.length - 1; i >= 0; i--) {
+        const id = SECTION_IDS[i];
+        const element = document.getElementById(id);
+        if (element) {
+          const top = element.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-sky-500/30 selection:text-white relative">
-      {/* Dynamic Cosmic Space Background */}
+    <div className="min-h-screen w-full bg-[#030304] text-white selection:bg-white/20 selection:text-white relative overflow-x-hidden">
+      {/* 1. Deep Space Canvas: High-density stars, subtle cosmic nebulae, constellations, satellites & meteors */}
       <SpaceCanvas />
 
-      {/* Mobile Top Navigation */}
-      <MobileNav />
+      {/* 2. Unified Right Header Navigation */}
+      <JamHeader
+        activeSection={activeSection}
+        onSelectSection={scrollToSection}
+      />
 
-      {/* Main Dual-Column Aerospace Application Layout */}
-      <div className="flex flex-col lg:flex-row lg:items-start relative z-10 max-w-[1600px] mx-auto">
-        {/* Sticky Sidebar on Desktop */}
-        <Sidebar />
+      {/* 3. Morphing Hero Title: Seen morphing and shrinking in height from hero into top-left bar */}
+      <MorphingHeroTitle />
 
-        {/* Primary Content Stream */}
-        <main className="w-full lg:w-[64%] xl:w-[68%] p-6 sm:p-10 lg:p-14 xl:p-16 space-y-24 sm:space-y-32">
-          {/* Section 01: Engineering Projects & Dossiers */}
-          <ProjectGrid />
+      {/* 4. Continuous Vertical Editorial Layout with Smooth Scrolling Animations */}
+      <main className="w-full max-w-[1500px] mx-auto px-4 sm:px-8 md:px-12 relative z-10 flex flex-col">
+        {/* Hero Bio & Actions */}
+        <JamHero />
 
-          {/* Section 02: Practical Engineering Experience */}
-          <Experience />
+        {/* 01: Projects (Rounded Modal, High-Level Summaries, Filter Pills) */}
+        <JamProjects />
 
-          {/* Section 03: Skills Matrix */}
-          <SkillsMatrix />
+        {/* 02: Experience */}
+        <JamExperience />
 
-          {/* Section 04: Engineering Trajectory & Timeline */}
-          <Timeline />
+        {/* 03: Milestones (Vertical Timeline for Each Chapter) */}
+        <JamMilestones />
 
-          {/* Section 05: Space Aspirations & TUM 2028 */}
-          <Aspirations />
+        {/* 04: Skills */}
+        <JamSkills />
 
-          {/* Section 06: Contact Link */}
-          <ContactForm />
+        {/* 05: About Profile */}
+        <JamAbout />
 
-          {/* Site Footer */}
-          <Footer />
-        </main>
-      </div>
+        {/* 06: Contact Transmission Form */}
+        <JamContact />
 
-      {/* Floating Scroll to Top Action */}
-      <ScrollToTop />
+        {/* 07: Editorial Swiss Footer */}
+        <JamFooter />
+      </main>
     </div>
   );
 }

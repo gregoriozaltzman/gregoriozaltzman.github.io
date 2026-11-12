@@ -27,23 +27,10 @@ export default function Timeline() {
   return (
     <section id="timeline" className="space-y-8">
       {/* Section Header */}
-      <div className="space-y-3">
-        <span className="text-xs uppercase tracking-[0.2em] text-zinc-500 font-medium block">
-          04 / Milestones
-        </span>
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.04em] text-white">
-              Milestones
-            </h2>
-            <p className="text-sm text-zinc-400 font-light mt-1">
-              Academic progression, engineering leadership, and strategic aerospace trajectory.
-            </p>
-          </div>
-          <span className="text-xs font-mono px-3 py-1 bg-white/5 border border-white/10 rounded text-zinc-400 self-start sm:self-auto shrink-0">
-            2022 – 2028+
-          </span>
-        </div>
+      <div className="text-center">
+        <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.04em] text-white">
+          Milestones
+        </h2>
       </div>
 
       {/* Group Navigation Tabs */}
@@ -112,7 +99,7 @@ export default function Timeline() {
               className="space-y-6"
             >
               {/* Group Banner / Context Header */}
-              <div className="relative chamfer-box p-6 sm:p-7 bg-[#070707]/90 border border-white/15 overflow-hidden">
+              <div className="relative rounded-[28px] p-6 sm:p-8 bg-[#0a0a0a]/90 border border-white/15 overflow-hidden">
                 {/* Background Ambient Glow */}
                 <div
                   className="absolute -right-16 -top-16 w-56 h-56 rounded-full blur-3xl opacity-15 pointer-events-none"
@@ -186,7 +173,7 @@ export default function Timeline() {
                       />
 
                       {/* Milestone Card */}
-                      <DynamicGlow className="chamfer-box p-5 border border-borderCustom hover:border-white/30 space-y-2.5 bg-[#050505]">
+                      <div className="rounded-[24px] p-6 border border-white/15 hover:border-sky-400/40 space-y-3 bg-[#0a0a0a]/90 transition-all duration-300">
                         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/5 pb-2">
                           <span
                             className={`text-xs px-2.5 py-0.5 rounded border ${
@@ -245,7 +232,7 @@ export default function Timeline() {
                             </div>
                           </div>
                         )}
-                      </DynamicGlow>
+                      </div>
                     </motion.div>
                   );
                 })}

@@ -13,7 +13,7 @@ export default function ProjectWorkflowFlowchart({ workflow, projectTitle }) {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <span className="text-[11px] font-mono tracking-widest text-sky-400 uppercase font-semibold">
+            <span className="text-[11px] font-mono tracking-widest text-zinc-400 uppercase font-semibold">
               Engineering Synthesis Pipeline
             </span>
             <span className="text-zinc-600">•</span>
@@ -24,7 +24,7 @@ export default function ProjectWorkflowFlowchart({ workflow, projectTitle }) {
           </h4>
         </div>
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs text-zinc-300 shrink-0 self-start sm:self-auto font-mono">
-          <Cpu size={14} className="text-sky-400" />
+          <Cpu size={14} className="text-zinc-400" />
           <span>Interactive Synthesis Loop</span>
         </div>
       </div>
@@ -43,7 +43,7 @@ export default function ProjectWorkflowFlowchart({ workflow, projectTitle }) {
                   onClick={() => setSelectedStep(idx)}
                   className={`relative p-4 chamfer-card text-left transition-all cursor-pointer min-w-[210px] w-56 ${
                     isSelected
-                      ? "bg-white/[0.08] border-sky-400 shadow-[0_0_20px_rgba(56,189,248,0.2)] ring-1 ring-sky-400"
+                      ? "bg-white/[0.08] border-zinc-400 shadow-[0_0_20px_rgba(56,189,248,0.2)] ring-1 ring-zinc-400"
                       : isPassed
                       ? "bg-white/[0.03] border-white/20 hover:border-white/40 text-zinc-300"
                       : "bg-white/[0.015] border-white/10 hover:border-white/25 text-zinc-400"
@@ -54,7 +54,7 @@ export default function ProjectWorkflowFlowchart({ workflow, projectTitle }) {
                     <span
                       className={`text-[10px] font-mono tracking-wider px-2 py-0.5 rounded font-semibold ${
                         isSelected
-                          ? "bg-sky-400/20 text-sky-300 border border-sky-400/40"
+                          ? "bg-zinc-400/20 text-zinc-300 border border-zinc-400/40"
                           : "bg-white/5 text-zinc-400"
                       }`}
                     >
@@ -83,7 +83,7 @@ export default function ProjectWorkflowFlowchart({ workflow, projectTitle }) {
                   {isSelected && (
                     <motion.div
                       layoutId="activeArrow"
-                      className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-sky-400"
+                      className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-zinc-400"
                     />
                   )}
                 </button>
@@ -108,12 +108,12 @@ export default function ProjectWorkflowFlowchart({ workflow, projectTitle }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.2 }}
-          className="p-5 sm:p-6 chamfer-card border border-sky-500/25 bg-sky-950/20 space-y-4"
+          className="p-5 sm:p-6 chamfer-card border border-zinc-500/25 bg-zinc-950/20 space-y-4"
         >
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono text-sky-400 font-semibold">
+                <span className="text-xs font-mono text-zinc-400 font-semibold">
                   PHASE 0{workflow[selectedStep].step} OF 0{workflow.length}
                 </span>
                 <span className="text-zinc-600">•</span>
@@ -144,7 +144,7 @@ export default function ProjectWorkflowFlowchart({ workflow, projectTitle }) {
 
           {/* Verified Output / Convergence Metric */}
           <div className="p-3.5 rounded-lg bg-white/[0.03] border border-white/10 flex items-start gap-2.5 text-xs">
-            <span className="text-sky-400 font-mono font-semibold shrink-0 flex items-center gap-1.5">
+            <span className="text-zinc-400 font-mono font-semibold shrink-0 flex items-center gap-1.5">
               <ChevronRight size={14} /> Key Deliverable / Output:
             </span>
             <span className="text-white font-medium leading-relaxed">

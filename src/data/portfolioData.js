@@ -19,7 +19,7 @@ export const personalInfo = {
   resumeUrl: "/assets/resume.pdf",
   linkedinUrl: "https://www.linkedin.com/in/gregoriozaltzman/",
   githubUrl: "https://github.com/gregoriozaltzman",
-  email: "gregoriozaltzman@gmail.com",
+  email: "",
   location: "Munich, Germany",
   status: "OPEN TO WORK",
 };
@@ -134,6 +134,13 @@ export const milestoneGroups = [
       "Master of Science program at TUM School of Engineering and Design (Department of Aerospace and Geodesy), specializing in advanced astronautics, spacecraft engineering, satellite systems, and orbital trajectory analysis.",
     milestones: [
       {
+        date: "Nov 2026 – Present",
+        title: "WARR Rocketry — Thrust Chamber & Solid Propulsion Team",
+        desc: "Active member of the Wissenschaftliche Arbeitsgemeinschaft für Raketentechnik und Raumfahrt (WARR) rocketry team at TUM, contributing to thrust chamber development, design, and solid propulsion systems.",
+        tag: "Rocketry Team",
+        active: true,
+      },
+      {
         date: "Present",
         title: "Technical University of Munich — M.S. Aerospace Engineering",
         desc: "Master of Science candidate in Aerospace Engineering (Class of 2028), specializing in advanced astronautics, spacecraft engineering, and space systems in Munich, Germany.",
@@ -211,6 +218,11 @@ export const timelineData = [
     date: "Present",
     title: "Technical University of Munich — M.S. Aerospace Engineering",
     desc: "Master of Science candidate in Aerospace Engineering (Class of 2028), specializing in advanced astronautics, spacecraft engineering, and space systems.",
+  },
+  {
+    date: "Nov 2026 – Present",
+    title: "WARR Rocketry — Thrust Chamber & Solid Propulsion Team",
+    desc: "Sounding rocket thrust chamber development, design, and solid propulsion systems with the WARR rocketry team at TUM.",
   },
   {
     date: "2028+",

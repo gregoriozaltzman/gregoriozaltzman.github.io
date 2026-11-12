@@ -11,19 +11,13 @@ export default function ProjectDataVisualizer({ project }) {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <span className="text-[11px] font-mono tracking-widest text-sky-400 uppercase font-semibold">
-              Technical Dossier & Extracted Figures
+            <span className="text-[11px] font-mono tracking-widest text-zinc-400 uppercase font-semibold">
+              Technical Data & Figures
             </span>
-            <span className="text-zinc-600">•</span>
-            <span className="text-xs text-zinc-400 font-mono">Formal Report Ground Truth</span>
           </div>
           <h4 className="text-lg sm:text-xl font-semibold text-white tracking-tight">
             {project.title} — Empirical & Analytical Results
           </h4>
-        </div>
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs text-zinc-300 shrink-0 self-start sm:self-auto font-mono">
-          <Activity size={14} className="text-sky-400" />
-          <span>Verified Engineering Data</span>
         </div>
       </div>
 
@@ -53,12 +47,12 @@ function MantaVisualizer({ rf }) {
           <div className="space-y-2">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div className="flex items-center gap-2">
-                <Gauge size={16} className="text-sky-400 shrink-0" />
+                <Gauge size={16} className="text-zinc-400 shrink-0" />
                 <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
                   Transonic Cruise Drag Polar Breakdown
                 </h5>
               </div>
-              <span className="px-2.5 py-1 rounded bg-sky-500/10 border border-sky-500/20 text-xs font-mono font-semibold text-sky-400 self-start sm:self-auto">
+              <span className="px-2.5 py-1 rounded bg-zinc-500/10 border border-zinc-500/20 text-xs font-mono font-semibold text-zinc-400 self-start sm:self-auto">
                 Total CD = {dragPolar.cdTotal}
               </span>
             </div>
@@ -72,7 +66,7 @@ function MantaVisualizer({ rf }) {
             <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden flex p-0.5 border border-white/5">
               <div
                 style={{ width: "60.5%" }}
-                className="h-full bg-sky-400 rounded-l-full hover:brightness-110 transition-all cursor-pointer"
+                className="h-full bg-zinc-400 rounded-l-full hover:brightness-110 transition-all cursor-pointer"
                 title="Parasite Drag CD,0 (60.5%)"
               />
               <div
@@ -82,7 +76,7 @@ function MantaVisualizer({ rf }) {
               />
               <div
                 style={{ width: "3.7%" }}
-                className="h-full bg-amber-400 rounded-r-full hover:brightness-110 transition-all cursor-pointer"
+                className="h-full bg-zinc-400 rounded-r-full hover:brightness-110 transition-all cursor-pointer"
                 title="Wave Drag CD,w (3.7%)"
               />
             </div>
@@ -91,7 +85,7 @@ function MantaVisualizer({ rf }) {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
               <div className="p-3 rounded-lg bg-white/[0.02] border border-white/5 flex flex-col justify-between space-y-1">
                 <div className="flex items-center gap-1.5 text-[11px] text-zinc-400">
-                  <span className="w-2 h-2 rounded-full bg-sky-400 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-zinc-400 shrink-0" />
                   <span className="font-mono">Parasite (CD,0)</span>
                 </div>
                 <div className="text-base font-bold font-mono text-white tracking-tight">
@@ -113,7 +107,7 @@ function MantaVisualizer({ rf }) {
 
               <div className="p-3 rounded-lg bg-white/[0.02] border border-white/5 flex flex-col justify-between space-y-1">
                 <div className="flex items-center gap-1.5 text-[11px] text-zinc-400">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-zinc-400 shrink-0" />
                   <span className="font-mono">Wave (CD,w)</span>
                 </div>
                 <div className="text-base font-bold font-mono text-white tracking-tight">
@@ -132,23 +126,23 @@ function MantaVisualizer({ rf }) {
         </div>
 
         {/* Efficiency Banner */}
-        <div className="lg:col-span-5 p-5 sm:p-6 chamfer-card bg-sky-950/20 border border-sky-500/25 flex flex-col justify-between space-y-5">
+        <div className="lg:col-span-5 p-5 sm:p-6 chamfer-card bg-zinc-950/20 border border-zinc-500/25 flex flex-col justify-between space-y-5">
           <div className="space-y-2">
-            <span className="text-[11px] font-mono tracking-widest text-sky-400 uppercase font-semibold">
+            <span className="text-[11px] font-mono tracking-widest text-zinc-400 uppercase font-semibold">
               Converged Aerodynamic Efficiency
             </span>
             <div className="flex items-baseline gap-3">
               <span className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight font-mono">
                 {dragPolar.ldCruise}
               </span>
-              <span className="text-sm text-sky-300 font-mono font-semibold">L/D Cruise</span>
+              <span className="text-sm text-zinc-300 font-mono font-semibold">L/D Cruise</span>
             </div>
             <p className="text-xs text-zinc-300 leading-relaxed font-light pt-1">
               Particle Swarm Optimization (PySwarms, 40 particles, 25 iterations) converged the baseline L/D from 24.85 to 25.30 while satisfying ICAO Gate E wingspan envelope limits (b = 64.7 m &le; 65.0 m).
             </p>
           </div>
 
-          <div className="space-y-2.5 pt-4 border-t border-sky-500/20 text-xs font-mono">
+          <div className="space-y-2.5 pt-4 border-t border-zinc-500/20 text-xs font-mono">
             <div className="flex justify-between items-center text-zinc-300">
               <span className="text-zinc-400">Cruise Lift Coeff (CL):</span>
               <span className="font-semibold text-white">{dragPolar.clCruise}</span>
@@ -169,7 +163,7 @@ function MantaVisualizer({ rf }) {
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Layers size={16} className="text-sky-400 shrink-0" />
+            <Layers size={16} className="text-zinc-400 shrink-0" />
             <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
               Maximum Takeoff Weight (MTOW) Allocation — 1,435,400 N
             </h5>
@@ -214,12 +208,12 @@ function MantaVisualizer({ rf }) {
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Activity size={16} className="text-sky-400 shrink-0" />
+            <Activity size={16} className="text-zinc-400 shrink-0" />
             <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
               Dynamic Stability Eigenvalues & Handling Quality Levels
             </h5>
           </div>
-          <span className="px-2.5 py-1 rounded bg-amber-500/10 border border-amber-500/20 text-xs font-mono font-semibold text-amber-400 self-start sm:self-auto">
+          <span className="px-2.5 py-1 rounded bg-zinc-500/10 border border-zinc-500/20 text-xs font-mono font-semibold text-zinc-400 self-start sm:self-auto">
             Motivates Active Fly-By-Wire
           </span>
         </div>
@@ -248,7 +242,7 @@ function MantaVisualizer({ rf }) {
                     </td>
                     <td
                       className={`py-3.5 px-4 whitespace-nowrap ${
-                        isUnstable ? "text-amber-400 font-bold" : "text-emerald-400 font-semibold"
+                        isUnstable ? "text-zinc-400 font-bold" : "text-emerald-400 font-semibold"
                       }`}
                     >
                       {row.damping}
@@ -260,7 +254,7 @@ function MantaVisualizer({ rf }) {
                       <span
                         className={`inline-flex items-center px-2.5 py-1 rounded text-[11px] font-medium ${
                           isUnstable
-                            ? "bg-amber-500/10 text-amber-300 border border-amber-500/30"
+                            ? "bg-zinc-500/10 text-zinc-300 border border-zinc-500/30"
                             : "bg-white/5 text-zinc-300 border border-white/10"
                         }`}
                       >
@@ -290,13 +284,13 @@ function CitadelVisualizer({ rf }) {
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Layers size={16} className="text-sky-400 shrink-0" />
+            <Layers size={16} className="text-zinc-400 shrink-0" />
             <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
               Gross Takeoff Weight Allocation (2.04 kg / 20.02 N MTOW)
             </h5>
           </div>
-          <span className="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono font-semibold text-emerald-400 self-start sm:self-auto">
-            Load Factor Verified (+2.5g)
+          <span className="px-2.5 py-1 rounded-none bg-zinc-500/10 border border-zinc-500/20 text-xs font-mono font-semibold text-zinc-400 self-start sm:self-auto">
+            Design Load Factor (+2.5g)
           </span>
         </div>
 
@@ -337,7 +331,7 @@ function CitadelVisualizer({ rf }) {
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Gauge size={16} className="text-sky-400 shrink-0" />
+            <Gauge size={16} className="text-zinc-400 shrink-0" />
             <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
               Gradient-Based MDO Optimal State Vector (JAX / modOpt / IPOPT)
             </h5>
@@ -358,7 +352,7 @@ function CitadelVisualizer({ rf }) {
             <tbody className="divide-y divide-white/5 font-mono">
               {mdoStateVector.map((row) => (
                 <tr key={row.var} className="hover:bg-white/[0.03] transition-colors">
-                  <td className="py-3.5 px-4 text-sky-400 font-bold whitespace-nowrap">{row.var}</td>
+                  <td className="py-3.5 px-4 text-zinc-400 font-bold whitespace-nowrap">{row.var}</td>
                   <td className="py-3.5 px-4 font-sans font-medium text-white whitespace-nowrap">
                     {row.name}
                   </td>
@@ -379,7 +373,7 @@ function CitadelVisualizer({ rf }) {
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Activity size={16} className="text-sky-400 shrink-0" />
+            <Activity size={16} className="text-zinc-400 shrink-0" />
             <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
               Propulsion System Matching: SunnySky X2216 V3 + APC Propellers
             </h5>
@@ -407,12 +401,12 @@ function CitadelVisualizer({ rf }) {
                   <tr key={row.prop} className="hover:bg-white/[0.03] transition-colors">
                     <td className="py-3.5 px-4 text-white font-bold whitespace-nowrap">{row.prop}</td>
                     <td className="py-3.5 px-4 text-zinc-300 font-sans whitespace-nowrap">{row.motor}</td>
-                    <td className="py-3.5 px-4 text-sky-300 font-semibold whitespace-nowrap">
+                    <td className="py-3.5 px-4 text-zinc-300 font-semibold whitespace-nowrap">
                       {row.staticThrust}
                     </td>
                     <td
                       className={`py-3.5 px-4 font-bold whitespace-nowrap ${
-                        isOver ? "text-amber-400" : "text-emerald-400"
+                        isOver ? "text-zinc-400" : "text-emerald-400"
                       }`}
                     >
                       {row.cruiseCurrent}
@@ -424,7 +418,7 @@ function CitadelVisualizer({ rf }) {
                           isOptimal
                             ? "bg-emerald-500/10 text-emerald-300 border border-emerald-500/30"
                             : isOver
-                            ? "bg-amber-500/10 text-amber-300 border border-amber-500/30"
+                            ? "bg-zinc-500/10 text-zinc-300 border border-zinc-500/30"
                             : "bg-white/5 text-zinc-400 border border-white/10"
                         }`}
                       >
@@ -451,9 +445,9 @@ function WingSparVisualizer({ rf }) {
   return (
     <div className="space-y-6">
       {/* Material Comparison Banner */}
-      <div className="p-5 sm:p-6 chamfer-card bg-sky-950/20 border border-sky-500/25 space-y-3">
+      <div className="p-5 sm:p-6 chamfer-card bg-zinc-950/20 border border-zinc-500/25 space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <span className="text-[11px] font-mono tracking-widest text-sky-400 uppercase font-semibold">
+          <span className="text-[11px] font-mono tracking-widest text-zinc-400 uppercase font-semibold">
             Structural Optimization Summary
           </span>
           <span className="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400 font-bold self-start sm:self-auto">
@@ -468,7 +462,7 @@ function WingSparVisualizer({ rf }) {
       {/* Material Properties Comparison Grid */}
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex items-center gap-2">
-          <Layers size={16} className="text-sky-400 shrink-0" />
+          <Layers size={16} className="text-zinc-400 shrink-0" />
           <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
             Material Trade: Al 7075-T6 Baseline vs Optimized Carbon/Epoxy
           </h5>
@@ -494,7 +488,7 @@ function WingSparVisualizer({ rf }) {
                   <td className="py-3.5 px-4 text-emerald-400 font-semibold whitespace-nowrap">
                     {row.carbonEpoxy}
                   </td>
-                  <td className="py-3.5 px-4 text-sky-300 font-semibold whitespace-nowrap">
+                  <td className="py-3.5 px-4 text-zinc-300 font-semibold whitespace-nowrap">
                     {row.delta}
                   </td>
                 </tr>
@@ -510,7 +504,7 @@ function WingSparVisualizer({ rf }) {
           <div className="flex items-center gap-2">
             <ShieldCheck size={16} className="text-emerald-400 shrink-0" />
             <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
-              Critical Flight Load Cases & Verified Margins of Safety (MS &gt; 0)
+              Critical Flight Load Cases & Margins of Safety (MS &gt; 0)
             </h5>
           </div>
           <span className="text-xs font-mono text-zinc-400">Classical Thin-Walled Beam Analysis</span>
@@ -562,7 +556,7 @@ function WindTunnelVisualizer({ rf }) {
       {/* Test Parameters Overview */}
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex items-center gap-2">
-          <Compass size={16} className="text-sky-400 shrink-0" />
+          <Compass size={16} className="text-zinc-400 shrink-0" />
           <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
             Wind Tunnel Calibration & Test Matrix Overview
           </h5>
@@ -594,7 +588,7 @@ function WindTunnelVisualizer({ rf }) {
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <BarChart2 size={16} className="text-sky-400 shrink-0" />
+            <BarChart2 size={16} className="text-zinc-400 shrink-0" />
             <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
               Lift (CL) & Drag (CD) Variation vs Angle of Attack (α)
             </h5>
@@ -619,7 +613,7 @@ function WindTunnelVisualizer({ rf }) {
                 const isStall = row.alphaDeg.includes("Stall");
                 return (
                   <tr key={row.alphaDeg} className="hover:bg-white/[0.03] transition-colors">
-                    <td className="py-3.5 px-4 text-sky-400 font-bold whitespace-nowrap">
+                    <td className="py-3.5 px-4 text-zinc-400 font-bold whitespace-nowrap">
                       {row.alphaDeg}
                     </td>
                     <td className="py-3.5 px-4 text-zinc-300 whitespace-nowrap">{row.cl_20ms.toFixed(2)}</td>
@@ -629,7 +623,7 @@ function WindTunnelVisualizer({ rf }) {
                     </td>
                     <td
                       className={`py-3.5 px-4 font-semibold whitespace-nowrap ${
-                        isStall ? "text-amber-400" : "text-sky-300"
+                        isStall ? "text-zinc-400" : "text-zinc-300"
                       }`}
                     >
                       {row.cd.toFixed(4)}
@@ -647,7 +641,7 @@ function WindTunnelVisualizer({ rf }) {
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Activity size={16} className="text-sky-400 shrink-0" />
+            <Activity size={16} className="text-zinc-400 shrink-0" />
             <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
               18-Port Wake Survey Rake Dynamic Pressure Deficit Profile (Δq / q∞)
             </h5>
@@ -666,13 +660,13 @@ function WindTunnelVisualizer({ rf }) {
                 key={point.y_over_c}
                 className="p-3 rounded-lg bg-white/[0.02] border border-white/5 text-center flex flex-col justify-between space-y-2"
               >
-                <div className="text-[11px] font-mono font-semibold text-sky-400">
+                <div className="text-[11px] font-mono font-semibold text-zinc-400">
                   {(point.normDeficit * 100).toFixed(0)}%
                 </div>
                 <div className="h-24 bg-white/5 rounded-md relative flex flex-col justify-end p-1">
                   <div
                     style={{ height: `${Math.max(point.normDeficit * 100, 4)}%` }}
-                    className="w-full bg-gradient-to-t from-sky-600 to-sky-400 rounded transition-all"
+                    className="w-full bg-gradient-to-t from-zinc-600 to-zinc-400 rounded transition-all"
                   />
                 </div>
                 <div className="text-[11px] font-mono text-zinc-400">y/c: {point.y_over_c}</div>
@@ -696,7 +690,7 @@ function OrbitDetVisualizer({ rf }) {
       {/* Orbit Mission Architecture Card */}
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex items-center gap-2">
-          <Compass size={16} className="text-sky-400 shrink-0" />
+          <Compass size={16} className="text-zinc-400 shrink-0" />
           <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
             Mission Architecture: {missionOrbit.satellite} ({missionOrbit.orbitType})
           </h5>
@@ -724,7 +718,7 @@ function OrbitDetVisualizer({ rf }) {
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Activity size={16} className="text-sky-400 shrink-0" />
+            <Activity size={16} className="text-zinc-400 shrink-0" />
             <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
               Orbit Estimation Filter Performance: Batch Least-Squares vs Sequential EKF
             </h5>
@@ -753,7 +747,7 @@ function OrbitDetVisualizer({ rf }) {
                   <td className="py-3.5 px-4 text-emerald-400 font-bold whitespace-nowrap">
                     {row.batchLeastSquares}
                   </td>
-                  <td className="py-3.5 px-4 text-sky-300 font-semibold whitespace-nowrap">
+                  <td className="py-3.5 px-4 text-zinc-300 font-semibold whitespace-nowrap">
                     {row.sequentialEKF}
                   </td>
                   <td className="py-3.5 px-4 font-sans text-zinc-300 whitespace-nowrap">
@@ -770,7 +764,7 @@ function OrbitDetVisualizer({ rf }) {
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Layers size={16} className="text-sky-400 shrink-0" />
+            <Layers size={16} className="text-zinc-400 shrink-0" />
             <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
               Linearized 18-Element Estimated State Vector Decomposition
             </h5>
@@ -809,7 +803,7 @@ function CfdRocketVisualizer({ rf }) {
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Activity size={16} className="text-sky-400 shrink-0" />
+            <Activity size={16} className="text-zinc-400 shrink-0" />
             <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
               Vortex Boundary Layer Thermal Mapping Across Engine Stations
             </h5>
@@ -834,10 +828,10 @@ function CfdRocketVisualizer({ rf }) {
                   <td className="py-3.5 px-4 font-sans font-medium text-white whitespace-nowrap">
                     {row.station}
                   </td>
-                  <td className="py-3.5 px-4 text-sky-400 font-bold whitespace-nowrap">
+                  <td className="py-3.5 px-4 text-zinc-400 font-bold whitespace-nowrap">
                     {row.wallTempK} K
                   </td>
-                  <td className="py-3.5 px-4 text-amber-400 font-bold whitespace-nowrap">
+                  <td className="py-3.5 px-4 text-zinc-400 font-bold whitespace-nowrap">
                     {row.coreTempK} K
                   </td>
                   <td className="py-3.5 px-4 text-zinc-200 font-semibold whitespace-nowrap">
@@ -856,7 +850,7 @@ function CfdRocketVisualizer({ rf }) {
       {/* Oxidizer Mass Flow Effectiveness */}
       <div className="p-5 sm:p-6 chamfer-card bg-white/[0.02] border border-white/10 space-y-4">
         <div className="flex items-center gap-2">
-          <Gauge size={16} className="text-sky-400 shrink-0" />
+          <Gauge size={16} className="text-zinc-400 shrink-0" />
           <h5 className="text-sm sm:text-base font-semibold text-white tracking-tight">
             Thermal Insulation Effectiveness vs Oxidizer Mass Flow (m_ox)
           </h5>
@@ -874,7 +868,7 @@ function CfdRocketVisualizer({ rf }) {
                 </span>
                 <div className="text-sm font-semibold text-white">{item.flowRate}</div>
               </div>
-              <div className="text-sm font-mono font-bold text-sky-300">
+              <div className="text-sm font-mono font-bold text-zinc-300">
                 {item.wallTempReduction}
               </div>
               <div className="text-xs text-zinc-400 font-light pt-1 border-t border-white/5">
